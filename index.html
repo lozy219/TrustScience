@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>相信科学</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    #main {
+      width: 100%;
+      outline: none;
+      padding: 10px;
+      font-size: 20px;
+      box-sizing: border-box;
+      border: none;
+      border-bottom: 1px solid grey;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <input id="main" placeholder="把式神全输在这" />
+    <div class="result">
+      <div class="result--red">
+        <div class="result--red-1">
+          <div class="name"></div>
+          <div class="stats">
+            <div class="win-lose"></div>
+            <div class="win-percentage"></div>
+            <div class="score"></div>
+          </div>
+        </div>
+        <div class="result--red-2">
+          <div class="name"></div>
+          <div class="stats">
+            <div class="win-lose"></div>
+            <div class="win-percentage"></div>
+            <div class="score"></div>
+          </div>
+        </div>
+        <div class="result--red-3">
+          <div class="name"></div>
+          <div class="stats">
+            <div class="win-lose"></div>
+            <div class="win-percentage"></div>
+            <div class="score"></div>
+          </div>
+        </div>
+        <div class="result--red-4">
+          <div class="name"></div>
+          <div class="stats">
+            <div class="win-lose"></div>
+            <div class="win-percentage"></div>
+            <div class="score"></div>
+          </div>
+        </div>
+        <div class="result--red-5">
+          <div class="name"></div>
+          <div class="stats">
+            <div class="win-lose"></div>
+            <div class="win-percentage"></div>
+            <div class="score"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="result--blue">
+        <div class="result--blue-1">
+          <div class="stats">
+            <div class="win-lose"></div>
+            <div class="win-percentage"></div>
+            <div class="score"></div>
+          </div>
+          <div class="name"></div>
+        </div>
+        <div class="result--blue-2">
+          <div class="stats">
+            <div class="win-lose"></div>
+            <div class="win-percentage"></div>
+            <div class="score"></div>
+          </div>
+          <div class="name"></div>
+        </div>
+        <div class="result--blue-3">
+          <div class="stats">
+            <div class="win-lose"></div>
+            <div class="win-percentage"></div>
+            <div class="score"></div>
+          </div>
+          <div class="name"></div>
+        </div>
+        <div class="result--blue-4">
+          <div class="stats">
+            <div class="win-lose"></div>
+            <div class="win-percentage"></div>
+            <div class="score"></div>
+          </div>
+          <div class="name"></div>
+        </div>
+        <div class="result--blue-5">
+          <div class="stats">
+            <div class="win-lose"></div>
+            <div class="win-percentage"></div>
+            <div class="score"></div>
+          </div>
+          <div class="name"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+<script type="text/javascript">
+  $.get('data/data.json')
+    .done(data => {
+      console.log(data);
+    });
+</script>
+</html>
