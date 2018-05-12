@@ -54,7 +54,7 @@ $.get('data/filename.json')
               
               const $target = $(`.result-${index}`);
               const avatar = `resources/pixyys/${filename}.png`;
-              const placeholder = 'resources/pixyys/yuxingdamo.png'
+              const placeholder = 'resources/pixyys/yxdm.png'
               $target.find('.name').text(key);
               $.ajax({
                 url: avatar
