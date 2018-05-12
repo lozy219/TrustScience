@@ -53,8 +53,8 @@ $.get('data/filename.json')
               const score = 6.31 * win / sum + 2.08 * sum / 2090;
               
               const $target = $(`.result-${index}`);
-              const avatar = `../resources/pixyys/${filename}.png`;
-              const placeholder = '../resources/pixyys/yuxingdamo.png'
+              const avatar = `resources/pixyys/${filename}.png`;
+              const placeholder = 'resources/pixyys/yuxingdamo.png'
               $target.find('.name').text(key);
               $.ajax({
                 url: avatar
