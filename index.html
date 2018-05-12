@@ -245,8 +245,21 @@
             const score = 6.31 * win / sum + 2.08 * sum / 2090;
             
             const $target = $(`.result-${index}`);
+            const avatar = `../resources/pixyys/${key}.png`;
+            const placeholder = '../resources/pixyys/御行达摩.png'
             $target.find('.name').text(key);
-            $target.find('.avatar').css('background-image', 'url(../resources/pixyys/大天狗.png)');
+            $.ajax({
+              url: avatar
+            })
+              .done(function(data, txt, xhr) {
+                if (xhr.status === 200) {
+                  $target.find('.avatar').css('background-image', `url('${avatar}')`);
+                } else {
+                  $target.find('.avatar').css('background-image', `url(${placeholder})`);
+                }
+              }).fail(function() {
+                $target.find('.avatar').css('background-image', `url(${placeholder})`);
+              });
             $target.find('.win-lose').text(result);
             $target.find('.win-percentage').text(winp);
             $target.find('.score').text(parseInt(score * 100) / 100);
