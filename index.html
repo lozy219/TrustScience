@@ -4,211 +4,81 @@
   <title>相信科学</title>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-  <style type="text/css">
-    @font-face {
-      font-family: fzxs12;
-      src: url(resources/font/FZXIANGSU12.ttf);
-    }
-
-    body {
-      margin: 0;
-      overflow-y: hidden;
-    }
-
-    * {
-      font-size: 10px;
-      font-family: 'Press Start 2P', 'fzxs12', cursive;
-    }
-
-    .help, .close {
-      border: solid 5px black;
-      padding: 5px;
-      font-size: 18px;
-      width: 15px;
-      cursor: pointer;
-      background: white;
-    }
-
-    .help {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-    }
-
-    .close {
-      margin: auto;
-      margin-top: -25px;
-    }
-
-    .help-text--wrapper {
-      position: absolute;
-      top: 80px;
-      width: 100%;
-      max-width: 600px;
-      display: none;
-    }
-
-    .help-text {
-      margin: auto;
-      width: 100%;
-      background: white;
-      font-size: 14px;
-      font-family: 'fzxs12', cursive;
-      border: solid 5px black;
-      box-sizing: border-box;
-      padding: 40px 0;
-      max-width: 500px;
-    }
-
-    .container {
-      max-width: 600px;
-      margin: auto;
-    }
-
-    #main {
-      width: 100%;
-      outline: none;
-      padding: 10px;
-      font-size: 20px;
-      box-sizing: border-box;
-      border: none;
-      border-bottom: 1px solid grey;
-    }
-
-    .result {
-      width: 100%;
-      display: flex;
-    }
-
-    .result--red, .result--blue {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .result--red {
-      margin-right: 5px;
-    }
-
-    .result--blue {
-      margin-left: 5px;
-    }
-
-    .result-wrapper--red, .result-wrapper--blue {
-      height: 100vh;
-    }
-
-    .result-wrapper--red {
-      flex-grow: 1;
-      background-color: #ff8080;
-    }
-
-    .result-wrapper--blue {
-      flex-grow: 1;
-      background-color: #a8c7fb;
-    }
-
-    .result--red > div, .result--blue > div {
-      display: flex;
-      align-items: center;
-    }
-
-    .result--blue .name {
-      text-align: right;
-    }
-
-    .name {
-      flex-grow: 1;
-      font-size: 14px;
-    }
-
-    .result--red .avatar {
-      transform: rotateY(0.5turn);
-    }
-
-    .result--red .stats {
-      text-align: right;
-    }
-
-    .avatar {
-      background-size: 64px;
-      width: 64px;
-      height: 64px;
-      margin: 5px;
-    }
-
-    .overview {
-      margin: 18px 0;
-      text-align: center;
-      font-size: 28px;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
   <div class="help">?</div>
   <div class="container">
     <div class="help-text--wrapper">
-      <pre class="help-text">
-  根据209场对弈结果进行线性回归分析得出计分公式：
-  分数 = 6.31 * 胜率 + 2.08 * 出场率
-
-  当两队平均分差大于0.3时，预测准确率90.14%；
-  当两队平均分差大于0.4时，预测准确率93.10%；
-  当两队平均分差大于0.6时，预测准确率97.53%。
-      </pre>
+      <div class="help-text">
+        根据<b>209</b>场对弈结果进行线性回归分析得出计分公式：<br>
+        分数 = 6.31 * 胜率 + 2.08 * 出场率<br>
+        <br>
+        当两队平均分差大于0.3时，预测准确率<b>90.14%</b>；<br>
+        当两队平均分差大于0.4时，预测准确率<b>93.10%</b>；<br>
+        当两队平均分差大于0.6时，预测准确率<b>97.53%</b>。<br>
+        <br>
+        感谢林狗，感谢大队委。
+      </div>
       <div class="close">
         x
       </div>
     </div>
-    <input id="main" placeholder="把式神全输在这" value="两面佛 大天狗 小鹿男 荒川之主 酒吞童子 阎魔 阎魔 阎魔 阎魔 阎魔"/>
+    <input id="main" placeholder="把式神全输在这"/>
     <div class="result">
       <div class="result-wrapper--red">
         <div class="overview">
+          0
         </div>
         <div class="result--red">
           <div class="result-1">
             <div class="avatar"></div>
-            <div class="name"></div>
+            <div class="pad"></div>
             <div class="stats">
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
               <div class="score"></div>
+              <div class="name"></div>
             </div>
           </div>
           <div class="result-2">
             <div class="avatar"></div>
-            <div class="name"></div>
+            <div class="pad"></div>
             <div class="stats">
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
               <div class="score"></div>
+              <div class="name"></div>
             </div>
           </div>
           <div class="result-3">
             <div class="avatar"></div>
-            <div class="name"></div>
+            <div class="pad"></div>
             <div class="stats">
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
               <div class="score"></div>
+              <div class="name"></div>
             </div>
           </div>
           <div class="result-4">
             <div class="avatar"></div>
-            <div class="name"></div>
+            <div class="pad"></div>
             <div class="stats">
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
               <div class="score"></div>
+              <div class="name"></div>
             </div>
           </div>
           <div class="result-5">
             <div class="avatar"></div>
-            <div class="name"></div>
+            <div class="pad"></div>
             <div class="stats">
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
               <div class="score"></div>
+              <div class="name"></div>
             </div>
           </div>
         </div>
@@ -216,6 +86,7 @@
 
       <div class="result-wrapper--blue">
         <div class="overview">
+          0
         </div>
         <div class="result--blue">
           <div class="result-6">
@@ -223,8 +94,9 @@
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
               <div class="score"></div>
+              <div class="name"></div>
             </div>
-            <div class="name"></div>
+            <div class="pad"></div>
             <div class="avatar"></div>
           </div>
           <div class="result-7">
@@ -232,8 +104,9 @@
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
               <div class="score"></div>
+              <div class="name"></div>
             </div>
-            <div class="name"></div>
+            <div class="pad"></div>
             <div class="avatar"></div>
           </div>
           <div class="result-8">
@@ -241,8 +114,9 @@
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
               <div class="score"></div>
+              <div class="name"></div>
             </div>
-            <div class="name"></div>
+            <div class="pad"></div>
             <div class="avatar"></div>
           </div>
           <div class="result-9">
@@ -250,8 +124,9 @@
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
               <div class="score"></div>
+              <div class="name"></div>
             </div>
-            <div class="name"></div>
+            <div class="pad"></div>
             <div class="avatar"></div>
           </div>
           <div class="result-10">
@@ -259,8 +134,9 @@
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
               <div class="score"></div>
+              <div class="name"></div>
             </div>
-            <div class="name"></div>
+            <div class="pad"></div>
             <div class="avatar"></div>
           </div>
         </div>
@@ -273,70 +149,5 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous">
 </script>
-<script type="text/javascript">
-  const $help = $('.help-text--wrapper');
-  const parseInput = (input) => {
-    return input.split(' ');
-  }
-
-  $('.close').on('click', () => {
-    $help.hide();
-  });
-
-  $('.help').on('click', () => {
-    $help.show();
-  });
-
-  $.get('https://raw.githubusercontent.com/lozy219/TrustScience/master/data/data.json?token=AFyKnQe6ol941zsP3CECGP1swxjWEsj3ks5a_ysswA%3D%3D')
-    .done(data => {
-      const stats = JSON.parse(data);
-      const $input = $('#main');
-      $input.change(() => {
-        const result = parseInput($input.val().trim());
-        let index = 0;
-        let redTotal = 0;
-        let blueTotal = 0;
-        for (key of result) {
-          index ++;
-          const stat = stats[key];
-          if (stat) {
-            const win = stat.winning;
-            const lose = stat.losing;
-            const sum = win + lose;
-
-            const result = `${win}/${lose}`;
-            const winp = parseInt((win / sum) * 100) + '%';
-            const score = 6.31 * win / sum + 2.08 * sum / 2090;
-            
-            const $target = $(`.result-${index}`);
-            const avatar = `../resources/pixyys/${key}.png`;
-            const placeholder = '../resources/pixyys/御行达摩.png'
-            $target.find('.name').text(key);
-            $.ajax({
-              url: avatar
-            })
-              .done(function(data, txt, xhr) {
-                if (xhr.status === 200) {
-                  $target.find('.avatar').css('background-image', `url('${avatar}')`);
-                } else {
-                  $target.find('.avatar').css('background-image', `url(${placeholder})`);
-                }
-              }).fail(function() {
-                $target.find('.avatar').css('background-image', `url(${placeholder})`);
-              });
-            $target.find('.win-lose').text(result);
-            $target.find('.win-percentage').text(winp);
-            $target.find('.score').text(parseInt(score * 100) / 100);
-            if (index <= 5) {
-              redTotal += score;
-            } else {
-              blueTotal += score;
-            }
-          }
-        }
-        $('.result-wrapper--red .overview').text(parseInt(redTotal / 5 * 100) / 100);
-        $('.result-wrapper--blue .overview').text(parseInt(blueTotal / 5 * 100) / 100);
-      });
-    });
-</script>
+<script src="main.js"></script>
 </html>

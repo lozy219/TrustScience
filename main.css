@@ -1,0 +1,160 @@
+@font-face {
+  font-family: fzxs12;
+  src: url(resources/font/FZXIANGSU12.ttf);
+}
+
+body {
+  margin: 0;
+  overflow-y: hidden;
+}
+
+* {
+  font-size: 10px;
+  font-family: 'Press Start 2P', 'fzxs12', cursive;
+}
+
+.help, .close {
+  border: solid 5px black;
+  padding: 5px;
+  font-size: 18px;
+  width: 15px;
+  cursor: pointer;
+  background: white;
+}
+
+.help {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.close {
+  margin: auto;
+  margin-top: -25px;
+}
+
+.help-text--wrapper {
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  max-width: 600px;
+  display: none;
+  z-index: 2;
+}
+
+.help-text {
+  margin: auto;
+  width: 100%;
+  background: white;
+  font-size: 18px;
+  font-family: 'fzxs12', cursive;
+  border: solid 5px black;
+  box-sizing: border-box;
+  padding: 40px;
+  max-width: 500px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+#main {
+  height: 60px;
+  width: 100%;
+  outline: none;
+  padding: 0 10px;
+  font-size: 20px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 5px solid black;
+  line-height: 12px;
+  border-radius: 0;
+}
+
+.result {
+  width: 100%;
+  display: flex;
+}
+
+.result--red, .result--blue {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.result--red {
+  margin-right: 5px;
+}
+
+.result--blue {
+  margin-left: 5px;
+}
+
+.result-wrapper--red, .result-wrapper--blue {
+  height: 100vh;
+  width: 50%;
+}
+
+.result-wrapper--red {
+  flex-grow: 1;
+  background-color: #ff8080;
+  border-right: 3px solid black;
+}
+
+.result-wrapper--blue {
+  flex-grow: 1;
+  background-color: #a8c7fb;
+  border-left: 3px solid black;
+}
+
+.result--red > div, .result--blue > div {
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  font-size: 16px;
+}
+
+.pad {
+  flex-grow: 1;
+}
+
+.result--red .avatar {
+  transform: rotateY(0.5turn);
+}
+
+.stats {
+  margin-top: 8px;
+}
+
+.result--red .stats {
+  text-align: right;
+}
+
+.helping .result--red .avatar {
+  margin-left: -50px;
+  margin-right: 50px;
+}
+
+.helping .result--blue .avatar {
+  margin-left: 50px;
+  margin-right: -50px;
+}
+
+.avatar {
+  background-size: 64px;
+  width: 64px;
+  height: 64px;
+  margin: 5px;
+  transition: margin 0.5s linear;
+}
+
+.overview {
+  padding: 18px 0;
+  text-align: center;
+  font-size: 28px;
+  border-bottom: 5px solid black;
+  margin-bottom: 10px;
+}
