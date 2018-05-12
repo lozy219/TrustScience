@@ -13,7 +13,7 @@ func main() {
     var wg sync.WaitGroup
     baseURL := "https://yys.res.netease.com/pc/zt/20161108171335/data/shishen_big_beforeAwake/"
 
-    for i := 200; i <= 401; i++ {
+    for i := 1; i <= 500; i++ {
         wg.Add(1)
         go func(i int) {
             image := strconv.Itoa(i) + ".png"

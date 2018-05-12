@@ -2,9 +2,22 @@
 <html>
 <head>
   <title>相信科学</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <style type="text/css">
+    @font-face {
+      font-family: fzxs12;
+      src: url(resources/font/FZXIANGSU12.ttf);
+    }
+
     body {
       margin: 0;
+      overflow-y: hidden;
+    }
+
+    * {
+      font-size: 10px;
+      font-family: 'Press Start 2P', 'fzxs12', cursive;
     }
 
     .container {
@@ -21,95 +34,181 @@
       border: none;
       border-bottom: 1px solid grey;
     }
+
+    .result {
+      width: 100%;
+      display: flex;
+    }
+
+    .result--red, .result--blue {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .result--red {
+      margin-right: 5px;
+    }
+
+    .result--blue {
+      margin-left: 5px;
+    }
+
+    .result-wrapper--red, .result-wrapper--blue {
+      height: 100vh;
+    }
+
+    .result-wrapper--red {
+      flex-grow: 1;
+      background-color: #ff8080;
+    }
+
+    .result-wrapper--blue {
+      flex-grow: 1;
+      background-color: #a8c7fb;
+    }
+
+    .result--red > div, .result--blue > div {
+      display: flex;
+      align-items: center;
+    }
+
+    .result--blue .name {
+      text-align: right;
+    }
+
+    .name {
+      flex-grow: 1;
+      font-size: 14px;
+    }
+
+    .result--red .avatar {
+      transform: rotateY(0.5turn);
+    }
+
+    .result--red .stats {
+      text-align: right;
+    }
+
+    .avatar {
+      background-size: 64px;
+      width: 64px;
+      height: 64px;
+      margin: 5px;
+    }
+
+    .overview {
+      margin: 28px 0;
+      text-align: center;
+      font-size: 28px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <input id="main" placeholder="把式神全输在这" />
+    <input id="main" placeholder="把式神全输在这" value="两面佛 大天狗 小鹿男 荒川之主 酒吞童子 阎魔 阎魔 阎魔 阎魔 阎魔"/>
     <div class="result">
-      <div class="result--red">
-        <div class="result--red-1">
-          <div class="name"></div>
-          <div class="stats">
-            <div class="win-lose"></div>
-            <div class="win-percentage"></div>
-            <div class="score"></div>
-          </div>
+      <div class="result-wrapper--red">
+        <div class="overview">
         </div>
-        <div class="result--red-2">
-          <div class="name"></div>
-          <div class="stats">
-            <div class="win-lose"></div>
-            <div class="win-percentage"></div>
-            <div class="score"></div>
+        <div class="result--red">
+          <div class="result-1">
+            <div class="avatar"></div>
+            <div class="name"></div>
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="score"></div>
+            </div>
           </div>
-        </div>
-        <div class="result--red-3">
-          <div class="name"></div>
-          <div class="stats">
-            <div class="win-lose"></div>
-            <div class="win-percentage"></div>
-            <div class="score"></div>
+          <div class="result-2">
+            <div class="avatar"></div>
+            <div class="name"></div>
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="score"></div>
+            </div>
           </div>
-        </div>
-        <div class="result--red-4">
-          <div class="name"></div>
-          <div class="stats">
-            <div class="win-lose"></div>
-            <div class="win-percentage"></div>
-            <div class="score"></div>
+          <div class="result-3">
+            <div class="avatar"></div>
+            <div class="name"></div>
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="score"></div>
+            </div>
           </div>
-        </div>
-        <div class="result--red-5">
-          <div class="name"></div>
-          <div class="stats">
-            <div class="win-lose"></div>
-            <div class="win-percentage"></div>
-            <div class="score"></div>
+          <div class="result-4">
+            <div class="avatar"></div>
+            <div class="name"></div>
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="score"></div>
+            </div>
+          </div>
+          <div class="result-5">
+            <div class="avatar"></div>
+            <div class="name"></div>
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="score"></div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="result--blue">
-        <div class="result--blue-1">
-          <div class="stats">
-            <div class="win-lose"></div>
-            <div class="win-percentage"></div>
-            <div class="score"></div>
-          </div>
-          <div class="name"></div>
+      <div class="result-wrapper--blue">
+        <div class="overview">
         </div>
-        <div class="result--blue-2">
-          <div class="stats">
-            <div class="win-lose"></div>
-            <div class="win-percentage"></div>
-            <div class="score"></div>
+        <div class="result--blue">
+          <div class="result-6">
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="score"></div>
+            </div>
+            <div class="name"></div>
+            <div class="avatar"></div>
           </div>
-          <div class="name"></div>
-        </div>
-        <div class="result--blue-3">
-          <div class="stats">
-            <div class="win-lose"></div>
-            <div class="win-percentage"></div>
-            <div class="score"></div>
+          <div class="result-7">
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="score"></div>
+            </div>
+            <div class="name"></div>
+            <div class="avatar"></div>
           </div>
-          <div class="name"></div>
-        </div>
-        <div class="result--blue-4">
-          <div class="stats">
-            <div class="win-lose"></div>
-            <div class="win-percentage"></div>
-            <div class="score"></div>
+          <div class="result-8">
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="score"></div>
+            </div>
+            <div class="name"></div>
+            <div class="avatar"></div>
           </div>
-          <div class="name"></div>
-        </div>
-        <div class="result--blue-5">
-          <div class="stats">
-            <div class="win-lose"></div>
-            <div class="win-percentage"></div>
-            <div class="score"></div>
+          <div class="result-9">
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="score"></div>
+            </div>
+            <div class="name"></div>
+            <div class="avatar"></div>
           </div>
-          <div class="name"></div>
+          <div class="result-10">
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="score"></div>
+            </div>
+            <div class="name"></div>
+            <div class="avatar"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -121,9 +220,46 @@
   crossorigin="anonymous">
 </script>
 <script type="text/javascript">
-  $.get('data/data.json')
+  const parseInput = (input) => {
+    return input.split(' ');
+  }
+  $.get('https://raw.githubusercontent.com/lozy219/TrustScience/master/data/data.json?token=AFyKnQe6ol941zsP3CECGP1swxjWEsj3ks5a_ysswA%3D%3D')
     .done(data => {
-      console.log(data);
+      const stats = JSON.parse(data);
+      const $input = $('#main');
+      $input.change(() => {
+        const result = parseInput($input.val().trim());
+        let index = 0;
+        let redTotal = 0;
+        let blueTotal = 0;
+        for (key of result) {
+          index ++;
+          const stat = stats[key];
+          if (stat) {
+            const win = stat.winning;
+            const lose = stat.losing;
+            const sum = win + lose;
+
+            const result = `${win}/${lose}`;
+            const winp = parseInt((win / sum) * 100) + '%';
+            const score = 6.31 * win / sum + 2.08 * sum / 2090;
+            
+            const $target = $(`.result-${index}`);
+            $target.find('.name').text(key);
+            $target.find('.avatar').css('background-image', 'url(../resources/pixyys/大天狗.png)');
+            $target.find('.win-lose').text(result);
+            $target.find('.win-percentage').text(winp);
+            $target.find('.score').text(parseInt(score * 100) / 100);
+            if (index <= 5) {
+              redTotal += score;
+            } else {
+              blueTotal += score;
+            }
+          }
+        }
+        $('.result-wrapper--red .overview').text(parseInt(redTotal * 100) / 100);
+        $('.result-wrapper--blue .overview').text(parseInt(blueTotal * 100) / 100);
+      });
     });
 </script>
 </html>
