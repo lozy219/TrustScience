@@ -20,6 +20,46 @@
       font-family: 'Press Start 2P', 'fzxs12', cursive;
     }
 
+    .help, .close {
+      border: solid 5px black;
+      padding: 5px;
+      font-size: 18px;
+      width: 15px;
+      cursor: pointer;
+      background: white;
+    }
+
+    .help {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+    }
+
+    .close {
+      margin: auto;
+      margin-top: -25px;
+    }
+
+    .help-text--wrapper {
+      position: absolute;
+      top: 80px;
+      width: 100%;
+      max-width: 600px;
+      display: none;
+    }
+
+    .help-text {
+      margin: auto;
+      width: 100%;
+      background: white;
+      font-size: 14px;
+      font-family: 'fzxs12', cursive;
+      border: solid 5px black;
+      box-sizing: border-box;
+      padding: 40px 0;
+      max-width: 500px;
+    }
+
     .container {
       max-width: 600px;
       margin: auto;
@@ -98,14 +138,28 @@
     }
 
     .overview {
-      margin: 28px 0;
+      margin: 18px 0;
       text-align: center;
       font-size: 28px;
     }
   </style>
 </head>
 <body>
+  <div class="help">?</div>
   <div class="container">
+    <div class="help-text--wrapper">
+      <pre class="help-text">
+  根据209场对弈结果进行线性回归分析得出计分公式：
+  分数 = 6.31 * 胜率 + 2.08 * 出场率
+
+  当两队平均分差大于0.3时，预测准确率90.14%；
+  当两队平均分差大于0.4时，预测准确率93.10%；
+  当两队平均分差大于0.6时，预测准确率97.53%。
+      </pre>
+      <div class="close">
+        x
+      </div>
+    </div>
     <input id="main" placeholder="把式神全输在这" value="两面佛 大天狗 小鹿男 荒川之主 酒吞童子 阎魔 阎魔 阎魔 阎魔 阎魔"/>
     <div class="result">
       <div class="result-wrapper--red">
@@ -220,9 +274,19 @@
   crossorigin="anonymous">
 </script>
 <script type="text/javascript">
+  const $help = $('.help-text--wrapper');
   const parseInput = (input) => {
     return input.split(' ');
   }
+
+  $('.close').on('click', () => {
+    $help.hide();
+  });
+
+  $('.help').on('click', () => {
+    $help.show();
+  });
+
   $.get('https://raw.githubusercontent.com/lozy219/TrustScience/master/data/data.json?token=AFyKnQe6ol941zsP3CECGP1swxjWEsj3ks5a_ysswA%3D%3D')
     .done(data => {
       const stats = JSON.parse(data);
@@ -270,8 +334,8 @@
             }
           }
         }
-        $('.result-wrapper--red .overview').text(parseInt(redTotal * 100) / 100);
-        $('.result-wrapper--blue .overview').text(parseInt(blueTotal * 100) / 100);
+        $('.result-wrapper--red .overview').text(parseInt(redTotal / 5 * 100) / 100);
+        $('.result-wrapper--blue .overview').text(parseInt(blueTotal / 5 * 100) / 100);
       });
     });
 </script>
