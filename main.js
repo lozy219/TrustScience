@@ -33,7 +33,7 @@ $.get('data/filename.json')
     $.get('data/data.json')
       .done(stats => {
         const $input = $('#main');
-        $input.change(() => {
+        $input.bind('change keyup input', () => {
           const result = parseInput($input.val().trim());
           let index = 0;
           let redTotal = 0;
