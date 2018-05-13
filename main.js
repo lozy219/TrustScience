@@ -27,10 +27,10 @@ $.get('data/nickname.json')
     }
   });
 
-$.get('data/filename.json')
+$.get('data/filename.json?_v=1')
   .done(data => {
     filenames = data;
-    $.get('data/data.json')
+    $.get('data/data.json?_v=1')
       .done(stats => {
         const $input = $('#main');
         $input.bind('change keyup input', () => {
@@ -50,7 +50,7 @@ $.get('data/filename.json')
 
               const result = `${win}/${lose}`;
               const winp = parseInt((win / sum) * 100) + '%';
-              const score = 6.31 * win / sum + 2.08 * sum / 2090;
+              const score = 6.31 * win / sum + 2.08 * sum / 2610;
               
               const $target = $(`.result-${index}`);
               const avatar = `resources/pixyys/${filename}.png`;
