@@ -4,7 +4,7 @@ from sklearn.model_selection import cross_val_score
 from sklearn.linear_model import LogisticRegression
 from sklearn import svm
 
-f = open('nickname.json', 'r')
+f = open('../data/nickname.json', 'r')
 name2id = json.load(f)
 f.close()
 
@@ -17,7 +17,7 @@ for k in name2id:
 
 data = list()
 win = list()
-f = open('match.csv', 'r')
+f = open('../data/match.csv', 'r')
 for line in f:
     this_names = line.split()[0].split(',')
     new_data = np.zeros((1, index))
