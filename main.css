@@ -3,6 +3,11 @@
   src: url(resources/font/FZXIANGSU12.TTF);
 }
 
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url(resources/font/PressStart2P.TTF);
+}
+
 body {
   margin: 0;
   overflow-y: hidden;
