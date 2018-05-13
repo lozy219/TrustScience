@@ -27,10 +27,10 @@ $.get('data/nickname.json')
     }
   });
 
-$.get('data/filename.json')
+$.get('data/filename.json?_v=1')
   .done(data => {
     filenames = data;
-    $.get('data/data.json')
+    $.get('data/data.json?_v=1')
       .done(stats => {
         const $input = $('#main');
         $input.bind('change keyup input', () => {
