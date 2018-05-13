@@ -1,1 +1,398 @@
-{"一目连":{"losing":5,"winning":9},"万年竹":{"losing":8,"winning":16},"三尾狐":{"losing":5,"winning":4},"丑时之女":{"losing":11,"winning":7},"两面佛":{"losing":7,"winning":7},"九命猫":{"losing":3,"winning":4},"书翁":{"losing":3,"winning":8},"二口女":{"losing":14,"winning":5},"以津真天":{"losing":7,"winning":8},"傀儡师":{"losing":4,"winning":5},"兔丸":{"losing":14,"winning":11},"兵俑":{"losing":19,"winning":8},"凤凰火":{"losing":19,"winning":17},"判官":{"losing":4,"winning":6},"匣中少女":{"losing":2,"winning":11},"卖药郎":{"losing":5,"winning":2},"古笼火":{"losing":9,"winning":5},"吸血姬":{"losing":24,"winning":11},"夜叉":{"losing":8,"winning":7},"大天狗":{"losing":9,"winning":11},"奴良陆生":{"losing":17,"winning":11},"妖刀姬":{"losing":7,"winning":7},"妖狐":{"losing":7,"winning":2},"妖琴师":{"losing":5,"winning":8},"姑获鸟":{"losing":9,"winning":10},"孟婆":{"losing":10,"winning":11},"小松丸":{"losing":9,"winning":15},"小袖之手":{"losing":6,"winning":4},"小鹿男":{"losing":5,"winning":6},"山兔":{"losing":22,"winning":17},"山童":{"losing":11,"winning":16},"山风":{"losing":3,"winning":13},"巫蛊师":{"losing":11,"winning":13},"座敷童子":{"losing":36,"winning":21},"弈":{"losing":6,"winning":7},"彼岸花":{"losing":4,"winning":6},"御馔津":{"losing":19,"winning":7},"惠比寿":{"losing":15,"winning":23},"数珠":{"losing":12,"winning":14},"日和坊":{"losing":4,"winning":26},"桃花妖":{"losing":22,"winning":22},"椒图":{"losing":4,"winning":5},"樱花妖":{"losing":13,"winning":22},"武士之灵":{"losing":12,"winning":7},"河童":{"losing":7,"winning":8},"海坊主":{"losing":17,"winning":15},"清姬":{"losing":6,"winning":8},"烟烟罗":{"losing":6,"winning":7},"犬神":{"losing":11,"winning":27},"独眼小僧":{"losing":5,"winning":11},"狸猫":{"losing":9,"winning":10},"玉藻前":{"losing":6,"winning":8},"白狼":{"losing":7,"winning":4},"白童子":{"losing":10,"winning":10},"百目鬼":{"losing":19,"winning":20},"童女":{"losing":13,"winning":18},"童男":{"losing":7,"winning":4},"管狐":{"losing":5,"winning":7},"络新妇":{"losing":11,"winning":8},"般若":{"losing":27,"winning":19},"花鸟卷":{"losing":14,"winning":15},"茨木童子":{"losing":5,"winning":7},"荒":{"losing":4,"winning":2},"荒川之主":{"losing":6,"winning":3},"萤草":{"losing":25,"winning":14},"虫师":{"losing":17,"winning":8},"蜜桃\u0026芥子":{"losing":6,"winning":10},"蝴蝶精":{"losing":11,"winning":20},"觉":{"losing":7,"winning":8},"跳跳哥哥":{"losing":6,"winning":14},"跳跳妹妹":{"losing":13,"winning":7},"跳跳弟弟":{"losing":9,"winning":6},"辉夜姬":{"losing":30,"winning":29},"追月神":{"losing":14,"winning":35},"酒吞童子":{"losing":5,"winning":6},"金鱼姬":{"losing":7,"winning":9},"铁鼠":{"losing":9,"winning":3},"镰鼬":{"losing":16,"winning":14},"阎魔":{"losing":11,"winning":11},"阿香":{"losing":10,"winning":3},"雨女":{"losing":20,"winning":15},"雪女":{"losing":8,"winning":7},"雪童子":{"losing":14,"winning":15},"青坊主":{"losing":9,"winning":9},"青蛙瓷器":{"losing":9,"winning":5},"青行灯":{"losing":5,"winning":9},"食发鬼":{"losing":16,"winning":24},"食梦貘":{"losing":15,"winning":12},"饿鬼":{"losing":10,"winning":5},"首无":{"losing":6,"winning":7},"骨女":{"losing":2,"winning":4},"鬼使白":{"losing":14,"winning":10},"鬼使黑":{"losing":5,"winning":9},"鬼女红叶":{"losing":7,"winning":8},"鬼灯":{"losing":9,"winning":5},"鲤鱼精":{"losing":11,"winning":6},"鸦天狗":{"losing":7,"winning":9},"鸩":{"losing":24,"winning":11},"黑童子":{"losing":14,"winning":12}}
+{
+	"一目连": {
+		"losing": 5,
+		"winning": 9
+	},
+	"万年竹": {
+		"losing": 8,
+		"winning": 16
+	},
+	"三尾狐": {
+		"losing": 5,
+		"winning": 4
+	},
+	"丑时之女": {
+		"losing": 11,
+		"winning": 7
+	},
+	"两面佛": {
+		"losing": 7,
+		"winning": 7
+	},
+	"九命猫": {
+		"losing": 3,
+		"winning": 4
+	},
+	"书翁": {
+		"losing": 3,
+		"winning": 8
+	},
+	"二口女": {
+		"losing": 14,
+		"winning": 5
+	},
+	"以津真天": {
+		"losing": 7,
+		"winning": 8
+	},
+	"傀儡师": {
+		"losing": 4,
+		"winning": 5
+	},
+	"兔丸": {
+		"losing": 14,
+		"winning": 11
+	},
+	"兵俑": {
+		"losing": 19,
+		"winning": 8
+	},
+	"凤凰火": {
+		"losing": 19,
+		"winning": 17
+	},
+	"判官": {
+		"losing": 4,
+		"winning": 6
+	},
+	"匣中少女": {
+		"losing": 2,
+		"winning": 11
+	},
+	"卖药郎": {
+		"losing": 5,
+		"winning": 2
+	},
+	"古笼火": {
+		"losing": 9,
+		"winning": 5
+	},
+	"吸血姬": {
+		"losing": 24,
+		"winning": 11
+	},
+	"夜叉": {
+		"losing": 8,
+		"winning": 7
+	},
+	"大天狗": {
+		"losing": 9,
+		"winning": 11
+	},
+	"奴良陆生": {
+		"losing": 17,
+		"winning": 11
+	},
+	"妖刀姬": {
+		"losing": 7,
+		"winning": 7
+	},
+	"妖狐": {
+		"losing": 7,
+		"winning": 2
+	},
+	"妖琴师": {
+		"losing": 5,
+		"winning": 8
+	},
+	"姑获鸟": {
+		"losing": 9,
+		"winning": 10
+	},
+	"孟婆": {
+		"losing": 10,
+		"winning": 11
+	},
+	"小松丸": {
+		"losing": 9,
+		"winning": 15
+	},
+	"小袖之手": {
+		"losing": 6,
+		"winning": 4
+	},
+	"小鹿男": {
+		"losing": 5,
+		"winning": 6
+	},
+	"山兔": {
+		"losing": 22,
+		"winning": 17
+	},
+	"山童": {
+		"losing": 11,
+		"winning": 16
+	},
+	"山风": {
+		"losing": 3,
+		"winning": 13
+	},
+	"巫蛊师": {
+		"losing": 11,
+		"winning": 13
+	},
+	"座敷童子": {
+		"losing": 36,
+		"winning": 21
+	},
+	"弈": {
+		"losing": 6,
+		"winning": 7
+	},
+	"彼岸花": {
+		"losing": 4,
+		"winning": 6
+	},
+	"御馔津": {
+		"losing": 19,
+		"winning": 7
+	},
+	"惠比寿": {
+		"losing": 15,
+		"winning": 23
+	},
+	"数珠": {
+		"losing": 12,
+		"winning": 14
+	},
+	"日和坊": {
+		"losing": 4,
+		"winning": 26
+	},
+	"桃花妖": {
+		"losing": 22,
+		"winning": 22
+	},
+	"椒图": {
+		"losing": 4,
+		"winning": 5
+	},
+	"樱花妖": {
+		"losing": 13,
+		"winning": 22
+	},
+	"武士之灵": {
+		"losing": 12,
+		"winning": 7
+	},
+	"河童": {
+		"losing": 7,
+		"winning": 8
+	},
+	"海坊主": {
+		"losing": 17,
+		"winning": 15
+	},
+	"清姬": {
+		"losing": 6,
+		"winning": 8
+	},
+	"烟烟罗": {
+		"losing": 6,
+		"winning": 7
+	},
+	"犬神": {
+		"losing": 11,
+		"winning": 27
+	},
+	"独眼小僧": {
+		"losing": 5,
+		"winning": 11
+	},
+	"狸猫": {
+		"losing": 9,
+		"winning": 10
+	},
+	"玉藻前": {
+		"losing": 6,
+		"winning": 8
+	},
+	"白狼": {
+		"losing": 7,
+		"winning": 4
+	},
+	"白童子": {
+		"losing": 10,
+		"winning": 10
+	},
+	"百目鬼": {
+		"losing": 19,
+		"winning": 20
+	},
+	"童女": {
+		"losing": 13,
+		"winning": 18
+	},
+	"童男": {
+		"losing": 7,
+		"winning": 4
+	},
+	"管狐": {
+		"losing": 5,
+		"winning": 7
+	},
+	"络新妇": {
+		"losing": 11,
+		"winning": 8
+	},
+	"般若": {
+		"losing": 27,
+		"winning": 19
+	},
+	"花鸟卷": {
+		"losing": 14,
+		"winning": 15
+	},
+	"茨木童子": {
+		"losing": 5,
+		"winning": 7
+	},
+	"荒": {
+		"losing": 4,
+		"winning": 2
+	},
+	"荒川之主": {
+		"losing": 6,
+		"winning": 3
+	},
+	"萤草": {
+		"losing": 25,
+		"winning": 14
+	},
+	"虫师": {
+		"losing": 17,
+		"winning": 8
+	},
+	"蜜桃\u0026芥子": {
+		"losing": 6,
+		"winning": 10
+	},
+	"蝴蝶精": {
+		"losing": 11,
+		"winning": 20
+	},
+	"觉": {
+		"losing": 7,
+		"winning": 8
+	},
+	"跳跳哥哥": {
+		"losing": 6,
+		"winning": 14
+	},
+	"跳跳妹妹": {
+		"losing": 13,
+		"winning": 7
+	},
+	"跳跳弟弟": {
+		"losing": 9,
+		"winning": 6
+	},
+	"辉夜姬": {
+		"losing": 30,
+		"winning": 29
+	},
+	"追月神": {
+		"losing": 14,
+		"winning": 35
+	},
+	"酒吞童子": {
+		"losing": 5,
+		"winning": 6
+	},
+	"金鱼姬": {
+		"losing": 7,
+		"winning": 9
+	},
+	"铁鼠": {
+		"losing": 9,
+		"winning": 3
+	},
+	"镰鼬": {
+		"losing": 16,
+		"winning": 14
+	},
+	"阎魔": {
+		"losing": 11,
+		"winning": 11
+	},
+	"阿香": {
+		"losing": 10,
+		"winning": 3
+	},
+	"雨女": {
+		"losing": 20,
+		"winning": 15
+	},
+	"雪女": {
+		"losing": 8,
+		"winning": 7
+	},
+	"雪童子": {
+		"losing": 14,
+		"winning": 15
+	},
+	"青坊主": {
+		"losing": 9,
+		"winning": 9
+	},
+	"青蛙瓷器": {
+		"losing": 9,
+		"winning": 5
+	},
+	"青行灯": {
+		"losing": 5,
+		"winning": 9
+	},
+	"食发鬼": {
+		"losing": 16,
+		"winning": 24
+	},
+	"食梦貘": {
+		"losing": 15,
+		"winning": 12
+	},
+	"饿鬼": {
+		"losing": 10,
+		"winning": 5
+	},
+	"首无": {
+		"losing": 6,
+		"winning": 7
+	},
+	"骨女": {
+		"losing": 2,
+		"winning": 4
+	},
+	"鬼使白": {
+		"losing": 14,
+		"winning": 10
+	},
+	"鬼使黑": {
+		"losing": 5,
+		"winning": 9
+	},
+	"鬼女红叶": {
+		"losing": 7,
+		"winning": 8
+	},
+	"鬼灯": {
+		"losing": 9,
+		"winning": 5
+	},
+	"鲤鱼精": {
+		"losing": 11,
+		"winning": 6
+	},
+	"鸦天狗": {
+		"losing": 7,
+		"winning": 9
+	},
+	"鸩": {
+		"losing": 24,
+		"winning": 11
+	},
+	"黑童子": {
+		"losing": 14,
+		"winning": 12
+	}
+}
