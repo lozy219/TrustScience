@@ -17,7 +17,7 @@ $('.help').on('click', () => {
 let nicknames = {};
 let filenames;
 
-$.get('data/nickname.json')
+$.get('data/nickname.json?_v=2')
   .done(data => {
     for (let key of Object.keys(data)) {
       const arr = data[key];
@@ -30,7 +30,7 @@ $.get('data/nickname.json')
 $.get('data/filename.json?_v=4')
   .done(data => {
     filenames = data;
-    $.get('data/data.json?_v=1')
+    $.get('data/data.json?_v=2')
       .done(stats => {
         const $input = $('#main');
         $input.bind('change keyup input', () => {
@@ -50,7 +50,7 @@ $.get('data/filename.json?_v=4')
 
               const result = `${win}/${lose}`;
               const winp = parseInt((win / sum) * 100) + '%';
-              const score = 6.31 * win / sum + 2.08 * sum / 2610;
+              const score = 6.31 * win / sum + 2.08 * sum / 3200;
               
               const $target = $(`.result-${index}`);
               const avatar = `resources/pixyys/${filename}.png`;
