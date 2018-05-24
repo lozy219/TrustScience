@@ -62,6 +62,7 @@ body {
 .container {
   max-width: 600px;
   margin: auto;
+  border: 5px solid black;
 }
 
 #main {
@@ -70,6 +71,7 @@ body {
   outline: none;
   padding: 0 10px;
   font-size: 20px;
+  font-family: 'fzxs12', cursive;
   box-sizing: border-box;
   border: none;
   border-bottom: 5px solid black;
@@ -99,18 +101,24 @@ body {
 .result-wrapper--red, .result-wrapper--blue {
   height: 100vh;
   width: 50%;
+  flex-grow: 1;
+  background-color: #eaeaea;
 }
 
 .result-wrapper--red {
-  flex-grow: 1;
-  background-color: #ff8080;
   border-right: 3px solid black;
 }
 
 .result-wrapper--blue {
-  flex-grow: 1;
-  background-color: #a8c7fb;
   border-left: 3px solid black;
+}
+
+.result-wrapper--red .overview {
+  background-color: #ff8080;
+}
+
+.result-wrapper--blue .overview {
+  background-color: #a8c7fb;
 }
 
 .result--red > div, .result--blue > div {
