@@ -27,7 +27,7 @@ $.get('data/nickname.json?_v=2')
     }
   });
 
-$.get('data/filename.json?_v=7')
+$.get('data/filename.json?_v=8')
   .done(data => {
     filenames = data;
     $.get('data/data.json?_v=2')
