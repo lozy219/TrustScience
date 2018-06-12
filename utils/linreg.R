@@ -52,6 +52,4 @@ outcome = c(rep(1,320),rep(-1,320))
 result[160:320,] = -result[160:320,]
 dat = cbind(result,outcome)
 
-dat$outcome = as.factor(dat$outcome)
-summary(glm(outcome~.,data = dat,family = "binomial"))
-
+summary(lm(outcome~.,data = dat))
