@@ -17,7 +17,7 @@ $('.help').on('click', () => {
 let nicknames = {};
 let filenames;
 
-$.get('data/nickname.json?_v=3')
+$.get('data/nickname.json?_v=5')
   .done(data => {
     for (let key of Object.keys(data)) {
       const arr = data[key];
@@ -27,10 +27,10 @@ $.get('data/nickname.json?_v=3')
     }
   });
 
-$.get('data/filename.json?_v=10')
+$.get('data/filename.json?_v=11')
   .done(data => {
     filenames = data;
-    $.get('data/data.json?_v=2')
+    $.get('data/data.json?_v=3')
       .done(stats => {
         const $input = $('#main');
         $input.bind('change keyup input', () => {
@@ -49,8 +49,13 @@ $.get('data/filename.json?_v=10')
               const sum = win + lose;
 
               const result = `${win}/${lose}`;
-              const winp = parseInt((win / sum) * 100) + '%';
-              const score = 6.31 * win / sum + 2.08 * sum / 3200;
+              let winp = parseInt((win / sum) * 100) + '%';
+              let score = 7.395 * win / sum + 3.385 * sum / 3200;
+              if (sum === 0) {
+                winp = '0%';
+                // hardcoded average score
+                score = 3.71;
+              }
               
               const $target = $(`.result-${index}`);
               const avatar = `resources/pixyys/${filename}.png`;

@@ -48,8 +48,10 @@ for(i in 1:nrow(match)){
 }
 colnames(result) = c('win_rate.diff','match_rate.diff')
 
-outcome = c(rep(1,208),rep(-1,208))
-result[104:208,] = -result[104:208,]
+outcome = c(rep(1,320),rep(-1,320))
+result[160:320,] = -result[160:320,]
 dat = cbind(result,outcome)
 
-summary(lm(outcome~.,data = dat))
+dat$outcome = as.factor(dat$outcome)
+summary(glm(outcome~.,data = dat,family = "binomial"))
+
