@@ -7,7 +7,7 @@ library('rpart')
 match = read.csv('../data/match.csv',stringsAsFactors = F,encoding = 'UTF-8',header = F)
 stat = read.csv('../data/stat.csv',stringsAsFactors = F,encoding = 'UTF-8',header = F)
 colnames(stat) = c('shishen','win','lose','total','win_rate')
-stat$match_rate = stat$total/200*100
+stat$match_rate = stat$total/378*100
 stat$win_rate = as.integer(gsub("%","",stat$win_rate))
 stat = stat[,c('shishen','win_rate','match_rate')]
 
@@ -48,8 +48,8 @@ for(i in 1:nrow(match)){
 }
 colnames(result) = c('win_rate.diff','match_rate.diff')
 
-outcome = c(rep(1,320),rep(-1,320))
-result[160:320,] = -result[160:320,]
+outcome = c(rep(1,378),rep(-1,378))
+result[189:378,] = -result[189:378,]
 dat = cbind(result,outcome)
 
 summary(lm(outcome~.,data = dat))
