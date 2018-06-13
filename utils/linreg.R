@@ -48,8 +48,8 @@ for(i in 1:nrow(match)){
 }
 colnames(result) = c('win_rate.diff','match_rate.diff')
 
-outcome = c(rep(1,378),rep(-1,378))
-result[189:378,] = -result[189:378,]
+outcome = c(rep(1,189),rep(-1,189))
+result[190:378,] = -result[190:378,]
 dat = cbind(result,outcome)
 
 summary(lm(outcome~.,data = dat))
