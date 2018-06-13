@@ -17,7 +17,7 @@ $('.help').on('click', () => {
 let nicknames = {};
 let filenames;
 
-$.get('data/nickname.json?_v=5')
+$.get('data/nickname.json?_v=6')
   .done(data => {
     for (let key of Object.keys(data)) {
       const arr = data[key];
