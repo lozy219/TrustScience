@@ -14,6 +14,14 @@ $('.help').on('click', () => {
   $container.addClass('helping');
 });
 
+$('.rank').on('click', () => {
+  window.open('http://uygnim.com/yys/rank.html');
+});
+
+$('.github').on('click', () => {
+  window.open('https://github.com/lozy219/TrustScience');
+});
+
 let nicknames = {};
 let filenames;
 

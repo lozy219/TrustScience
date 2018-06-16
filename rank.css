@@ -38,16 +38,20 @@ body {
   border-radius: 0;
 }
 
-.header {
-  display: flex;
+.header-container {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  background: white;
-  border: 5px solid black;
-  max-width: 600px;
   box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  max-width: 600px;
+  margin: auto;
+  border: 5px solid black;
+  background: white;
   padding: 5px 0;
 }
 
