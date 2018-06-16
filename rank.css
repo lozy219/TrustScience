@@ -1,0 +1,74 @@
+@font-face {
+  font-family: fzxs12;
+  src: url(resources/font/FZXIANGSU12.TTF);
+}
+
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url(resources/font/PressStart2P.TTF);
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  font-size: 10px;
+  font-family: 'Press Start 2P', 'fzxs12', cursive;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  border: 5px solid black;
+  padding-top: 50px;
+}
+
+#main {
+  height: 60px;
+  width: 100%;
+  outline: none;
+  padding: 0 10px;
+  font-size: 20px;
+  font-family: 'fzxs12', cursive;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 5px solid black;
+  line-height: 12px;
+  border-radius: 0;
+}
+
+.header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: white;
+  border: 5px solid black;
+  max-width: 600px;
+  box-sizing: border-box;
+  padding: 5px 0;
+}
+
+.result {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+  font-size: 26px;
+  text-align: center;
+}
+
+.row {
+  padding: 5px;
+  font-size: 20px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.avatar img {
+  height: 50px;
+}
