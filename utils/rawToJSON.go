@@ -1,43 +1,43 @@
 package main
 
 import (
-    "os"
-    "bufio"
-    "strings"
-    "strconv"
-    "encoding/json"
+	"bufio"
+	"encoding/json"
+	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
-    data := make(map[string]map[string]int)
-    
-    file, err := os.Open("../data/raw")
-    checkErr(err)
-    defer file.Close()
+	data := make(map[string]map[string]int)
 
-    scanner := bufio.NewScanner(file)
-    for scanner.Scan() {
-        text := scanner.Text()
-        fields := strings.Fields(text)
-        w, _ := strconv.Atoi(fields[1])
-        l, _ := strconv.Atoi(fields[2])
-        data[fields[0]] = map[string]int{"winning": w, "losing": l}
-    }
+	file, err := os.Open("../data/raw")
+	checkErr(err)
+	defer file.Close()
 
-    dataJ, err := json.Marshal(data)
-    checkErr(err)
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		text := scanner.Text()
+		fields := strings.Fields(text)
+		w, _ := strconv.Atoi(fields[1])
+		l, _ := strconv.Atoi(fields[2])
+		data[fields[0]] = map[string]int{"winning": w, "losing": l}
+	}
 
-    fout, err := os.Create("../data/data.json")
-    checkErr(err)
-    defer fout.Close()
+	dataJ, err := json.Marshal(data)
+	checkErr(err)
 
-    _, ferr := fout.WriteString(string(dataJ))
-    checkErr(ferr)
-    fout.Sync()
+	fout, err := os.Create("../frontend/data/data.json")
+	checkErr(err)
+	defer fout.Close()
+
+	_, ferr := fout.WriteString(string(dataJ))
+	checkErr(ferr)
+	fout.Sync()
 }
 
 func checkErr(err error) {
-    if err != nil {
-        panic(err)
-    }
+	if err != nil {
+		panic(err)
+	}
 }
