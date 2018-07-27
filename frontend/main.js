@@ -15,7 +15,7 @@ $('.help').on('click', () => {
 });
 
 $('.rank').on('click', () => {
-  window.open('http://uygnim.com/yys/rank.html');
+  window.open('http://uygnim.com/yys/frontend/rank.html');
 });
 
 $('.github').on('click', () => {
