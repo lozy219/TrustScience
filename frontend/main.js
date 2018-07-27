@@ -4,6 +4,27 @@ const parseInput = (input) => {
   return input.split(' ');
 }
 
+const uploadImage = (event) => {
+  $input = $('#main');
+  $input.val('载入中...');
+  $.ajax({
+    url: 'http://uygnim.com:8734/match',
+    method: 'POST',
+    data: new FormData($('#upload')[0]),
+    processData: false,
+    contentType: false
+  }).done(data => {
+    var result = data.join(' ').trim();
+    if (result) {
+      $input.val(result).change();
+    } else {
+      $input.val('载入失败').change(); 
+    }
+  }).fail(() => {
+    $input.val('载入失败').change();
+  });
+};
+
 $('.close').on('click', () => {
   $help.hide();
   $container.removeClass('helping');
@@ -20,6 +41,11 @@ $('.rank').on('click', () => {
 
 $('.github').on('click', () => {
   window.open('https://github.com/lozy219/TrustScience');
+});
+
+$('.photo').on('click', () => {
+  alert("测试功能，目前只支持iPhone6/7/8(s)的截图。");
+  $('#match').click();
 });
 
 let nicknames = {};

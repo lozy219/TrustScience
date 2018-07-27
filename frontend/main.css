@@ -50,6 +50,15 @@ body {
   margin-left: -1px;
 }
 
+.photo {
+  bottom: 10px;
+  right: 130px;
+}
+
+.photo img {
+  margin-left: -1px;
+}
+
 .close {
   margin: auto;
   margin-top: -25px;

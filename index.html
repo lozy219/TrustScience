@@ -25,7 +25,11 @@
 <body>
   <div class="fixed help">?</div>
   <div class="fixed rank">R</div>
-  <div class="fixed github"><img height="17px" src="./frontend/resources/misc/github.png" ></div>
+  <div class="fixed github"><img height="17px" src="./frontend/resources/misc/github.png?_v=1" ></div>
+  <div class="fixed photo"><img height="17px" src="./frontend/resources/misc/photo.png?_v=1" ></div>
+  <form hidden id="upload" enctype="multipart/form-data">
+    <input id="match" name="match" type="file" accept="image/png" onchange="uploadImage(event)">
+  </form>
   <div class="container">
     <div class="help-text--wrapper">
       <div class="help-text">
