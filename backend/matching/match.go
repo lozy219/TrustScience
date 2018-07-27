@@ -113,9 +113,17 @@ func Match(path string) []string {
 		matchLeft := findMatch(crop(src, recLeft))
 		matchRight := findMatch(crop(src, recRight))
 
-		lst[i] = matchLeft[:len(matchLeft)-4]
-		lst[i+5] = matchRight[:len(matchRight)-4]
+		if len(matchLeft) == 0 {
+			lst[i] = "不知道"
+		} else {
+			lst[i] = matchLeft[:len(matchLeft)-4]
+		}
 
+		if len(matchRight) == 0 {
+			lst[i+5] = "不知道"
+		} else {
+			lst[i+5] = matchRight[:len(matchRight)-4]
+		}
 	}
 
 	return lst
