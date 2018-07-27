@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"./matching"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -17,6 +18,11 @@ func handleErr(err error) {
 
 func router() *gin.Engine {
 	r := gin.Default()
+
+	config := cors.DefaultConfig()
+	config.AllowOrigins = []string{"http://uygnim.com"}
+
+	r.Use(cors.New(config))
 
 	r.POST("match", func(c *gin.Context) {
 		file, _, err := c.Request.FormFile("match")
