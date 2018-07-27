@@ -3,25 +3,17 @@ package matching
 import (
 	"fmt"
 	"image"
-	"image/draw"
 	"image/png"
 	"os"
 	"sync"
 )
 
-func calcDiffV3(x uint32, y uint32) uint32 {
+func calcDiff(x uint32, y uint32) uint32 {
 	if x < y {
 		return y - x
 	} else {
 		return x - y
 	}
-}
-
-func crop(src image.Image, rec image.Rectangle) image.Image {
-	result := image.NewGray(rec)
-	draw.Draw(result, rec, src, rec.Min, draw.Over)
-
-	return result
 }
 
 func findDiff(src image.Image, target image.Image) uint32 {
@@ -39,7 +31,7 @@ func findDiff(src image.Image, target image.Image) uint32 {
 
 			tColor := target.At(x, y)
 			tg, _, _, _ := tColor.RGBA()
-			diff := calcDiffV3(g, tg)
+			diff := calcDiff(g, tg)
 			sumDiff += diff
 		}
 	}
@@ -53,7 +45,7 @@ func findMatch(src image.Image) string {
 	checkErr(err)
 	defer dir.Close()
 
-	var minDiff uint32 = 111111111
+	var minDiff uint32 = 100000000
 	minDiffName := ""
 
 	var wg sync.WaitGroup
@@ -83,7 +75,7 @@ func findMatch(src image.Image) string {
 	return minDiffName
 }
 
-func MatchV3(path string) []string {
+func Match(path string) []string {
 	infile, err := os.Open(path)
 	checkErr(err)
 	defer infile.Close()
@@ -92,31 +84,39 @@ func MatchV3(path string) []string {
 	checkErr(err)
 
 	src = convertToGray(src)
+	lst := make([]string, 10)
 
-	startLeft := image.Point{183, 206}
-	startRight := image.Point{693, 206}
-	widthStep := 93
-	recWidth := 72
-	recHeight := 128
+	spec := GetDeviceSpec(src.Bounds().Size())
+	if spec == nil {
+		return lst
+	}
+	fmt.Println(spec.name)
+
+	startLeft := spec.StartLeft()
+	startRight := spec.StartRight()
+	widthStep := spec.recWidthStep
+	matchRect := spec.MatchRect()
 
 	for i := 0; i < 5; i++ {
 		x0Left := startLeft.X + i*widthStep
 		y0Left := startLeft.Y
-		x1Left := x0Left + recWidth
-		y1Left := y0Left + recHeight
+		x1Left := x0Left + matchRect.X
+		y1Left := y0Left + matchRect.Y
 		recLeft := image.Rect(x0Left, y0Left, x1Left, y1Left)
 
 		x0Right := startRight.X + i*widthStep
 		y0Right := startRight.Y
-		x1Right := x0Right + recWidth
-		y1Right := y0Right + recHeight
+		x1Right := x0Right + matchRect.X
+		y1Right := y0Right + matchRect.Y
 		recRight := image.Rect(x0Right, y0Right, x1Right, y1Right)
 
-		fmt.Println(findMatch(crop(src, recLeft)))
-		fmt.Println(findMatch(crop(src, recRight)))
-	}
+		matchLeft := findMatch(crop(src, recLeft))
+		matchRight := findMatch(crop(src, recRight))
 
-	lst := make([]string, 10)
+		lst[i] = matchLeft[:len(matchLeft)-4]
+		lst[i+5] = matchRight[:len(matchRight)-4]
+
+	}
 
 	return lst
 }

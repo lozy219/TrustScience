@@ -11,6 +11,13 @@ func checkErr(err error) {
 	}
 }
 
+func crop(src image.Image, rec image.Rectangle) image.Image {
+	result := image.NewGray(rec)
+	draw.Draw(result, rec, src, rec.Min, draw.Over)
+
+	return result
+}
+
 func convertToGray(src image.Image) image.Image {
 	bounds := src.Bounds()
 	w, h := bounds.Max.X, bounds.Max.Y

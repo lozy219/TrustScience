@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"io"
 	"os"
 	"time"
@@ -10,15 +9,18 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func setupRouter() *gin.Engine {
+func handleErr(err error) {
+	if err != nil {
+		panic(err.Error())
+	}
+}
+
+func router() *gin.Engine {
 	r := gin.Default()
 
-	r.POST("test", func(c *gin.Context) {
-		fmt.Println("abc")
+	r.POST("match", func(c *gin.Context) {
 		file, _, err := c.Request.FormFile("match")
 		handleErr(err)
-
-		fmt.Println(file)
 
 		fname := "./screenshots/" + time.Now().Format("1994032005") + ".PNG"
 		fout, err := os.Create(fname)
@@ -33,20 +35,12 @@ func setupRouter() *gin.Engine {
 		handleErr(err)
 		defer fin.Close()
 
-		matching.MatchV3(fname)
-		c.String(200, "test")
+		c.JSON(200, matching.Match(fname))
 	})
 
 	return r
 }
 
-func handleErr(err error) {
-	if err != nil {
-		panic(err.Error())
-	}
-}
-
 func main() {
-	r := setupRouter()
-	r.Run(":8080")
+	router().Run(":8734")
 }
