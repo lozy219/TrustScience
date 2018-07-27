@@ -25,7 +25,7 @@ $('.github').on('click', () => {
 let nicknames = {};
 let filenames;
 
-$.get('data/nickname.json?_v=7')
+$.get('frontend/data/nickname.json?_v=7')
   .done(data => {
     for (let key of Object.keys(data)) {
       const arr = data[key];
@@ -35,10 +35,10 @@ $.get('data/nickname.json?_v=7')
     }
   });
 
-$.get('data/filename.json?_v=12')
+$.get('frontend/data/filename.json?_v=12')
   .done(data => {
     filenames = data;
-    $.get('data/data.json?_v=5')
+    $.get('frontend/data/data.json?_v=5')
       .done(stats => {
         const $input = $('#main');
         $input.bind('change keyup input', () => {
@@ -66,8 +66,8 @@ $.get('data/filename.json?_v=12')
               }
               
               const $target = $(`.result-${index}`);
-              const avatar = `resources/pixyys/${filename}.png`;
-              const placeholder = 'resources/pixyys/yxdm.png'
+              const avatar = `frontend/resources/pixyys/${filename}.png`;
+              const placeholder = 'frontend/resources/pixyys/yxdm.png'
               $target.find('.name').text(key);
               $.ajax({
                 url: avatar
