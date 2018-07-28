@@ -12,10 +12,10 @@ $.get('data/nickname.json?_v=7')
     }
   });
 
-$.get('data/filename.json?_v=11')
+$.get('data/filename.json?_v=12')
   .done(data => {
     filenames = data;
-    $.get('data/data.json?_v=5')
+    $.get('data/data.json?_v=6')
       .done(stats => {
         statsArr = Object.entries(stats);
         for (let entry of statsArr) {
