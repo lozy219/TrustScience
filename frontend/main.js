@@ -1,14 +1,24 @@
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
-const parseInput = (input) => {
-  return input.split(' ');
+
+const parseInput = input => {
+  return input.split(' ').filter(str => str.length > 0);
 }
 
-const uploadImage = (event) => {
+const clearResult = $target => {
+  $target.find('.name').text('');
+  $target.find('.avatar').css('background-image', 'none');
+  $target.find('.win-lose').text('');
+  $target.find('.win-percentage').text('');
+  $target.find('.score').text('');
+}
+
+const uploadImage = event => {
   $input = $('#main');
   $input.val('载入中...');
   $.ajax({
     url: 'http://uygnim.com:8734/match',
+    // url: '192.168.1.150:8734/match',
     method: 'POST',
     data: new FormData($('#upload')[0]),
     processData: false,
@@ -18,7 +28,7 @@ const uploadImage = (event) => {
     if (result) {
       $input.val(result).change();
     } else {
-      $input.val('载入失败').change(); 
+      $input.val('载入失败').change();
     }
   }).fail(() => {
     $input.val('载入失败').change();
@@ -68,52 +78,51 @@ $.get('frontend/data/filename.json?_v=12')
       .done(stats => {
         const $input = $('#main');
         $input.bind('change keyup input', () => {
-          const result = parseInput($input.val().trim());
-          let index = 0;
-          let redTotal = 0;
-          let blueTotal = 0;
-          for (text of result) {
-            index ++;
+          var result = parseInput($input.val().trim());
+          var redTotal = 0;
+          var blueTotal = 0;
+          for (let index = 0; index < 10; index ++) {
+            const $target = $(`.result-${index + 1}`);
+
+            if (index >= result.length) {
+              clearResult($target);
+              continue;
+            }
+
+            const text = result[index];
             const key = nicknames[text];
             const stat = stats[key];
             const filename = filenames[key];
-            if (stat) {
-              const win = stat.winning;
-              const lose = stat.losing;
-              const sum = win + lose;
 
-              const result = `${win}/${lose}`;
-              let winp = parseInt((win / sum) * 100) + '%';
-              let score = 7.866 * win / sum + 1.532 * sum / 3780;
-              if (sum === 0) {
-                winp = '0%';
-                // hardcoded average score
-                score = 3.48;
-              }
-              
-              const $target = $(`.result-${index}`);
-              const avatar = `frontend/resources/pixyys/${filename}.png`;
-              const placeholder = 'frontend/resources/pixyys/yxdm.png'
-              $target.find('.name').text(key);
-              $.ajax({
-                url: avatar
-              }).done(function(data, txt, xhr) {
-                if (xhr.status === 200) {
-                  $target.find('.avatar').css('background-image', `url('${avatar}')`);
-                } else {
-                  $target.find('.avatar').css('background-image', `url(${placeholder})`);
-                }
-              }).fail(function() {
-                $target.find('.avatar').css('background-image', `url(${placeholder})`);
-              });
-              $target.find('.win-lose').text(result);
-              $target.find('.win-percentage').text(winp);
-              $target.find('.score').text(parseInt(score * 100) / 100);
-              if (index <= 5) {
-                redTotal += score;
-              } else {
-                blueTotal += score;
-              }
+            if (!stat) {
+              clearResult($target);
+              continue;
+            }
+
+            const win = stat.winning;
+            const lose = stat.losing;
+            const sum = win + lose;
+
+            const history = `${win}/${lose}`;
+            let winp = parseInt((win / sum) * 100) + '%';
+            let score = 7.866 * win / sum + 1.532 * sum / 3780;
+            if (sum === 0) {
+              winp = '0%';
+              // hardcoded average score
+              score = 3.48;
+            }
+
+            const avatar = `frontend/resources/pixyys/${filename}.png?_v=1`;
+            // const placeholder = 'frontend/resources/pixyys/yxdm.png'
+            $target.find('.name').text(key);
+            $target.find('.avatar').css('background-image', `url('${avatar}')`);
+            $target.find('.win-lose').text(history);
+            $target.find('.win-percentage').text(winp);
+            $target.find('.score').text(parseInt(score * 100) / 100);
+            if (index < 5) {
+              redTotal += score;
+            } else {
+              blueTotal += score;
             }
           }
           $('.result-wrapper--red .overview').text(parseInt(redTotal / 5 * 100) / 100);
