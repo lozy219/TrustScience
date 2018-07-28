@@ -38,7 +38,7 @@ $.get('data/filename.json?_v=12')
         });
         for (let entry of statsArr) {
           const [name, stat] = entry;
-          const filename = `resources/pixyys/${filenames[name]}.png`;
+          const filename = `resources/pixyys/${filenames[name]}.png?_v=1`;
           const {winning, losing, sum, winP} = stat;
           $('.result .col').append('<div class=row></div>');
           $('.avatar .row').last().html(`<img src="${filename}">`);
