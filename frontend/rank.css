@@ -76,3 +76,7 @@ body {
 .avatar img {
   height: 50px;
 }
+
+.sort-icon {
+  width: 13px;
+}

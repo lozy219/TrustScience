@@ -74,6 +74,40 @@ $.get('data/filename.json?_v=12')
       });
   });
 
+$('.sort-icon').click(function() {
+  let sort = $(this).attr('sort');
+  let col = $(this).attr('col');
+
+  sort_column(sort, col);
+})
+
+$('.col-header').click(function() {
+  let col = $(this).attr('col');
+  let sort = $('#' + col + '-sort-icon').attr('sort');
+
+  sort_column(sort, col);
+})
+
+function sort_column(sort, col) {
+  // change all to default first
+  $('.sort-icon').attr('src', 'resources/icon/sort-solid.svg');
+  $('.sort-icon').attr('sort', 'default');
+
+  if (sort == 'default') {
+    // change to desc order    
+    $('#' + col + '-sort-icon').attr('src', 'resources/icon/sort-down-solid.svg');
+    $('#' + col + '-sort-icon').attr('sort', 'desc');
+  } else if (sort == 'desc') {
+    // change to asc order
+    $('#' + col + '-sort-icon').attr('src', 'resources/icon/sort-up-solid.svg');
+    $('#' + col + '-sort-icon').attr('sort', 'asc');
+  } else {
+    // change to default order
+    $('#' + col + '-sort-icon').attr('src', 'resources/icon/sort-solid.svg');
+    $('#' + col + '-sort-icon').attr('sort', 'default');
+  }
+}
+
 // $([TODO: table header selector]).on('click', event => {
 //   [TODO: update sort mode]
 //   _refresh();
