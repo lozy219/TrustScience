@@ -124,20 +124,20 @@ $('.col-header').click(function() {
 
 function update_sort_column_icon(sort, col) {
   // change all to default first
-  $('.sort-icon').attr('src', 'resources/icon/sort-solid.svg');
+  $('.sort-icon').attr('src', 'resources/icon/default.png');
   $('.sort-icon').attr('sort', 'default');
 
   if (sort == 'default') {
     // change to desc order    
-    $('#' + col + '-sort-icon').attr('src', 'resources/icon/sort-down-solid.svg');
+    $('#' + col + '-sort-icon').attr('src', 'resources/icon/down.png');
     sortNew = 'desc';
   } else if (sort == 'desc') {
     // change to asc order
-    $('#' + col + '-sort-icon').attr('src', 'resources/icon/sort-up-solid.svg');
+    $('#' + col + '-sort-icon').attr('src', 'resources/icon/up.png');
     sortNew = 'asc';
   } else {
     // change to default order
-    $('#' + col + '-sort-icon').attr('src', 'resources/icon/sort-solid.svg');
+    $('#' + col + '-sort-icon').attr('src', 'resources/icon/default.png');
     sortNew = 'default';
   }
 
