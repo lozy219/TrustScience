@@ -18,7 +18,7 @@ const uploadImage = event => {
   $input.val('载入中...');
   $.ajax({
     url: 'http://uygnim.com:8734/match',
-    // url: '192.168.1.150:8734/match',
+    // url: 'http://localhost:8734/match',
     method: 'POST',
     data: new FormData($('#upload')[0]),
     processData: false,
@@ -54,7 +54,6 @@ $('.github').on('click', () => {
 });
 
 $('.photo').on('click', () => {
-  alert("测试功能，目前只支持iPhone6/7/8(s)的截图。");
   $('#match').click();
 });
 
