@@ -28,8 +28,7 @@ func router() *gin.Engine {
 		file, _, err := c.Request.FormFile("match")
 		handleErr(err)
 
-		src, err := png.Decode(file)
-		handleErr(err)
+		src := matching.LoadImage(file)
 
 		fname := "./screenshots/" + matching.HashImage(src) + ".PNG"
 		fout, err := os.Create(fname)
