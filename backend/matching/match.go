@@ -75,14 +75,7 @@ func findMatch(src image.Image) string {
 	return minDiffName
 }
 
-func Match(path string) []string {
-	infile, err := os.Open(path)
-	checkErr(err)
-	defer infile.Close()
-
-	src, err := png.Decode(infile)
-	checkErr(err)
-
+func Match(src image.Image) []string {
 	src = convertToGray(src)
 	lst := make([]string, 10)
 
