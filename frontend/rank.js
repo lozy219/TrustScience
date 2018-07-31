@@ -10,13 +10,13 @@ const sortStats = (sort, col) => {
     let bData = b[1];
     var sortT = 1
 
-    if (sort == 'desc') {
+    if (sort === 'desc') {
       sortT = 1;
-    } else if (sort == 'asc') {
+    } else if (sort === 'asc') {
       sortT = -1
     }
 
-    if (col == 'winp') {
+    if (col === 'winp') {
       if (aData.winP < bData.winP) {
         return 1 * sortT;
       } else if (aData.winP > bData.winP) {
@@ -26,7 +26,7 @@ const sortStats = (sort, col) => {
       } else {
         return -1 * sortT;
       }      
-    } else if (col == 'win') {
+    } else if (col === 'win') {
       if (aData.win < bData.win) {
         return 1 * sortT;
       } else if (aData.win > bData.win) {
@@ -36,7 +36,7 @@ const sortStats = (sort, col) => {
       } else {
         return -1 * sortT;
       }
-    } else if (col == 'lose') {
+    } else if (col === 'lose') {
       if (aData.lose < bData.lose) {
         return 1 * sortT;
       } else if (aData.lose > bData.lose) {
@@ -46,7 +46,7 @@ const sortStats = (sort, col) => {
       } else {
         return -1 * sortT;
       }
-    } else if (col == 'sum') {
+    } else if (col === 'sum') {
       if (aData.sum < bData.sum) {
         return 1 * sortT;
       } else {
@@ -119,19 +119,19 @@ $('.col-header').click(function() {
   let col = $(this).attr('col');
   let sort = $('#' + col + '-sort-icon').attr('sort');
 
-  update_sort_column_icon(sort, col);
+  updateSortColumnIcon(sort, col);
 })
 
-function update_sort_column_icon(sort, col) {
+function updateSortColumnIcon(sort, col) {
   // change all to default first
   $('.sort-icon').attr('src', 'resources/icon/default.png');
   $('.sort-icon').attr('sort', 'default');
 
-  if (sort == 'default') {
+  if (sort === 'default') {
     // change to desc order    
     $('#' + col + '-sort-icon').attr('src', 'resources/icon/down.png');
     sortNew = 'desc';
-  } else if (sort == 'desc') {
+  } else if (sort === 'desc') {
     // change to asc order
     $('#' + col + '-sort-icon').attr('src', 'resources/icon/up.png');
     sortNew = 'asc';
@@ -143,21 +143,15 @@ function update_sort_column_icon(sort, col) {
 
   $('#' + col + '-sort-icon').attr('sort', sortNew);
 
-  sort_column(sortNew, col);
+  sortColumn(sortNew, col);
   _refresh();
 }
 
-function sort_column(sort, col) {
+function sortColumn(sort, col) {
   // if sort back to default, directly sort by winp desc
-  if (sort == 'default') {
+  if (sort === 'default') {
     sortStats('desc', 'winp');
   } else {
     sortStats(sort, col);
   }
 }
-
-// $([TODO: table header selector]).on('click', event => {
-//   [TODO: update sort mode]
-//   _refresh();
-// });
-
