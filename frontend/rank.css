@@ -66,6 +66,10 @@ body {
   text-align: center;
 }
 
+.col-header {
+  cursor: pointer;
+}
+
 .row {
   padding: 5px;
   font-size: 20px;
