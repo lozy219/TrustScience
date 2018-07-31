@@ -4,24 +4,63 @@ let statsArr = [];
 
 // function declarations
 
-const sortStats = () => {
+const sortStats = (sort, col) => {
   statsArr.sort((a, b) => {
     let aData = a[1];
     let bData = b[1];
-    if (aData.winP < bData.winP) {
-      return 1;
-    } else if (aData.winP > bData.winP) {
-      return -1;
-    } else if (aData.sum > bData) {
-      return 1;
+    var sortT = 1
+
+    if (sort == 'desc') {
+      sortT = 1;
+    } else if (sort == 'asc') {
+      sortT = -1
+    }
+
+    if (col == 'winp') {
+      if (aData.winP < bData.winP) {
+        return 1 * sortT;
+      } else if (aData.winP > bData.winP) {
+        return -1 * sortT;
+      } else if (aData.sum > bData.sum) {
+        return 1 * sortT;
+      } else {
+        return -1 * sortT;
+      }      
+    } else if (col == 'win') {
+      if (aData.win < bData.win) {
+        return 1 * sortT;
+      } else if (aData.win > bData.win) {
+        return -1 * sortT;
+      } else if (aData.winP > bData.winP) {
+        return 1 * sortT;
+      } else {
+        return -1 * sortT;
+      }
+    } else if (col == 'lose') {
+      if (aData.lose < bData.lose) {
+        return 1 * sortT;
+      } else if (aData.lose > bData.lose) {
+        return -1 * sortT;
+      } else if (aData.sum > bData.sum) {
+        return 1 * sortT;
+      } else {
+        return -1 * sortT;
+      }
+    } else if (col == 'sum') {
+      if (aData.sum < bData.sum) {
+        return 1 * sortT;
+      } else {
+        return -1 * sortT;
+      }
     } else {
-      return -1;
+
     }
   });
 };
 
 const clearTable = () => {
   // [TODO: clear the table content for re-render]
+  $('.col-content').html('');
 };
 
 const renderTable = () => {
@@ -39,7 +78,6 @@ const renderTable = () => {
 }
 
 const _refresh = () => {
-  sortStats();
   clearTable();
   renderTable();
 };
@@ -68,27 +106,23 @@ $.get('data/filename.json?_v=12')
           const entryData = entry[1];
           entryData.sum = entryData.losing + entryData.winning;
           entryData.winP = entryData.winning / entryData.sum;
+          entryData.win = entryData.winning;
+          entryData.lose = entryData.losing;
         }
         // refresh UI
+        sortStats('desc', 'winp');
         _refresh();
       });
   });
-
-$('.sort-icon').click(function() {
-  let sort = $(this).attr('sort');
-  let col = $(this).attr('col');
-
-  sort_column(sort, col);
-})
 
 $('.col-header').click(function() {
   let col = $(this).attr('col');
   let sort = $('#' + col + '-sort-icon').attr('sort');
 
-  sort_column(sort, col);
+  update_sort_column_icon(sort, col);
 })
 
-function sort_column(sort, col) {
+function update_sort_column_icon(sort, col) {
   // change all to default first
   $('.sort-icon').attr('src', 'resources/icon/sort-solid.svg');
   $('.sort-icon').attr('sort', 'default');
@@ -96,15 +130,29 @@ function sort_column(sort, col) {
   if (sort == 'default') {
     // change to desc order    
     $('#' + col + '-sort-icon').attr('src', 'resources/icon/sort-down-solid.svg');
-    $('#' + col + '-sort-icon').attr('sort', 'desc');
+    sortNew = 'desc';
   } else if (sort == 'desc') {
     // change to asc order
     $('#' + col + '-sort-icon').attr('src', 'resources/icon/sort-up-solid.svg');
-    $('#' + col + '-sort-icon').attr('sort', 'asc');
+    sortNew = 'asc';
   } else {
     // change to default order
     $('#' + col + '-sort-icon').attr('src', 'resources/icon/sort-solid.svg');
-    $('#' + col + '-sort-icon').attr('sort', 'default');
+    sortNew = 'default';
+  }
+
+  $('#' + col + '-sort-icon').attr('sort', sortNew);
+
+  sort_column(sortNew, col);
+  _refresh();
+}
+
+function sort_column(sort, col) {
+  // if sort back to default, directly sort by winp desc
+  if (sort == 'default') {
+    sortStats('desc', 'winp');
+  } else {
+    sortStats(sort, col);
   }
 }
 
