@@ -54,6 +54,8 @@ $('.github').on('click', () => {
 });
 
 $('.photo').on('click', () => {
+  localStorage.setItem('photo-clicked', true);
+  $('#pointer').hide();
   alert("测试功能，目前只支持iPhone6/7/8(s)的截图。");
   $('#match').click();
 });
@@ -130,3 +132,9 @@ $.get('frontend/data/filename.json?_v=12')
         });
       });
   });
+
+$(document).ready(function () {
+  if (!localStorage.getItem('photo-clicked')) {
+    $('#pointer').show();
+  }
+})
