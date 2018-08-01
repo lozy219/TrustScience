@@ -57,6 +57,7 @@ func findMatch(src image.Image) string {
 				target := targetFolder + name
 				tInfile, err := os.Open(target)
 				checkErr(err)
+				defer tInfile.Close()
 				tSrc, err := png.Decode(tInfile)
 				checkErr(err)
 
