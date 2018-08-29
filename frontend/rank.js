@@ -98,7 +98,7 @@ $.get('data/nickname.json?_v=7')
 $.get('data/filename.json?_v=12')
   .done(data => {
     filenames = data;
-    $.get('data/data.json?_v=10')
+    $.get('data/data.json?_v=11')
       .done(stats => {
         // populate stas array
         statsArr = Object.entries(stats);

@@ -60,7 +60,7 @@ $('.photo').on('click', () => {
 let nicknames = {};
 let filenames;
 
-$.get('frontend/data/nickname.json?_v=7')
+$.get('frontend/data/nickname.json?_v=8')
   .done(data => {
     for (let key of Object.keys(data)) {
       const arr = data[key];
@@ -73,7 +73,7 @@ $.get('frontend/data/nickname.json?_v=7')
 $.get('frontend/data/filename.json?_v=12')
   .done(data => {
     filenames = data;
-    $.get('frontend/data/data.json?_v=10')
+    $.get('frontend/data/data.json?_v=11')
       .done(stats => {
         const $input = $('#main');
         $input.bind('change keyup input', () => {
@@ -104,7 +104,7 @@ $.get('frontend/data/filename.json?_v=12')
 
             const history = `${win}/${lose}`;
             let winp = parseInt((win / sum) * 100) + '%';
-            let score = 7.866 * win / sum + 1.532 * sum / 3780;
+            let score = 8.48 * win / sum + 2.21 * sum / 9420;
             if (sum === 0) {
               winp = '0%';
               // hardcoded average score
