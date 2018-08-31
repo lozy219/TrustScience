@@ -55,3 +55,7 @@ func GetDeviceSpec(size image.Point) *DeviceSpec {
 
 	return nil
 }
+
+func GetDefaultDeviceSpec() *DeviceSpec {
+	return &specs[0]
+}

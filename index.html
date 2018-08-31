@@ -28,13 +28,13 @@
   <div class="fixed github"><img height="17px" src="./frontend/resources/misc/github.png?_v=1" ></div>
   <div class="fixed photo"><img height="17px" src="./frontend/resources/misc/photo.png?_v=1" ></div>
   <form hidden id="upload" enctype="multipart/form-data">
-    <input id="match" name="match" type="file" accept="image/png" onchange="uploadImage(event)">
+    <input id="match" name="match" type="file" accept="image/*" onchange="uploadImage(event)">
   </form>
   <div class="container">
     <div class="help-text--wrapper">
       <div class="help-text">
-        根据<b>523</b>场对弈结果进行线性回归分析得出计分公式：<br>
-        分数 = 8.34 * 胜率 + 1.60 * 出场率<br>
+        根据<b>941</b>场对弈结果进行线性回归分析得出计分公式：<br>
+        分数 = 8.48 * 胜率 + 2.21 * 出场率<br>
         <br>
         评分仅供参考，请结合式神搭配及御魂选择使用。<br>
         两队平均分差越大说明预测越可信。<br>
@@ -180,5 +180,5 @@
   ga('create', 'UA-65743477-1', 'auto');
   ga('send', 'pageview');
 </script>
-<script src="./frontend/main.js?_v=2"></script>
+<script src="./frontend/main.js?_v=7"></script>
 </html>

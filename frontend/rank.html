@@ -18,20 +18,20 @@
 <body>
     <div class="header-container">
       <div class="header">
-        <div class="col">式神</div>
-        <div class="col">胜</div>
-        <div class="col">负</div>
-        <div class="col">出场</div>
-        <div class="col">胜率</div>
+        <div col="avatar" class="col">式神</div>
+        <div col="win" class="col col-header">胜<img id="win-sort-icon" col="win" class="sort-icon" sort="default" src="resources/icon/default.png"></div>
+        <div col="lose" class="col col-header">负<img id="lose-sort-icon" col="lose" class="sort-icon" sort="default" src="resources/icon/default.png"></div>
+        <div col="sum" class="col col-header">总<img id="sum-sort-icon" col="sum" class="sort-icon" sort="default" src="resources/icon/default.png"></div>
+        <div col="winp" class="col col-header">胜率<img id="winp-sort-icon" col="winp" class="sort-icon" sort="default" src="resources/icon/default.png"></div>
       </div>
     </div>
     <div class="container">
       <div class="result">
-        <div class="col avatar"></div>
-        <div class="col win"></div>
-        <div class="col lose"></div>
-        <div class="col sum"></div>
-        <div class="col winp"></div>
+        <div class="col col-content avatar"></div>
+        <div class="col col-content win"></div>
+        <div class="col col-content lose"></div>
+        <div class="col col-content sum"></div>
+        <div class="col col-content winp"></div>
       </div>
     </div>
   </div>
@@ -50,5 +50,5 @@
   ga('create', 'UA-65743477-1', 'auto');
   ga('send', 'pageview');
 </script>
-<script src="rank.js?_v=1"></script>
+<script src="rank.js?_v=6"></script>
 </html>

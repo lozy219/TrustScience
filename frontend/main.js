@@ -18,7 +18,7 @@ const uploadImage = event => {
   $input.val('载入中...');
   $.ajax({
     url: 'http://uygnim.com:8734/match',
-    // url: '192.168.1.150:8734/match',
+    // url: 'http://localhost:8734/match',
     method: 'POST',
     data: new FormData($('#upload')[0]),
     processData: false,
@@ -54,14 +54,13 @@ $('.github').on('click', () => {
 });
 
 $('.photo').on('click', () => {
-  alert("测试功能，目前只支持iPhone6/7/8(s)的截图。");
   $('#match').click();
 });
 
 let nicknames = {};
 let filenames;
 
-$.get('frontend/data/nickname.json?_v=7')
+$.get('frontend/data/nickname.json?_v=8')
   .done(data => {
     for (let key of Object.keys(data)) {
       const arr = data[key];
@@ -74,7 +73,7 @@ $.get('frontend/data/nickname.json?_v=7')
 $.get('frontend/data/filename.json?_v=12')
   .done(data => {
     filenames = data;
-    $.get('frontend/data/data.json?_v=7')
+    $.get('frontend/data/data.json?_v=11')
       .done(stats => {
         const $input = $('#main');
         $input.bind('change keyup input', () => {
@@ -105,7 +104,7 @@ $.get('frontend/data/filename.json?_v=12')
 
             const history = `${win}/${lose}`;
             let winp = parseInt((win / sum) * 100) + '%';
-            let score = 7.866 * win / sum + 1.532 * sum / 3780;
+            let score = 8.48 * win / sum + 2.21 * sum / 9420;
             if (sum === 0) {
               winp = '0%';
               // hardcoded average score

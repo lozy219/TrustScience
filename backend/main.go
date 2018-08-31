@@ -1,11 +1,11 @@
 package main
 
 import (
-	"io"
+	"image/png"
 	"os"
-	"time"
 
-	"./matching"
+	"TrustScience/backend/matching"
+
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
@@ -17,6 +17,7 @@ func handleErr(err error) {
 }
 
 func router() *gin.Engine {
+	// gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
 
 	config := cors.DefaultConfig()
@@ -28,20 +29,17 @@ func router() *gin.Engine {
 		file, _, err := c.Request.FormFile("match")
 		handleErr(err)
 
-		fname := "./screenshots/" + time.Now().Format("1994032005") + ".PNG"
+		src := matching.LoadImage(file)
+
+		fname := "./screenshots/" + matching.HashImage(src) + ".PNG"
 		fout, err := os.Create(fname)
 		handleErr(err)
+		defer fout.Close()
 
-		_, copyErr := io.Copy(fout, file)
-		handleErr(copyErr)
+		encodeErr := png.Encode(fout, src)
+		handleErr(encodeErr)
 
-		fout.Close()
-
-		fin, err := os.Open(fname)
-		handleErr(err)
-		defer fin.Close()
-
-		c.JSON(200, matching.Match(fname))
+		c.JSON(200, matching.Match(src))
 	})
 
 	return r

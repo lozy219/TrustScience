@@ -1,7 +1,6 @@
 package matching
 
 import (
-	"fmt"
 	"image"
 	"image/png"
 	"os"
@@ -58,6 +57,7 @@ func findMatch(src image.Image) string {
 				target := targetFolder + name
 				tInfile, err := os.Open(target)
 				checkErr(err)
+				defer tInfile.Close()
 				tSrc, err := png.Decode(tInfile)
 				checkErr(err)
 
@@ -75,22 +75,22 @@ func findMatch(src image.Image) string {
 	return minDiffName
 }
 
-func Match(path string) []string {
-	infile, err := os.Open(path)
-	checkErr(err)
-	defer infile.Close()
-
-	src, err := png.Decode(infile)
-	checkErr(err)
-
+func Match(src image.Image) []string {
 	src = convertToGray(src)
 	lst := make([]string, 10)
 
 	spec := GetDeviceSpec(src.Bounds().Size())
 	if spec == nil {
-		return lst
+		// try to force scale it down to iPhone 6 size
+		spec = GetDefaultDeviceSpec()
+		src = scaleImage(src, spec.Size())
 	}
-	fmt.Println(spec.name)
+	// fname := "./matching/test/out/testMatch.png"
+	// fout, err := os.Create(fname)
+	// checkErr(err)
+	// defer fout.Close()
+	// encodeErr := png.Encode(fout, src)
+	// checkErr(encodeErr)
 
 	startLeft := spec.StartLeft()
 	startRight := spec.StartRight()
