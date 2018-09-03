@@ -64,7 +64,7 @@ $('.photo').on('click', () => {
 let nicknames = {};
 let filenames;
 
-$.get('frontend/data/nickname.json?_v=8')
+$.get('frontend/data/nickname.json?_v=haifangzhu')
   .done(data => {
     for (let key of Object.keys(data)) {
       const arr = data[key];
@@ -74,12 +74,12 @@ $.get('frontend/data/nickname.json?_v=8')
     }
   });
 
-$.get('frontend/data/filename.json?_v=12')
+$.get('frontend/data/filename.json?_v=haifangzhu2')
   .done(data => {
     filenames = data;
-    $.get('frontend/data/weightedScore.json?_v=1')
+    $.get('frontend/data/weightedScore.json?_v=haifangzhu')
       .done(scores => {
-        $.get('frontend/data/data.json?_v=11')
+        $.get('frontend/data/data.json?_v=haifangzhu1')
           .done(stats => {
             const $input = $('#main');
             $input.bind('change keyup input', () => {
@@ -114,7 +114,7 @@ $.get('frontend/data/filename.json?_v=12')
                   winp = '0%';
                 }
 
-                const avatar = `frontend/resources/pixyys/${filename}.png?_v=1`;
+                const avatar = `frontend/resources/pixyys/${filename}.png?_v=2`;
                 // const placeholder = 'frontend/resources/pixyys/yxdm.png'
                 $target.find('.name').text(key);
                 $target.find('.avatar').css('background-image', `url('${avatar}')`);
