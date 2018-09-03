@@ -1,6 +1,10 @@
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
+const toPercentage = value => {
+  return isNaN(value) ? '???' : parseInt(value * 10000) / 100 + '%';
+}
+
 const parseInput = input => {
   return input.split(' ').filter(str => str.length > 0);
 }
@@ -73,59 +77,59 @@ $.get('frontend/data/nickname.json?_v=8')
 $.get('frontend/data/filename.json?_v=12')
   .done(data => {
     filenames = data;
-    $.get('frontend/data/data.json?_v=11')
-      .done(stats => {
-        const $input = $('#main');
-        $input.bind('change keyup input', () => {
-          var result = parseInput($input.val().trim());
-          var redTotal = 0;
-          var blueTotal = 0;
-          for (let index = 0; index < 10; index ++) {
-            const $target = $(`.result-${index + 1}`);
+    $.get('frontend/data/weightedScore.json?_v=1')
+      .done(scores => {
+        $.get('frontend/data/data.json?_v=11')
+          .done(stats => {
+            const $input = $('#main');
+            $input.bind('change keyup input', () => {
+              var result = parseInput($input.val().trim());
+              var redTotal = 0;
+              var blueTotal = 0;
+              for (let index = 0; index < 10; index ++) {
+                const $target = $(`.result-${index + 1}`);
 
-            if (index >= result.length) {
-              clearResult($target);
-              continue;
-            }
+                if (index >= result.length) {
+                  clearResult($target);
+                  continue;
+                }
 
-            const text = result[index];
-            const key = nicknames[text];
-            const stat = stats[key];
-            const filename = filenames[key];
+                const text = result[index];
+                const key = nicknames[text];
+                const stat = stats[key];
+                const filename = filenames[key];
 
-            if (!stat) {
-              clearResult($target);
-              continue;
-            }
+                if (!stat) {
+                  clearResult($target);
+                  continue;
+                }
 
-            const win = stat.winning;
-            const lose = stat.losing;
-            const sum = win + lose;
+                const win = stat.winning;
+                const lose = stat.losing;
+                const sum = win + lose;
 
-            const history = `${win}/${lose}`;
-            let winp = parseInt((win / sum) * 100) + '%';
-            let score = 8.48 * win / sum + 2.21 * sum / 9420;
-            if (sum === 0) {
-              winp = '0%';
-              // hardcoded average score
-              score = 3.48;
-            }
+                const history = `${win}/${lose}`;
+                let winp = parseInt((win / sum) * 100) + '%';
+                if (sum === 0) {
+                  winp = '0%';
+                }
 
-            const avatar = `frontend/resources/pixyys/${filename}.png?_v=1`;
-            // const placeholder = 'frontend/resources/pixyys/yxdm.png'
-            $target.find('.name').text(key);
-            $target.find('.avatar').css('background-image', `url('${avatar}')`);
-            $target.find('.win-lose').text(history);
-            $target.find('.win-percentage').text(winp);
-            $target.find('.score').text(parseInt(score * 100) / 100);
-            if (index < 5) {
-              redTotal += score;
-            } else {
-              blueTotal += score;
-            }
-          }
-          $('.result-wrapper--red .overview').text(parseInt(redTotal / 5 * 100) / 100);
-          $('.result-wrapper--blue .overview').text(parseInt(blueTotal / 5 * 100) / 100);
-        });
+                const avatar = `frontend/resources/pixyys/${filename}.png?_v=1`;
+                // const placeholder = 'frontend/resources/pixyys/yxdm.png'
+                $target.find('.name').text(key);
+                $target.find('.avatar').css('background-image', `url('${avatar}')`);
+                $target.find('.win-lose').text(history);
+                $target.find('.win-percentage').text(winp);
+                if (index < 5) {
+                  redTotal += scores[key];
+                } else {
+                  blueTotal += scores[key];
+                }
+              }
+              const scoreSum = redTotal + blueTotal;
+              $('.result-wrapper--red .overview').text(toPercentage(redTotal / scoreSum));
+              $('.result-wrapper--blue .overview').text(toPercentage(blueTotal / scoreSum));
+            });
+          });
       });
   });

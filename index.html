@@ -26,31 +26,26 @@
   <div class="fixed help">?</div>
   <div class="fixed rank">R</div>
   <div class="fixed github"><img height="17px" src="./frontend/resources/misc/github.png?_v=1" ></div>
-  <div class="fixed photo"><img height="17px" src="./frontend/resources/misc/photo.png?_v=1" ></div>
   <form hidden id="upload" enctype="multipart/form-data">
     <input id="match" name="match" type="file" accept="image/*" onchange="uploadImage(event)">
   </form>
   <div class="container">
     <div class="help-text--wrapper">
       <div class="help-text">
-        根据<b>941</b>场对弈结果进行线性回归分析得出计分公式：<br>
-        分数 = 8.48 * 胜率 + 2.21 * 出场率<br>
-        <br>
-        评分仅供参考，请结合式神搭配及御魂选择使用。<br>
-        两队平均分差越大说明预测越可信。<br>
-        大于0.5的话<b>应该</b>比较稳。<br>
-        <br>
-        感谢林狗，感谢富姐，感谢大队委。
+        这是一个根据941场对弈竞猜记录制作的计算器。<br><br>
+        上传截图或者手动输入双方十个式神名称后，会显示预测的胜率。<br><br>
+        具体细节请看<a target="blank" href="https://bbs.ngacn.cc/read.php?tid=14044587">这个帖子</a>。
       </div>
       <div class="close">
         x
       </div>
     </div>
-    <input id="main" placeholder="把式神全输在这"/>
+    <input id="main" placeholder="输入式神，或者点这个相机→"/>
+    <div class="photo"><img height="30px" src="./frontend/resources/misc/photo.png?_v=1" ></div>
     <div class="result">
       <div class="result-wrapper--red">
         <div class="overview">
-          0
+          ???
         </div>
         <div class="result--red">
           <div class="result-1">
@@ -59,7 +54,6 @@
             <div class="stats">
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
-              <div class="score"></div>
               <div class="name"></div>
             </div>
           </div>
@@ -69,7 +63,6 @@
             <div class="stats">
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
-              <div class="score"></div>
               <div class="name"></div>
             </div>
           </div>
@@ -79,7 +72,6 @@
             <div class="stats">
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
-              <div class="score"></div>
               <div class="name"></div>
             </div>
           </div>
@@ -89,7 +81,6 @@
             <div class="stats">
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
-              <div class="score"></div>
               <div class="name"></div>
             </div>
           </div>
@@ -99,7 +90,6 @@
             <div class="stats">
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
-              <div class="score"></div>
               <div class="name"></div>
             </div>
           </div>
@@ -108,14 +98,13 @@
 
       <div class="result-wrapper--blue">
         <div class="overview">
-          0
+          ???
         </div>
         <div class="result--blue">
           <div class="result-6">
             <div class="stats">
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
-              <div class="score"></div>
               <div class="name"></div>
             </div>
             <div class="pad"></div>
@@ -125,7 +114,6 @@
             <div class="stats">
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
-              <div class="score"></div>
               <div class="name"></div>
             </div>
             <div class="pad"></div>
@@ -135,7 +123,6 @@
             <div class="stats">
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
-              <div class="score"></div>
               <div class="name"></div>
             </div>
             <div class="pad"></div>
@@ -145,7 +132,6 @@
             <div class="stats">
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
-              <div class="score"></div>
               <div class="name"></div>
             </div>
             <div class="pad"></div>
@@ -155,7 +141,6 @@
             <div class="stats">
               <div class="win-lose"></div>
               <div class="win-percentage"></div>
-              <div class="score"></div>
               <div class="name"></div>
             </div>
             <div class="pad"></div>

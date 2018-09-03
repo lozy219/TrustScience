@@ -51,12 +51,21 @@ body {
 }
 
 .photo {
-  bottom: 10px;
-  right: 130px;
+  position: relative;
+  height: 0;
+  right: 10px;
+  top: -46px;
+  text-align: right;
 }
 
 .photo img {
+  cursor: pointer;
   margin-left: -1px;
+  filter: opacity(0.5);
+}
+
+.photo img:hover {
+  filter: none;
 }
 
 .close {
@@ -71,18 +80,22 @@ body {
   max-width: 600px;
   display: none;
   z-index: 2;
+  margin-left: -5px;
 }
 
 .help-text {
   margin: auto;
   width: 100%;
   background: white;
-  font-size: 18px;
-  font-family: 'fzxs12', cursive;
   border: solid 5px black;
   box-sizing: border-box;
   padding: 40px;
   max-width: 500px;
+}
+
+.help-text, .help-text>a {
+  font-size: 18px;
+  font-family: 'fzxs12', cursive;
 }
 
 .container {
