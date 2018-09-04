@@ -24,6 +24,7 @@ const uploadImage = event => {
     url: 'http://uygnim.com:8734/match',
     // url: 'http://localhost:8734/match',
     method: 'POST',
+    timeout: 200000,
     data: new FormData($('#upload')[0]),
     processData: false,
     contentType: false
