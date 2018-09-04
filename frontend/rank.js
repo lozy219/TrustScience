@@ -1,18 +1,22 @@
 let nicknames = {};
 let filenames;
+let statsData = {};
 let statsArr = [];
 
 // function declarations
+
+const loadStats = month => {
+  statsArr = Object.entries(statsData[month]);
+  updateSortColumnIcon('default', 'winp');
+  _refresh();
+}
 
 const sortStats = (sort, col) => {
   statsArr.sort((a, b) => {
     let aData = a[1];
     let bData = b[1];
-    var sortT = 1
-
-    if (sort === 'desc') {
-      sortT = 1;
-    } else if (sort === 'asc') {
+    var sortT = 1;
+    if (sort === 'asc') {
       sortT = -1
     }
 
@@ -22,9 +26,9 @@ const sortStats = (sort, col) => {
       } else if (aData.winP > bData.winP) {
         return -1 * sortT;
       } else if (aData.sum > bData.sum) {
-        return 1 * sortT;
-      } else {
         return -1 * sortT;
+      } else {
+        return 1 * sortT;
       }      
     } else if (col === 'win') {
       if (aData.win < bData.win) {
@@ -101,17 +105,18 @@ $.get('data/filename.json?_v=haifangzhu')
     $.get('data/data.json?_v=haifangzhu')
       .done(stats => {
         // populate stas array
-        statsArr = Object.entries(stats);
-        for (let entry of statsArr) {
-          const entryData = entry[1];
-          entryData.sum = entryData.losing + entryData.winning;
-          entryData.winP = entryData.winning / entryData.sum;
-          entryData.win = entryData.winning;
-          entryData.lose = entryData.losing;
+        statsData = stats;
+        // crappy code, need refactoring
+        for (let monthData of Object.entries(statsData)) {
+          for (let entry of Object.entries(monthData[1])) {
+            const entryData = entry[1];
+            entryData.sum = entryData.losing + entryData.winning;
+            entryData.winP = entryData.winning / entryData.sum;
+            entryData.win = entryData.winning;
+            entryData.lose = entryData.losing;
+          }
         }
-        // refresh UI
-        sortStats('desc', 'winp');
-        _refresh();
+        loadStats('A');
       });
   });
 
@@ -120,6 +125,12 @@ $('.col-header').click(function() {
   let sort = $('#' + col + '-sort-icon').attr('sort');
 
   updateSortColumnIcon(sort, col);
+});
+
+$('.month').click(function() {
+  $('.month').removeClass('active');
+  $(this).addClass('active');
+  loadStats($(this).data('month'));
 })
 
 function updateSortColumnIcon(sort, col) {

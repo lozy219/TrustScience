@@ -58,6 +58,7 @@ body {
 .result {
   display: flex;
   flex-direction: row;
+  padding-bottom: 25px;
 }
 
 .col {
@@ -83,4 +84,27 @@ body {
 
 .sort-icon {
   width: 13px;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  display: flex;
+}
+
+.month {
+  border: solid 5px rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  font-size: 18px;
+  width: 15px;
+  cursor: pointer;
+  background: white;
+  margin: 4px;
+}
+
+.month:hover, .month.active {
+  border-color: black;
+  color: black;
 }
