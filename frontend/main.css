@@ -109,6 +109,7 @@ body {
   width: 100%;
   outline: none;
   padding: 0 10px;
+  padding-right: 52px;
   font-size: 20px;
   font-family: 'fzxs12', cursive;
   box-sizing: border-box;
