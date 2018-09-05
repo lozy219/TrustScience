@@ -65,7 +65,7 @@ $('.photo').on('click', () => {
 let nicknames = {};
 let filenames;
 
-$.get('frontend/data/nickname.json?_v=guiqie')
+$.get('frontend/data/nickname.json?_v=yanmo')
   .done(data => {
     for (let key of Object.keys(data)) {
       const arr = data[key];
@@ -75,12 +75,12 @@ $.get('frontend/data/nickname.json?_v=guiqie')
     }
   });
 
-$.get('frontend/data/filename.json?_v=guiqie')
+$.get('frontend/data/filename.json?_v=yanmo')
   .done(data => {
     filenames = data;
-    $.get('frontend/data/weightedScore.json?_v=guiqie')
+    $.get('frontend/data/weightedScore.json?_v=yanmo')
       .done(scores => {
-        $.get('frontend/data/data.json?_v=guiqie')
+        $.get('frontend/data/data.json?_v=yanmo')
           .done(content => {
             const stats = content['A'];
             const $input = $('#main');
