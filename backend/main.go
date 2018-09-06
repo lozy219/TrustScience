@@ -1,16 +1,17 @@
 package main
 
 import (
+	"TrustScience/backend/matching"
 	"image/png"
 	"os"
 
-	"TrustScience/backend/matching"
+	_ "github.com/go-sql-driver/mysql"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
-func handleErr(err error) {
+func HandleErr(err error) {
 	if err != nil {
 		panic(err.Error())
 	}
@@ -25,19 +26,36 @@ func router() *gin.Engine {
 
 	r.Use(cors.New(config))
 
+	// 预留数据库连接池
+	// db, err := sql.Open("mysql", "user:pwd@tcp(127.0.0.1:3306)/yys?parseTime=true")
+	// defer db.Close()
+	// if err != nil {
+	// 	log.Fatalln(err)
+	// }
+
+	// db.SetMaxIdleConns(20)
+	// db.SetMaxOpenConns(20)
+
+	// if err := db.Ping(); err != nil {
+	// 	log.Fatalln(err)
+	// }
+	// r.GET("/", func(c *gin.Context) {
+	// 	c.String(http.StatusOK, "It works")
+	// })
+
 	r.POST("match", func(c *gin.Context) {
 		file, _, err := c.Request.FormFile("match")
-		handleErr(err)
+		HandleErr(err)
 
 		src := matching.LoadImage(file)
 
 		fname := "./screenshots/" + matching.HashImage(src) + ".PNG"
 		fout, err := os.Create(fname)
-		handleErr(err)
+		HandleErr(err)
 		defer fout.Close()
 
 		encodeErr := png.Encode(fout, src)
-		handleErr(encodeErr)
+		HandleErr(encodeErr)
 
 		c.JSON(200, matching.Match(src))
 	})
@@ -46,5 +64,5 @@ func router() *gin.Engine {
 }
 
 func main() {
-	router().Run(":8734")
+	router().Run(":8080")
 }
