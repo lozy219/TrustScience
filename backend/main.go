@@ -64,5 +64,5 @@ func router() *gin.Engine {
 }
 
 func main() {
-	router().Run(":8080")
+	router().Run(":8734")
 }
