@@ -9,7 +9,7 @@ import (
 )
 
 var redisClient = redis.NewClient(&redis.Options{
-	Addr: "localhost:6379",
+	Addr: "0.0.0.0:6379",
 })
 
 func currentSlot() string {
