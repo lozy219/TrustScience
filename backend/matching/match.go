@@ -5,6 +5,8 @@ import (
 	"image/png"
 	"os"
 	"sync"
+
+	"TrustScience/backend/record"
 )
 
 func calcDiff(x uint32, y uint32) uint32 {
@@ -97,6 +99,8 @@ func Match(src image.Image) []string {
 	widthStep := spec.recWidthStep
 	matchRect := spec.MatchRect()
 
+	isResultValid := true
+
 	for i := 0; i < 5; i++ {
 		x0Left := startLeft.X + i*widthStep
 		y0Left := startLeft.Y
@@ -115,15 +119,21 @@ func Match(src image.Image) []string {
 
 		if len(matchLeft) == 0 {
 			lst[i] = "不知道"
+			isResultValid = false
 		} else {
 			lst[i] = matchLeft[:len(matchLeft)-4]
 		}
 
 		if len(matchRight) == 0 {
 			lst[i+5] = "不知道"
+			isResultValid = false
 		} else {
 			lst[i+5] = matchRight[:len(matchRight)-4]
 		}
+	}
+
+	if isResultValid {
+		record.NewRecord(lst)
 	}
 
 	return lst

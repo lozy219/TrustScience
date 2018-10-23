@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"TrustScience/backend/matching"
+	"TrustScience/backend/record"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -40,6 +41,10 @@ func router() *gin.Engine {
 		handleErr(encodeErr)
 
 		c.JSON(200, matching.Match(src))
+	})
+
+	r.GET("latest", func(c *gin.Context) {
+		c.JSON(200, record.CurrentRecord())
 	})
 
 	return r

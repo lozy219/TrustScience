@@ -1,6 +1,9 @@
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
+// const host = 'localhost';
+const host = 'uygnim.com';
+
 const toPercentage = value => {
   return isNaN(value) ? '???' : parseInt(value * 10000) / 100 + '%';
 }
@@ -21,8 +24,7 @@ const uploadImage = event => {
   $input = $('#main');
   $input.val('载入中...');
   $.ajax({
-    url: 'http://uygnim.com:8734/match',
-    // url: 'http://localhost:8734/match',
+    url: `http://${host}:8734/match`,
     method: 'POST',
     timeout: 200000,
     data: new FormData($('#upload')[0]),
@@ -65,7 +67,7 @@ $('.photo').on('click', () => {
 let nicknames = {};
 let filenames;
 
-$.get('frontend/data/nickname.json?_v=shantu')
+$.get('frontend/data/nickname.json?_v=jiegeng')
   .done(data => {
     for (let key of Object.keys(data)) {
       const arr = data[key];
@@ -75,12 +77,12 @@ $.get('frontend/data/nickname.json?_v=shantu')
     }
   });
 
-$.get('frontend/data/filename.json?_v=shantu')
+$.get('frontend/data/filename.json?_v=jiegeng')
   .done(data => {
     filenames = data;
-    $.get('frontend/data/weightedScore.json?_v=shantu')
+    $.get('frontend/data/weightedScore.json?_v=jiegeng')
       .done(scores => {
-        $.get('frontend/data/data.json?_v=shantu')
+        $.get('frontend/data/data.json?_v=jiegeng')
           .done(content => {
             const stats = content['A'];
             const $input = $('#main');
@@ -132,6 +134,11 @@ $.get('frontend/data/filename.json?_v=shantu')
               $('.result-wrapper--red .overview').text(toPercentage(redTotal / scoreSum));
               $('.result-wrapper--blue .overview').text(toPercentage(blueTotal / scoreSum));
             });
+
+            $.get(`http://${host}:8734/latest`)
+              .done(data => {
+                $('#main').val(data.join(' ')).change();
+              });
           });
       });
   });
