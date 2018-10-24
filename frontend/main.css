@@ -46,6 +46,21 @@ body {
   right: 90px;
 }
 
+@keyframes notes {
+  to {
+    bottom: 20px;
+  }
+}
+
+.notes {
+  bottom: 10px;
+  right: 130px;
+}
+
+.notes.fresh {
+  animation: notes 0.2s infinite alternate;
+}
+
 .github img {
   margin-left: -1px;
 }

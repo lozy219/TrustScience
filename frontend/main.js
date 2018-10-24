@@ -48,7 +48,29 @@ $('.close').on('click', () => {
 });
 
 $('.help').on('click', () => {
+  $help.find('.help-text').html(`
+    这是一个根据1145场对弈竞猜记录制作的计算器。<br><br>
+    上传截图或者手动输入双方十个式神名称后，会显示预测的胜率。<br><br>
+    具体细节请看<a target="blank" href="https://bbs.ngacn.cc/read.php?tid=14044587">这个帖子</a>。
+  `);
   $help.show();
+  $container.addClass('helping');
+});
+
+const notesId = 'notes-1-read';
+if (!localStorage.getItem(notesId)) {
+  $('.notes').addClass('fresh');
+}
+
+$('.notes').on('click', () => {
+  localStorage.setItem(notesId, true);
+  $help.find('.help-text').html(`
+    因为录入数据实在太麻烦了，我在尝试让页面预加载别人已经上传过的阵容。<br><br>
+    但是没想到同时还有日亚服的玩家在使用，所以现在的数据会有些混乱。<br><br>
+    对于日亚服的玩家晚些我会加个选项单独存储一份阵容。感谢！<br><br>
+  `);
+  $help.show();
+  $('.notes').removeClass('fresh');
   $container.addClass('helping');
 });
 
