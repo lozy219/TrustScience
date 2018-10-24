@@ -67,7 +67,7 @@ $('.photo').on('click', () => {
 let nicknames = {};
 let filenames;
 
-$.get('frontend/data/nickname.json?_v=jiegeng')
+$.get('frontend/data/nickname.json?_ v=yujuchong')
   .done(data => {
     for (let key of Object.keys(data)) {
       const arr = data[key];
@@ -77,12 +77,12 @@ $.get('frontend/data/nickname.json?_v=jiegeng')
     }
   });
 
-$.get('frontend/data/filename.json?_v=jiegeng')
+$.get('frontend/data/filename.json?_ v=yujuchong')
   .done(data => {
     filenames = data;
-    $.get('frontend/data/weightedScore.json?_v=jiegeng')
+    $.get('frontend/data/weightedScore.json?_ v=yujuchong')
       .done(scores => {
-        $.get('frontend/data/data.json?_v=jiegeng')
+        $.get('frontend/data/data.json?_ v=yujuchong')
           .done(content => {
             const stats = content['A'];
             const $input = $('#main');
@@ -119,9 +119,15 @@ $.get('frontend/data/filename.json?_v=jiegeng')
                 }
 
                 const avatar = `frontend/resources/pixyys/${filename}.png?_v=2`;
-                // const placeholder = 'frontend/resources/pixyys/yxdm.png'
+                const placeholder = 'frontend/resources/pixyys/yxdm.png'
+                $.get(avatar)
+                  .done(() => {
+                    $target.find('.avatar').css('background-image', `url('${avatar}')`);
+                  })
+                  .fail(() => {
+                    $target.find('.avatar').css('background-image', `url('${placeholder}')`);
+                  });
                 $target.find('.name').text(key);
-                $target.find('.avatar').css('background-image', `url('${avatar}')`);
                 $target.find('.win-lose').text(history);
                 $target.find('.win-percentage').text(winp);
                 if (index < 5) {
