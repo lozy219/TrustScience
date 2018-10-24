@@ -4,6 +4,7 @@ import (
 	"image"
 	"image/png"
 	"os"
+	"fmt"
 	"sync"
 
 	"TrustScience/backend/record"
@@ -135,6 +136,8 @@ func Match(src image.Image) []string {
 	if isResultValid {
 		record.NewRecord(lst)
 	}
+
+	fmt.Print(lst)
 
 	return lst
 }

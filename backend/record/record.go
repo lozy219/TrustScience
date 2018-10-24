@@ -29,6 +29,8 @@ func CurrentRecord() []string {
 		Count:  1,
 	}).Result()
 
-	fmt.Print(error)
+	if error != nil {
+		fmt.Print(error)
+	}
 	return result
 }

@@ -115,7 +115,7 @@ $.get('frontend/data/filename.json?_ v=yujuchong')
                 const history = `${win}/${lose}`;
                 let winp = parseInt((win / sum) * 100) + '%';
                 if (sum === 0) {
-                  winp = '0%';
+                  winp = '50%';
                 }
 
                 const avatar = `frontend/resources/pixyys/${filename}.png?_v=2`;
