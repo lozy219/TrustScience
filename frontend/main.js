@@ -65,10 +65,8 @@ if (!localStorage.getItem(notesId)) {
 $('.notes').on('click', () => {
   localStorage.setItem(notesId, true);
   $help.find('.help-text').html(`
-    因为录入数据实在太麻烦了，我在尝试让页面预加载别人已经上传过的阵容。<br><br>
-    但是没想到同时还有日亚服的玩家在使用，所以现在的数据会有些混乱。<br><br>
-    对于日亚服的玩家晚些我会加个选项单独存储一份阵容。感谢！<br><br><br>
-    另外，日亚服的凤凰火跟国服长得不一样识别不出来 >.<
+    因为录入数据实在太麻烦了，现在页面会预加载别人已经上传过的阵容啦。<br><br>
+    特别特别感谢八岐大熊的体验服数据！
   `);
   $help.show();
   $('.notes').removeClass('fresh');
@@ -90,7 +88,7 @@ $('.photo').on('click', () => {
 let nicknames = {};
 let filenames;
 
-$.get('frontend/data/nickname.json?_v=yujuchong')
+$.get('frontend/data/nickname.json?_v=yuejianhei')
   .done(data => {
     for (let key of Object.keys(data)) {
       const arr = data[key];
@@ -100,12 +98,12 @@ $.get('frontend/data/nickname.json?_v=yujuchong')
     }
   });
 
-$.get('frontend/data/filename.json?_v=yujuchong')
+$.get('frontend/data/filename.json?_v=yuejianhei')
   .done(data => {
     filenames = data;
-    $.get('frontend/data/weightedScore.json?_v=yujuchong')
+    $.get('frontend/data/weightedScore.json?_v=yuejianhei')
       .done(scores => {
-        $.get('frontend/data/data.json?_v=yujuchong')
+        $.get('frontend/data/data.json?_v=yuejianhei')
           .done(content => {
             const stats = content['A'];
             const $input = $('#main');

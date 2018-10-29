@@ -97,11 +97,12 @@ body {
   border: solid 5px rgba(0, 0, 0, 0.5);
   color: rgba(0, 0, 0, 0.5);
   padding: 5px;
-  font-size: 18px;
-  width: 15px;
+  font-size: 13px;
+  width: 24px;
   cursor: pointer;
   background: white;
   margin: 4px;
+  text-align: center;
 }
 
 .month:hover, .month.active {
