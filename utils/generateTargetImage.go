@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 	"image"
-	"image/draw"
 	"image/png"
 	"os"
 
 	"github.com/corona10/goimagehash"
+	"golang.org/x/image/draw"
 )
 
 func main() {
@@ -28,7 +28,10 @@ func main() {
 			matchSrc, err := png.Decode(matchFile)
 			checkErr(err)
 
-			generateOutput(matchSrc, name, outputFolder)
+			resizedSrc := image.NewGray(image.Rect(0, 0, 1334, 750))
+			draw.NearestNeighbor.Scale(resizedSrc, resizedSrc.Bounds(), matchSrc, matchSrc.Bounds(), draw.Src, nil)
+
+			generateOutput(resizedSrc, name, outputFolder)
 		}
 	}
 
