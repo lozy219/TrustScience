@@ -89,6 +89,18 @@ var specs = []DeviceSpec{
 		cropRightY:   1125,
 		shouldResize: true,
 	},
+	DeviceSpec{
+		name:         "iPhone XR",
+		width:        1792,
+		height:       828,
+		isDefault:    false,
+		shouldCrop:   true,
+		cropLeftX:    160,
+		cropLeftY:    0,
+		cropRightX:   1632,
+		cropRightY:   828,
+		shouldResize: true,
+	},
 }
 
 func GetDeviceSpec(size image.Point) *DeviceSpec {
