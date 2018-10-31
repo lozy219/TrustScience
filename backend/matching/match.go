@@ -1,10 +1,10 @@
 package matching
 
 import (
+	"fmt"
 	"image"
 	"image/png"
 	"os"
-	"fmt"
 	"sync"
 
 	"TrustScience/backend/record"
@@ -84,9 +84,15 @@ func Match(src image.Image) []string {
 
 	spec := GetDeviceSpec(src.Bounds().Size())
 	if spec == nil {
+		src = scaleImage(src, image.Point{1334, 750})
+	} else {
 		// try to force scale it down to iPhone 6 size
-		spec = GetDefaultDeviceSpec()
-		src = scaleImage(src, spec.Size())
+		if spec.shouldCrop {
+			src = crop(src, image.Rect(spec.cropLeftX, spec.cropLeftY, spec.cropRightX, spec.cropRightY))
+		}
+		if spec.shouldResize {
+			src = scaleImage(src, image.Point{1334, 750})
+		}
 	}
 	// fname := "./matching/test/out/testMatch.png"
 	// fout, err := os.Create(fname)
@@ -95,6 +101,7 @@ func Match(src image.Image) []string {
 	// encodeErr := png.Encode(fout, src)
 	// checkErr(encodeErr)
 
+	spec = GetDefaultDeviceSpec()
 	startLeft := spec.StartLeft()
 	startRight := spec.StartRight()
 	widthStep := spec.recWidthStep

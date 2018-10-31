@@ -7,7 +7,7 @@ import (
 	"TrustScience/backend/matching"
 	"TrustScience/backend/record"
 
-	"github.com/gin-contrib/cors"
+	// "github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -21,10 +21,10 @@ func router() *gin.Engine {
 	// gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
 
-	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"http://uygnim.com"}
+	// config := cors.DefaultConfig()
+	// config.AllowOrigins = []string{"http://uygnim.com"}
 
-	r.Use(cors.New(config))
+	// r.Use(cors.New(config))
 
 	r.POST("match", func(c *gin.Context) {
 		file, _, err := c.Request.FormFile("match")
