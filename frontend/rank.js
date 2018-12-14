@@ -70,7 +70,7 @@ const clearTable = () => {
 const renderTable = () => {
   for (let entry of statsArr) {
     const [name, stat] = entry;
-    const filename = `resources/pixyys/${filenames[name]}.png?_v=yuzaozhong`;
+    const filename = `resources/pixyys/${filenames[name]}.png?_v=baimugui`;
     const {winning, losing, sum, winP} = stat;
     $('.result .col').append('<div class=row></div>');
     $('.avatar .row').last().html(`<img src="${filename}">`);
@@ -89,7 +89,7 @@ const _refresh = () => {
 
 // event handlers
 
-$.get('data/nickname.json?_v=yuzaozhong')
+$.get('data/nickname.json?_v=baimugui')
   .done(data => {
     for (let key of Object.keys(data)) {
       const arr = data[key];
@@ -99,10 +99,10 @@ $.get('data/nickname.json?_v=yuzaozhong')
     }
   });
 
-$.get('data/filename.json?_v=yuzaozhong')
+$.get('data/filename.json?_v=baimugui')
   .done(data => {
     filenames = data;
-    $.get('data/data.json?_v=yuzaozhong')
+    $.get('data/data.json?_v=baimugui')
       .done(stats => {
         // populate stas array
         statsData = stats;

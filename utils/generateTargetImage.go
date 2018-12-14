@@ -25,6 +25,7 @@ func main() {
 			matchPath := targetFolder + name
 			matchFile, err := os.Open(matchPath)
 			checkErr(err)
+			defer matchFile.Close()
 			matchSrc, err := png.Decode(matchFile)
 			checkErr(err)
 
