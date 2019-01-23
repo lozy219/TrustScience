@@ -77,7 +77,7 @@ const renderTable = () => {
     $('.win .row').last().text(winning);
     $('.lose .row').last().text(losing);
     $('.sum .row').last().text(sum);
-    $('.winp .row').last().text(parseInt((winning / sum) * 100) + '%');
+    $('.winp .row').last().text(parseInt(winP * 100) + '%');
   }
 }
 
@@ -111,7 +111,7 @@ $.get('data/filename.json?_v=baqidashe')
           for (let entry of Object.entries(monthData[1])) {
             const entryData = entry[1];
             entryData.sum = entryData.losing + entryData.winning;
-            entryData.winP = entryData.winning / entryData.sum;
+            entryData.winP = entryData.sum === 0 ? 0 : entryData.winning / entryData.sum;
             entryData.win = entryData.winning;
             entryData.lose = entryData.losing;
           }
