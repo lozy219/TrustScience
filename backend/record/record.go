@@ -17,12 +17,17 @@ func currentSlot() string {
 	return fmt.Sprintf("%d-%d-%d", currentTime.Month(), currentTime.Day(), currentTime.Hour()/2)
 }
 
+func previousSlot() string {
+	currentTime := time.Now()
+	return fmt.Sprintf("%d-%d-%d", currentTime.Month(), currentTime.Day(), currentTime.Hour()/2-1)
+}
+
 func NewRecord(record []string) {
 	redisClient.ZIncrBy(currentSlot(), 1, strings.Join(record, " "))
 }
 
-func CurrentRecord() []string {
-	result, error := redisClient.ZRevRangeByScore(currentSlot(), redis.ZRangeBy{
+func getRecord(slot string) []string {
+	result, error := redisClient.ZRevRangeByScore(slot, redis.ZRangeBy{
 		Min:    "-inf",
 		Max:    "+inf",
 		Offset: 0,
@@ -33,4 +38,12 @@ func CurrentRecord() []string {
 		fmt.Print(error)
 	}
 	return result
+}
+
+func CurrentRecord() []string {
+	return getRecord(currentSlot())
+}
+
+func PreviousRecord() []string {
+	return getRecord(previousSlot())
 }

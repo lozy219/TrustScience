@@ -7,7 +7,7 @@ import (
 	"os"
 	"sync"
 
-	"TrustScience/backend/record"
+	"github.com/lozy219/trustscience/backend/record"
 )
 
 func calcDiff(x uint32, y uint32) uint32 {

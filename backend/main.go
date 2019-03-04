@@ -4,8 +4,8 @@ import (
 	"image/png"
 	"os"
 
-	"TrustScience/backend/matching"
-	"TrustScience/backend/record"
+	"github.com/lozy219/trustscience/backend/matching"
+	"github.com/lozy219/trustscience/backend/record"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -45,6 +45,10 @@ func router() *gin.Engine {
 
 	r.GET("latest", func(c *gin.Context) {
 		c.JSON(200, record.CurrentRecord())
+	})
+
+	r.GET("previous", func(c *gin.Context) {
+		c.JSON(200, record.PreviousRecord())
 	})
 
 	return r
