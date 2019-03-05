@@ -28,7 +28,7 @@ func NewRecord(record []string) {
 	redisClient.ZIncrBy(currentSlot(), 1, strings.Join(record, " "))
 }
 
-func getRecord(slot string) []string {
+func getRecord(slot string) string {
 	result, error := redisClient.ZRevRangeByScore(slot, redis.ZRangeBy{
 		Min:    "-inf",
 		Max:    "+inf",
@@ -39,16 +39,19 @@ func getRecord(slot string) []string {
 	if error != nil {
 		fmt.Print(error)
 	}
-	return result
+	if len(result) > 0 {
+		return result[0]
+	}
+	return ""
 }
 
 // CurrentRecord returns the record of current slot
-func CurrentRecord() []string {
+func CurrentRecord() string {
 	return getRecord(currentSlot())
 }
 
 // PreviousRecord returns the record of previous slot
-func PreviousRecord() []string {
+func PreviousRecord() string {
 	return getRecord(previousSlot())
 }
 

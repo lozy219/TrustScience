@@ -1,8 +1,8 @@
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
-// const host = 'localhost';
-const host = 'uygnim.com';
+const host = '0.0.0.0';
+// const host = 'uygnim.com';
 
 const toPercentage = value => {
   return isNaN(value) ? '???' : parseInt(value * 10000) / 100 + '%';
@@ -164,7 +164,20 @@ $.get('frontend/data/filename.json?_v=cangfengyimulian')
 
             $.get(`http://${host}:8734/latest`)
               .done(data => {
-                $('#main').val(data.join(' ')).change();
+                const record = data.record;
+                $('#main').val(record).change();
+              });
+
+            $.get(`http://${host}:8734/previous`)
+              .done(data => {
+                const record = data.record.split(' ');
+                if (record.length === 10) {
+                  for (let i = 0; i < 10; i ++) {
+                    const avatar = `frontend/resources/pixyys/${filenames[nicknames[record[i]]]}.png?_v=2`;
+                    console.log(avatar);
+                    $(`.previous .avatar-${i + 1}`).css('background-image', `url('${avatar}')`);
+                  }
+                }
               });
           });
       });

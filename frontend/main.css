@@ -38,12 +38,63 @@ body {
 
 .rank {
   bottom: 10px;
-  right: 50px;
+  /* right: 50px; */
+  right: 10px;
 }
 
 .github {
+  /* bottom: 10px;
+  right: 90px; */
+  bottom: 60px;
+  right: 10px;
+}
+
+.previous {
+  width: 200px;
   bottom: 10px;
-  right: 90px;
+  right: 50px;
+}
+
+.previous-red {
+  margin-bottom: 12px;
+}
+
+.previous-blue {
+  margin-top: 12px;
+}
+
+.previous-avatar {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-size: 32px;
+}
+
+.previous-count {
+  padding: 0 5px;
+  bottom: 10px;
+  right: 265px;
+  height: 86px;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.previous-count > div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fixed.hack-bar {
+  width: 260px;
+  height: 5px;
+  padding: 0;
+  border: none;
+  background-color: black;
+  bottom: 55px;
+  right: 50px;
 }
 
 @keyframes notes {

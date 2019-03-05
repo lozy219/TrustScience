@@ -23,10 +23,33 @@
   </script>
 </head>
 <body>
-  <div class="fixed notes">!</div>
-  <div class="fixed help">?</div>
+  <!-- REFACTOR LATER! -->
+  <!-- <div class="fixed notes">!</div> -->
+  <!-- <div class="fixed help">?</div> -->
   <div class="fixed rank">R</div>
   <div class="fixed github"><img height="17px" src="./frontend/resources/misc/github.png?_v=cangfengyimulian" ></div>
+  <div class="fixed previous">
+    <div class="previous-red">
+        <div class="previous-avatar avatar-1"></div>
+        <div class="previous-avatar avatar-2"></div>
+        <div class="previous-avatar avatar-3"></div>
+        <div class="previous-avatar avatar-4"></div>
+        <div class="previous-avatar avatar-5"></div>
+    </div>
+    <div class="previous-blue">
+        <div class="previous-avatar avatar-6"></div>
+        <div class="previous-avatar avatar-7"></div>
+        <div class="previous-avatar avatar-8"></div>
+        <div class="previous-avatar avatar-9"></div>
+        <div class="previous-avatar avatar-10"></div>
+    </div>
+  </div>
+  <div class="fixed previous-count">
+    <div class="previous-count-red">230</div>
+    <div class="previous-count-blue">120</div>
+  </div>
+  <div class="fixed hack-bar"></div>
+
   <form hidden id="upload" enctype="multipart/form-data">
     <input id="match" name="match" type="file" accept="image/*" onchange="uploadImage(event)">
   </form>
