@@ -44,11 +44,24 @@ func router() *gin.Engine {
 	})
 
 	r.GET("latest", func(c *gin.Context) {
-		c.JSON(200, record.CurrentRecord())
+		c.JSON(200, gin.H{
+			"record": record.CurrentRecord(),
+		})
 	})
 
 	r.GET("previous", func(c *gin.Context) {
-		c.JSON(200, record.PreviousRecord())
+		c.JSON(200, gin.H{
+			"record": record.PreviousRecord(),
+			"result": record.PreviousResult(),
+		})
+	})
+
+	r.GET("report/:index", func(c *gin.Context) {
+		index := c.Param("index")
+		error := record.ReportResult(index)
+		c.JSON(200, gin.H{
+			"error": error,
+		})
 	})
 
 	return r
