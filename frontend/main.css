@@ -254,6 +254,10 @@ body {
   background-color: #a8c7fb;
 }
 
+.previous-count-red, .previous-count-blue {
+  font-size: 8px;
+}
+
 .result--red > div, .result--blue > div {
   display: flex;
   align-items: center;
