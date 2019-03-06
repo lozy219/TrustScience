@@ -4,6 +4,7 @@ import (
 	"image/png"
 	"os"
 
+	"github.com/gin-contrib/cors"
 	"github.com/lozy219/trustscience/backend/matching"
 	"github.com/lozy219/trustscience/backend/record"
 
@@ -20,10 +21,10 @@ func router() *gin.Engine {
 	// gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
 
-	// config := cors.DefaultConfig()
-	// config.AllowOrigins = []string{"http://uygnim.com", "http://localhost"}
+	config := cors.DefaultConfig()
+	config.AllowOrigins = []string{"http://uygnim.com"}
 
-	// r.Use(cors.New(config))
+	r.Use(cors.New(config))
 
 	r.POST("match", func(c *gin.Context) {
 		file, _, err := c.Request.FormFile("match")

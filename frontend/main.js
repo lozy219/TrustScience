@@ -1,8 +1,8 @@
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
-const host = '0.0.0.0';
-// const host = 'uygnim.com';
+// const host = '0.0.0.0';
+const host = 'uygnim.com';
 
 const toPercentage = value => {
   return isNaN(value) ? '???' : parseInt(value * 10000) / 100 + '%';
@@ -170,7 +170,7 @@ $.get('frontend/data/filename.json?_v=qingwaciqi')
 
             $.get(`http://${host}:8734/previous`)
               .done(data => {
-                $('.previous-wrapper').removeClass('hidden');
+                $('.hidden').removeClass('hidden');
                 const record = data.record.split(' ');
                 const result = data.result;
                 if (record.length === 10) {
