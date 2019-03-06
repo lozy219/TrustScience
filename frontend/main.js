@@ -170,13 +170,32 @@ $.get('frontend/data/filename.json?_v=qingwaciqi')
 
             $.get(`http://${host}:8734/previous`)
               .done(data => {
+                $('.previous-wrapper').removeClass('hidden');
                 const record = data.record.split(' ');
+                const result = data.result;
                 if (record.length === 10) {
                   for (let i = 0; i < 10; i ++) {
                     const avatar = `frontend/resources/pixyys/${filenames[nicknames[record[i]]]}.png?_v=2`;
-                    console.log(avatar);
                     $(`.previous .avatar-${i + 1}`).css('background-image', `url('${avatar}')`);
                   }
+
+                  $('.previous-count-red').text(result[0]);
+                  $('.previous-count-blue').text(result[1]);
+
+                  $('.previous-count-red').on('click', () => {
+                    $.get(`http://${host}:8734/report/0`)
+                      .done(data => {
+                        const count = data.count;
+                        $('.previous-count-red').text(count);
+                      });
+                  });
+                  $('.previous-count-blue').on('click', () => {
+                    $.get(`http://${host}:8734/report/1`)
+                      .done(data => {
+                        const count = data.count;
+                        $('.previous-count-blue').text(count);
+                      });
+                  });
                 }
               });
           });

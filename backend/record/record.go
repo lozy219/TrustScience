@@ -56,12 +56,12 @@ func PreviousRecord() string {
 }
 
 // ReportResult increments the coresponding result for previous slot
-func ReportResult(index string) bool {
+func ReportResult(index string) (int64, bool) {
 	if index != "1" && index != "0" {
-		return true
+		return 0, true
 	}
-	redisClient.Incr(fmt.Sprintf("result.%s.%s", index, previousSlot()))
-	return false
+	count := redisClient.Incr(fmt.Sprintf("result.%s.%s", index, previousSlot())).Val()
+	return count, false
 }
 
 // PreviousResult returns the reported results of previous slot
