@@ -26,7 +26,7 @@ func main() {
             defer response.Body.Close()
 
             if response.StatusCode >= 200 && response.StatusCode <= 299 {
-                file, err := os.Create("../resources/original/" + image)
+                file, err := os.Create("../frontend/resources/original/" + image)
                 checkErr(err)
                 
                 _, err = io.Copy(file, response.Body)
