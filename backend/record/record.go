@@ -19,8 +19,8 @@ func currentSlot() string {
 }
 
 func previousSlot() string {
-	currentTime := time.Now()
-	return fmt.Sprintf("%d-%d-%d", currentTime.Month(), currentTime.Day(), currentTime.Hour()/2-1)
+	prevTime := time.Now().Add(time.Duration(-2) * time.Hour)
+	return fmt.Sprintf("%d-%d-%d", prevTime.Month(), prevTime.Day(), prevTime.Hour()/2)
 }
 
 // NewRecord increments the counter for a record in current slot
