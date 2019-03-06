@@ -3,6 +3,39 @@ const $container = $('.container');
 
 // const host = '0.0.0.0';
 const host = 'uygnim.com';
+let votingDisabled = false;
+
+const disableVoting = () => {
+  votingDisabled = true;
+  $('.pointer').addClass('hidden');
+  $('.hints').text('超谢谢你哦！');
+};
+
+const getCurrentTimeFrame = () => {
+  return parseInt((new Date()).getTime() / 1000 / 60 / 5);
+}
+
+const vote = index => {
+  if (votingDisabled) {
+    return;
+  }
+  let selector = ''
+  if (index === 0) {
+    selector = '.previous-count-red';
+  } else if (index === 1) {
+    selector = '.previous-count-blue';
+  } else {
+    return;
+  }
+
+  $.get(`http://${host}:8734/report/${index}`)
+    .done(data => {
+      const count = data.count;
+      $(selector).text(count);
+      localStorage.setItem('ts_voted', getCurrentTimeFrame());
+      disableVoting();
+    });
+}
 
 const toPercentage = value => {
   return isNaN(value) ? '???' : parseInt(value * 10000) / 100 + '%';
@@ -170,10 +203,10 @@ $.get('frontend/data/filename.json?_v=qingwaciqi')
 
             $.get(`http://${host}:8734/previous`)
               .done(data => {
-                $('.hidden').removeClass('hidden');
                 const record = data.record.split(' ');
                 const result = data.result;
                 if (record.length === 10) {
+                  $('.hidden').removeClass('hidden');
                   for (let i = 0; i < 10; i ++) {
                     const avatar = `frontend/resources/pixyys/${filenames[nicknames[record[i]]]}.png?_v=2`;
                     $(`.previous .avatar-${i + 1}`).css('background-image', `url('${avatar}')`);
@@ -182,20 +215,16 @@ $.get('frontend/data/filename.json?_v=qingwaciqi')
                   $('.previous-count-red').text(result[0]);
                   $('.previous-count-blue').text(result[1]);
 
-                  $('.previous-count-red').on('click', () => {
-                    $.get(`http://${host}:8734/report/0`)
-                      .done(data => {
-                        const count = data.count;
-                        $('.previous-count-red').text(count);
-                      });
-                  });
-                  $('.previous-count-blue').on('click', () => {
-                    $.get(`http://${host}:8734/report/1`)
-                      .done(data => {
-                        const count = data.count;
-                        $('.previous-count-blue').text(count);
-                      });
-                  });
+                  if (localStorage.getItem('ts_voted') == getCurrentTimeFrame()) {
+                    disableVoting();
+                  } else {
+                    $('.previous-count-red').on('click', () => {
+                      vote(0);
+                    });
+                    $('.previous-count-blue').on('click', () => {
+                      vote(1);
+                    });
+                  }
                 }
               });
           });
