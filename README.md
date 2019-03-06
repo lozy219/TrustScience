@@ -9,7 +9,7 @@
 - 报告结果丰富记录，一同贡献利国利民。
 
 ## 界面截图
-![](https://img.nga.178.com/attachments/mon_201903/06/eyQ5-fbczZdT1kSau-j6.png)
+![](https://img.nga.178.com/attachments/mon_201903/06/eyQ5-dnwZrT1kSfj-r9.png)
 
 ## 相关链接
 - 工具地址：http://uygnim.com/yys
