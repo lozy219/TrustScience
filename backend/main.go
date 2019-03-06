@@ -43,16 +43,11 @@ func router() *gin.Engine {
 		c.JSON(200, matching.Match(src))
 	})
 
-	r.GET("latest", func(c *gin.Context) {
+	r.GET("result", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"record": record.CurrentRecord(),
-		})
-	})
-
-	r.GET("previous", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"record": record.PreviousRecord(),
-			"result": record.PreviousResult(),
+			"current":  record.CurrentRecord(),
+			"previous": record.PreviousRecord(),
+			"result":   record.PreviousResult(),
 		})
 	})
 

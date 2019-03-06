@@ -195,15 +195,12 @@ $.get('frontend/data/filename.json?_v=qingwaciqi')
               $('.result-wrapper--blue .overview').text(toPercentage(blueTotal / scoreSum));
             });
 
-            $.get(`http://${host}:8734/latest`)
+            $.get(`http://${host}:8734/result`)
               .done(data => {
-                const record = data.record;
-                $('#main').val(record).change();
-              });
+                const current = data.current;
+                $('#main').val(current).change();
 
-            $.get(`http://${host}:8734/previous`)
-              .done(data => {
-                const record = data.record.split(' ');
+                const record = data.previous.split(' ');
                 const result = data.result;
                 if (record.length === 10) {
                   $('.hidden').removeClass('hidden');
