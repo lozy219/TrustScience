@@ -2,7 +2,10 @@ package main
 
 import (
 	"image/png"
+	"io"
 	"os"
+	"strconv"
+	"time"
 
 	"github.com/gin-contrib/cors"
 	"github.com/lozy219/trustscience/backend/matching"
@@ -18,7 +21,6 @@ func handleErr(err error) {
 }
 
 func router() *gin.Engine {
-	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
 
 	config := cors.DefaultConfig()
@@ -64,5 +66,10 @@ func router() *gin.Engine {
 }
 
 func main() {
+	gin.SetMode(gin.ReleaseMode)
+	gin.DisableConsoleColor()
+	f, _ := os.Create("/var/log/yys/yys-" + strconv.Itoa(int(time.Now().Unix())) + ".log")
+	gin.DefaultWriter = io.MultiWriter(f)
+
 	router().Run(":8734")
 }
