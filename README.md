@@ -22,7 +22,7 @@
 - 有点，上期竞猜（1.23-1.27）有100,517个用户访问了1,305,299次
 
 ## 特别鸣谢
-- [fanshicomic](https://github.com/fanshicomit)的像素画
+- [fanshicomic](https://github.com/fanshicomic)的像素画
 - [八岐大熊](https://bbs.nga.cn/nuke.php?func=ucp&uid=41751850)的体验服数据
 - 大队委的算法模型，富姐的产品支持，还有各种大佬们提供的历史数据
 
