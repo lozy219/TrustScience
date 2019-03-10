@@ -1,0 +1,6 @@
+framework module Pods_TrustScienceCore {
+  umbrella header "Pods-TrustScienceCore-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:TrustScience/TrustScience.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:TrustScienceUI/TrustScienceUI.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:TrustScienceCore/TrustScienceCore.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>

@@ -1,0 +1,419 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		306BF6851D754AB2BDAE4DBA /* Pods_TrustScience.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8F8D69516FAB3AAE1FE46F /* Pods_TrustScience.framework */; };
+		BFD0F3F5223502AA00035502 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F3F4223502AA00035502 /* AppDelegate.swift */; };
+		BFD0F3F7223502AA00035502 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F3F6223502AA00035502 /* ViewController.swift */; };
+		BFD0F3FA223502AA00035502 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD0F3F8223502AA00035502 /* Main.storyboard */; };
+		BFD0F3FC223502AA00035502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD0F3FB223502AA00035502 /* Assets.xcassets */; };
+		BFD0F3FF223502AA00035502 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD0F3FD223502AA00035502 /* LaunchScreen.storyboard */; };
+		BFD0F45D223505C200035502 /* TrustScienceUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F45C223505C200035502 /* TrustScienceUI.framework */; };
+		BFD0F45E223505C200035502 /* TrustScienceUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F45C223505C200035502 /* TrustScienceUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BFD0F461223505C800035502 /* TrustScienceCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F460223505C800035502 /* TrustScienceCore.framework */; };
+		BFD0F462223505C800035502 /* TrustScienceCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F460223505C800035502 /* TrustScienceCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BFD0F45F223505C200035502 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BFD0F45E223505C200035502 /* TrustScienceUI.framework in Embed Frameworks */,
+				BFD0F462223505C800035502 /* TrustScienceCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3D8F8D69516FAB3AAE1FE46F /* Pods_TrustScience.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrustScience.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68EDC0901490FEBB66604B89 /* Pods-TrustScience.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrustScience.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-TrustScience/Pods-TrustScience.debug.xcconfig"; sourceTree = "<group>"; };
+		BFD0F3F1223502AA00035502 /* TrustScience.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrustScience.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFD0F3F4223502AA00035502 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BFD0F3F6223502AA00035502 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BFD0F3F9223502AA00035502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BFD0F3FB223502AA00035502 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BFD0F3FE223502AA00035502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BFD0F400223502AA00035502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFD0F45C223505C200035502 /* TrustScienceUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrustScienceUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFD0F460223505C800035502 /* TrustScienceCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrustScienceCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBE10ED8A36D90AA364A276E /* Pods-TrustScience.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrustScience.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-TrustScience/Pods-TrustScience.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BFD0F3EE223502AA00035502 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFD0F461223505C800035502 /* TrustScienceCore.framework in Frameworks */,
+				BFD0F45D223505C200035502 /* TrustScienceUI.framework in Frameworks */,
+				306BF6851D754AB2BDAE4DBA /* Pods_TrustScience.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1BDCF9C62A21B468B2CC34D6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				68EDC0901490FEBB66604B89 /* Pods-TrustScience.debug.xcconfig */,
+				CBE10ED8A36D90AA364A276E /* Pods-TrustScience.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BFD0F3E8223502AA00035502 = {
+			isa = PBXGroup;
+			children = (
+				BFD0F460223505C800035502 /* TrustScienceCore.framework */,
+				BFD0F45C223505C200035502 /* TrustScienceUI.framework */,
+				BFD0F3F3223502AA00035502 /* TrustScience */,
+				BFD0F3F2223502AA00035502 /* Products */,
+				1BDCF9C62A21B468B2CC34D6 /* Pods */,
+				DFC550E23C94D2A5646EF9E0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BFD0F3F2223502AA00035502 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BFD0F3F1223502AA00035502 /* TrustScience.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BFD0F3F3223502AA00035502 /* TrustScience */ = {
+			isa = PBXGroup;
+			children = (
+				BFD0F3F4223502AA00035502 /* AppDelegate.swift */,
+				BFD0F3F6223502AA00035502 /* ViewController.swift */,
+				BFD0F3F8223502AA00035502 /* Main.storyboard */,
+				BFD0F3FB223502AA00035502 /* Assets.xcassets */,
+				BFD0F3FD223502AA00035502 /* LaunchScreen.storyboard */,
+				BFD0F400223502AA00035502 /* Info.plist */,
+			);
+			path = TrustScience;
+			sourceTree = "<group>";
+		};
+		DFC550E23C94D2A5646EF9E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D8F8D69516FAB3AAE1FE46F /* Pods_TrustScience.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BFD0F3F0223502AA00035502 /* TrustScience */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFD0F403223502AA00035502 /* Build configuration list for PBXNativeTarget "TrustScience" */;
+			buildPhases = (
+				559B1E68F4D4A40BBFB7A443 /* [CP] Check Pods Manifest.lock */,
+				BFD0F3ED223502AA00035502 /* Sources */,
+				BFD0F3EE223502AA00035502 /* Frameworks */,
+				BFD0F3EF223502AA00035502 /* Resources */,
+				BFD0F45F223505C200035502 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrustScience;
+			productName = TrustScience;
+			productReference = BFD0F3F1223502AA00035502 /* TrustScience.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFD0F3E9223502AA00035502 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = TrustScience;
+				TargetAttributes = {
+					BFD0F3F0223502AA00035502 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = BFD0F3EC223502AA00035502 /* Build configuration list for PBXProject "TrustScience" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BFD0F3E8223502AA00035502;
+			productRefGroup = BFD0F3F2223502AA00035502 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BFD0F3F0223502AA00035502 /* TrustScience */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BFD0F3EF223502AA00035502 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFD0F3FF223502AA00035502 /* LaunchScreen.storyboard in Resources */,
+				BFD0F3FC223502AA00035502 /* Assets.xcassets in Resources */,
+				BFD0F3FA223502AA00035502 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		559B1E68F4D4A40BBFB7A443 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrustScience-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BFD0F3ED223502AA00035502 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFD0F3F7223502AA00035502 /* ViewController.swift in Sources */,
+				BFD0F3F5223502AA00035502 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BFD0F3F8223502AA00035502 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFD0F3F9223502AA00035502 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BFD0F3FD223502AA00035502 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFD0F3FE223502AA00035502 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BFD0F401223502AA00035502 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BFD0F402223502AA00035502 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BFD0F404223502AA00035502 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68EDC0901490FEBB66604B89 /* Pods-TrustScience.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DJHPY9N63F;
+				INFOPLIST_FILE = TrustScience/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.trust.TrustScience;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BFD0F405223502AA00035502 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBE10ED8A36D90AA364A276E /* Pods-TrustScience.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DJHPY9N63F;
+				INFOPLIST_FILE = TrustScience/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.trust.TrustScience;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BFD0F3EC223502AA00035502 /* Build configuration list for PBXProject "TrustScience" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFD0F401223502AA00035502 /* Debug */,
+				BFD0F402223502AA00035502 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFD0F403223502AA00035502 /* Build configuration list for PBXNativeTarget "TrustScience" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFD0F404223502AA00035502 /* Debug */,
+				BFD0F405223502AA00035502 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFD0F3E9223502AA00035502 /* Project object */;
+}
