@@ -1,3 +1,4 @@
+const VERSION = 'caoshen';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
@@ -121,7 +122,7 @@ $('.photo').on('click', () => {
 let nicknames = {};
 let filenames;
 
-$.get('frontend/data/nickname.json?_v=xige')
+$.get(`frontend/data/nickname.json?_v=${VERSION}`)
   .done(data => {
     for (let key of Object.keys(data)) {
       const arr = data[key];
@@ -131,12 +132,12 @@ $.get('frontend/data/nickname.json?_v=xige')
     }
   });
 
-$.get('frontend/data/filename.json?_v=xige')
+$.get(`frontend/data/filename.json?_v=${VERSION}`)
   .done(data => {
     filenames = data;
-    $.get('frontend/data/weightedScore.json?_v=xige')
+    $.get(`frontend/data/weightedScore.json?_v=${VERSION}`)
       .done(scores => {
-        $.get('frontend/data/data.json?_v=xige')
+        $.get(`frontend/data/data.json?_v=${VERSION}`)
           .done(content => {
             const stats = content['A'];
             const $input = $('#main');
@@ -172,7 +173,7 @@ $.get('frontend/data/filename.json?_v=xige')
                   winp = '50%';
                 }
 
-                const avatar = `frontend/resources/pixyys/${filename}.png?_v=2`;
+                const avatar = `frontend/resources/pixyys/${filename}.png?_v=3`;
                 const placeholder = 'frontend/resources/pixyys/yxdm.png'
                 $.get(avatar)
                   .done(() => {
@@ -205,7 +206,7 @@ $.get('frontend/data/filename.json?_v=xige')
                 if (record.length === 10) {
                   $('.hidden').removeClass('hidden');
                   for (let i = 0; i < 10; i ++) {
-                    const avatar = `frontend/resources/pixyys/${filenames[nicknames[record[i]]]}.png?_v=2`;
+                    const avatar = `frontend/resources/pixyys/${filenames[nicknames[record[i]]]}.png?_v=3`;
                     $(`.previous .avatar-${i + 1}`).css('background-image', `url('${avatar}')`);
                   }
 

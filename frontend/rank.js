@@ -1,3 +1,4 @@
+const VERSION = 'caoshen';
 let nicknames = {};
 let filenames;
 let statsData = {};
@@ -70,7 +71,7 @@ const clearTable = () => {
 const renderTable = () => {
   for (let entry of statsArr) {
     const [name, stat] = entry;
-    const filename = `resources/pixyys/${filenames[name]}.png?_v=xige`;
+    const filename = `resources/pixyys/${filenames[name]}.png?_v=${VERSION}`;
     const {winning, losing, sum, winP} = stat;
     $('.result .col').append('<div class=row></div>');
     $('.avatar .row').last().html(`<img src="${filename}">`);
@@ -89,7 +90,7 @@ const _refresh = () => {
 
 // event handlers
 
-$.get('data/nickname.json?_v=xige')
+$.get(`data/nickname.json?_v=${VERSION}`)
   .done(data => {
     for (let key of Object.keys(data)) {
       const arr = data[key];
@@ -99,10 +100,10 @@ $.get('data/nickname.json?_v=xige')
     }
   });
 
-$.get('data/filename.json?_v=xige')
+$.get(`data/filename.json?_v=${VERSION}`)
   .done(data => {
     filenames = data;
-    $.get('data/data.json?_v=xige')
+    $.get(`data/data.json?_v=${VERSION}`)
       .done(stats => {
         // populate stas array
         statsData = stats;
