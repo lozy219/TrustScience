@@ -25,7 +25,6 @@ func router() *gin.Engine {
 
 	config := cors.DefaultConfig()
 	config.AllowOrigins = []string{"http://uygnim.com"}
-
 	r.Use(cors.New(config))
 
 	r.POST("match", func(c *gin.Context) {
@@ -70,6 +69,6 @@ func main() {
 	gin.DisableConsoleColor()
 	f, _ := os.Create("/var/log/yys/yys-" + strconv.Itoa(int(time.Now().Unix())) + ".log")
 	gin.DefaultWriter = io.MultiWriter(f)
-
-	router().Run(":8734")
+	matching.PreloadImages()
+	router().Run(":9264")
 }

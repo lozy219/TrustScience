@@ -2,8 +2,8 @@ const VERSION = 'caoshen';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
-// const host = '0.0.0.0';
-const host = 'uygnim.com';
+const host = '0.0.0.0';
+// const host = 'uygnim.com';
 let votingDisabled = false;
 
 const disableVoting = () => {
@@ -198,6 +198,7 @@ $.get(`frontend/data/filename.json?_v=${VERSION}`)
 
             $.get(`http://${host}:8734/result`)
               .done(data => {
+                console.log(data);
                 const current = data.current;
                 $('#main').val(current).change();
 
