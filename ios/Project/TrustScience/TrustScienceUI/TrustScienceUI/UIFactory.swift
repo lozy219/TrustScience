@@ -7,11 +7,12 @@
 //
 
 import Foundation
-import TrustScienceUI
+import TrustScienceCore
 
-class UIFactory {
+public class UIFactory {
     struct Dependencies {
         let managerUI: UIManager
+        let managerHTTP: HTTPManager
     }
     
     let deps: Dependencies
@@ -20,6 +21,6 @@ class UIFactory {
     }
     
     func buildMainViewController() -> ViewController {
-        return ViewController()
+        return ViewController(factoryUI: self)
     }
 }

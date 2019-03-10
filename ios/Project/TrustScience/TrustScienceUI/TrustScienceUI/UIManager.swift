@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import TrustScienceUI
 import TrustScienceCore
 
-class UIManager: Manager {
+public class UIManager: Manager {
     
     private let window: UIWindow
     

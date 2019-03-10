@@ -18,10 +18,7 @@
 		BFD0F47222350A2C00035502 /* TrustScienceCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F46D223509FD00035502 /* TrustScienceCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BFD0F47322350A2C00035502 /* TrustScienceUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F46F223509FD00035502 /* TrustScienceUI.framework */; };
 		BFD0F47422350A2C00035502 /* TrustScienceUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F46F223509FD00035502 /* TrustScienceUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BFD0F47722350B3100035502 /* UIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F47622350B3100035502 /* UIManager.swift */; };
-		BFD0F47922350B4600035502 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F47822350B4600035502 /* UIFactory.swift */; };
-		BFD0F47B22350B6700035502 /* ClientStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F47A22350B6700035502 /* ClientStream.swift */; };
-		BFD0F47D22350B6D00035502 /* ClientSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F47C22350B6D00035502 /* ClientSession.swift */; };
+		E06E6C76B343A4A15DC78247 /* Pods_TrustScience.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205A36888273B3D34E23901E /* Pods_TrustScience.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,7 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3D8F8D69516FAB3AAE1FE46F /* Pods_TrustScience.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrustScience.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		205A36888273B3D34E23901E /* Pods_TrustScience.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrustScience.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68EDC0901490FEBB66604B89 /* Pods-TrustScience.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrustScience.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-TrustScience/Pods-TrustScience.debug.xcconfig"; sourceTree = "<group>"; };
 		BFD0F3F1223502AA00035502 /* TrustScience.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrustScience.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD0F3F4223502AA00035502 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,10 +49,6 @@
 		BFD0F46B223509DB00035502 /* Pods_TrustScienceUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_TrustScienceUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD0F46D223509FD00035502 /* TrustScienceCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrustScienceCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD0F46F223509FD00035502 /* TrustScienceUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrustScienceUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BFD0F47622350B3100035502 /* UIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIManager.swift; sourceTree = "<group>"; };
-		BFD0F47822350B4600035502 /* UIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFactory.swift; sourceTree = "<group>"; };
-		BFD0F47A22350B6700035502 /* ClientStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientStream.swift; sourceTree = "<group>"; };
-		BFD0F47C22350B6D00035502 /* ClientSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSession.swift; sourceTree = "<group>"; };
 		CBE10ED8A36D90AA364A276E /* Pods-TrustScience.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrustScience.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-TrustScience/Pods-TrustScience.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +62,7 @@
 				BFD0F470223509FD00035502 /* TrustScienceUI.framework in Frameworks */,
 				BFD0F46A223509DB00035502 /* Pods_TrustScienceCore.framework in Frameworks */,
 				BFD0F47122350A2C00035502 /* TrustScienceCore.framework in Frameworks */,
+				E06E6C76B343A4A15DC78247 /* Pods_TrustScience.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,10 +112,6 @@
 		BFD0F47522350B1400035502 /* Setup */ = {
 			isa = PBXGroup;
 			children = (
-				BFD0F47622350B3100035502 /* UIManager.swift */,
-				BFD0F47822350B4600035502 /* UIFactory.swift */,
-				BFD0F47A22350B6700035502 /* ClientStream.swift */,
-				BFD0F47C22350B6D00035502 /* ClientSession.swift */,
 			);
 			path = Setup;
 			sourceTree = "<group>";
@@ -133,7 +123,7 @@
 				BFD0F46F223509FD00035502 /* TrustScienceUI.framework */,
 				BFD0F469223509DB00035502 /* Pods_TrustScienceCore.framework */,
 				BFD0F46B223509DB00035502 /* Pods_TrustScienceUI.framework */,
-				3D8F8D69516FAB3AAE1FE46F /* Pods_TrustScience.framework */,
+				205A36888273B3D34E23901E /* Pods_TrustScience.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -236,11 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFD0F47922350B4600035502 /* UIFactory.swift in Sources */,
 				BFD0F3F5223502AA00035502 /* AppDelegate.swift in Sources */,
-				BFD0F47722350B3100035502 /* UIManager.swift in Sources */,
-				BFD0F47B22350B6700035502 /* ClientStream.swift in Sources */,
-				BFD0F47D22350B6D00035502 /* ClientSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,17 @@ import TrustScienceCore
 
 public class ViewController: UIViewController {
 
+    public let factoryUI: UIFactory
+    
+    init(factoryUI: UIFactory) {
+        self.factoryUI = factoryUI
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
 

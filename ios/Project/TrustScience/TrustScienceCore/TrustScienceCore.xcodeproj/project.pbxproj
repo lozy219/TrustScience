@@ -12,6 +12,9 @@
 		BFD0F47F22350CD300035502 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F47E22350CD300035502 /* Manager.swift */; };
 		BFD0F48122350DA500035502 /* LaunchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F48022350DA500035502 /* LaunchManager.swift */; };
 		BFD0F48322350F1100035502 /* CommonDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F48222350F1100035502 /* CommonDefine.swift */; };
+		BFD0F487223514F900035502 /* HTTPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F486223514F900035502 /* HTTPManager.swift */; };
+		BFD0F48B2235166100035502 /* APIRequestBuildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F48A2235166100035502 /* APIRequestBuildable.swift */; };
+		BFD0F48D2235167F00035502 /* ResultRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F48C2235167F00035502 /* ResultRequestBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		BFD0F47E22350CD300035502 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		BFD0F48022350DA500035502 /* LaunchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchManager.swift; sourceTree = "<group>"; };
 		BFD0F48222350F1100035502 /* CommonDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDefine.swift; sourceTree = "<group>"; };
+		BFD0F486223514F900035502 /* HTTPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPManager.swift; sourceTree = "<group>"; };
+		BFD0F48A2235166100035502 /* APIRequestBuildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestBuildable.swift; sourceTree = "<group>"; };
+		BFD0F48C2235167F00035502 /* ResultRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRequestBuilder.swift; sourceTree = "<group>"; };
 		C1707BDA2D939DE5F0B02D8A /* Pods-TrustScienceCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrustScienceCore.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-TrustScienceCore/Pods-TrustScienceCore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,13 +73,32 @@
 		BFD0F451223504AA00035502 /* TrustScienceCore */ = {
 			isa = PBXGroup;
 			children = (
+				BFD0F489223515D700035502 /* API */,
+				BFD0F485223513E200035502 /* Managers */,
 				BFD0F452223504AA00035502 /* TrustScienceCore.h */,
 				BFD0F453223504AA00035502 /* Info.plist */,
 				BFD0F48222350F1100035502 /* CommonDefine.swift */,
-				BFD0F47E22350CD300035502 /* Manager.swift */,
-				BFD0F48022350DA500035502 /* LaunchManager.swift */,
 			);
 			path = TrustScienceCore;
+			sourceTree = "<group>";
+		};
+		BFD0F485223513E200035502 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BFD0F47E22350CD300035502 /* Manager.swift */,
+				BFD0F48022350DA500035502 /* LaunchManager.swift */,
+				BFD0F486223514F900035502 /* HTTPManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		BFD0F489223515D700035502 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BFD0F48A2235166100035502 /* APIRequestBuildable.swift */,
+				BFD0F48C2235167F00035502 /* ResultRequestBuilder.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		C3555701FAFF42F15561CB64 /* Pods */ = {
@@ -193,6 +218,9 @@
 				BFD0F48122350DA500035502 /* LaunchManager.swift in Sources */,
 				BFD0F47F22350CD300035502 /* Manager.swift in Sources */,
 				BFD0F48322350F1100035502 /* CommonDefine.swift in Sources */,
+				BFD0F48B2235166100035502 /* APIRequestBuildable.swift in Sources */,
+				BFD0F48D2235167F00035502 /* ResultRequestBuilder.swift in Sources */,
+				BFD0F487223514F900035502 /* HTTPManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

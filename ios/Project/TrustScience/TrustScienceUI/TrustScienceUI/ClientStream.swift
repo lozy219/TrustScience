@@ -8,14 +8,17 @@
 
 import UIKit
 
-class ClientStream {
-    struct Dependencies {
-        let window: UIWindow
+public class ClientStream {
+    public struct Dependencies {
+        public let window: UIWindow
+        public init(window: UIWindow) {
+            self.window = window
+        }
     }
     
-    static private(set) var shared: ClientStream!
+    public static private(set) var shared: ClientStream!
     static var session: ClientSession { return shared.session }
-    static func setup(with dependencies: Dependencies) {
+    public static func setup(with dependencies: Dependencies) {
         guard shared == nil else {
             assertionFailure()
             return
@@ -27,13 +30,13 @@ class ClientStream {
     private let dependencies: Dependencies
     private(set) var session: ClientSession
     
-    init(dependencies: Dependencies) {
+    public init(dependencies: Dependencies) {
         self.dependencies = dependencies
         self.session = ClientSession(window: dependencies.window)
         self.session.delegate = self
     }
     
-    func startSession() {
+    public func startSession() {
         self.session.start()
     }
 }

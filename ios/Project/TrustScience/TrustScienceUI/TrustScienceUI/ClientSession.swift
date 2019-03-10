@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TrustScienceUI
 import TrustScienceCore
 
 protocol ClientSessionDelegate {
@@ -23,6 +22,7 @@ class ClientSession {
     
     private let managerUI: UIManager
     private let managerLaunch: LaunchManager
+    private let managerHTTP: HTTPManager
     
     let factoryUI: UIFactory
     
@@ -38,8 +38,12 @@ class ClientSession {
         managerLaunch = LaunchManager()
         managers.append(managerLaunch)
         
+        managerHTTP = HTTPManager()
+        managers.append(managerHTTP)
+        
         let deps = UIFactory.Dependencies(
-            managerUI: managerUI
+            managerUI: managerUI,
+            managerHTTP: managerHTTP
         )
         
         factoryUI = UIFactory(deps: deps)

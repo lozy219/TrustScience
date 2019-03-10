@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		BFD0F43F2235046000035502 /* TrustScienceUI.h in Headers */ = {isa = PBXBuildFile; fileRef = BFD0F43D2235046000035502 /* TrustScienceUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BFD0F4642235060E00035502 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F4632235060E00035502 /* ViewController.swift */; };
+		BFD0F48F22351D6200035502 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F48E22351D5F00035502 /* UIFactory.swift */; };
+		BFD0F49122351D7200035502 /* UIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F49022351D7200035502 /* UIManager.swift */; };
+		BFD0F49422351DF800035502 /* ClientStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F49222351DF700035502 /* ClientStream.swift */; };
+		BFD0F49522351DF800035502 /* ClientSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F49322351DF800035502 /* ClientSession.swift */; };
+		BFD0F49922351F6500035502 /* TrustScienceCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F49822351F6500035502 /* TrustScienceCore.framework */; };
 		E366225A3B446CA6F2D40424 /* Pods_TrustScienceUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6031AED4F3EF4B92F342D3CD /* Pods_TrustScienceUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,6 +25,11 @@
 		BFD0F43D2235046000035502 /* TrustScienceUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrustScienceUI.h; sourceTree = "<group>"; };
 		BFD0F43E2235046000035502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFD0F4632235060E00035502 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BFD0F48E22351D5F00035502 /* UIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFactory.swift; sourceTree = "<group>"; };
+		BFD0F49022351D7200035502 /* UIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIManager.swift; sourceTree = "<group>"; };
+		BFD0F49222351DF700035502 /* ClientStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientStream.swift; sourceTree = "<group>"; };
+		BFD0F49322351DF800035502 /* ClientSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSession.swift; sourceTree = "<group>"; };
+		BFD0F49822351F6500035502 /* TrustScienceCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrustScienceCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD0F49922351F6500035502 /* TrustScienceCore.framework in Frameworks */,
 				E366225A3B446CA6F2D40424 /* Pods_TrustScienceUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -37,6 +48,7 @@
 		AAA6DFDA5883940EF655B65D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFD0F49822351F6500035502 /* TrustScienceCore.framework */,
 				6031AED4F3EF4B92F342D3CD /* Pods_TrustScienceUI.framework */,
 			);
 			name = Frameworks;
@@ -65,6 +77,10 @@
 			children = (
 				BFD0F43D2235046000035502 /* TrustScienceUI.h */,
 				BFD0F43E2235046000035502 /* Info.plist */,
+				BFD0F49222351DF700035502 /* ClientStream.swift */,
+				BFD0F49322351DF800035502 /* ClientSession.swift */,
+				BFD0F49022351D7200035502 /* UIManager.swift */,
+				BFD0F48E22351D5F00035502 /* UIFactory.swift */,
 				BFD0F4632235060E00035502 /* ViewController.swift */,
 			);
 			path = TrustScienceUI;
@@ -184,7 +200,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD0F49522351DF800035502 /* ClientSession.swift in Sources */,
+				BFD0F49422351DF800035502 /* ClientStream.swift in Sources */,
+				BFD0F48F22351D6200035502 /* UIFactory.swift in Sources */,
 				BFD0F4642235060E00035502 /* ViewController.swift in Sources */,
+				BFD0F49122351D7200035502 /* UIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

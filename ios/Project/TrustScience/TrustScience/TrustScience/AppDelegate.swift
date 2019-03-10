@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TrustScienceUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
