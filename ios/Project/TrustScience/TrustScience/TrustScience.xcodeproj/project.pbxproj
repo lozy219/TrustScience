@@ -7,16 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		306BF6851D754AB2BDAE4DBA /* Pods_TrustScience.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8F8D69516FAB3AAE1FE46F /* Pods_TrustScience.framework */; };
 		BFD0F3F5223502AA00035502 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F3F4223502AA00035502 /* AppDelegate.swift */; };
-		BFD0F3F7223502AA00035502 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F3F6223502AA00035502 /* ViewController.swift */; };
 		BFD0F3FA223502AA00035502 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD0F3F8223502AA00035502 /* Main.storyboard */; };
 		BFD0F3FC223502AA00035502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD0F3FB223502AA00035502 /* Assets.xcassets */; };
 		BFD0F3FF223502AA00035502 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD0F3FD223502AA00035502 /* LaunchScreen.storyboard */; };
-		BFD0F45D223505C200035502 /* TrustScienceUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F45C223505C200035502 /* TrustScienceUI.framework */; };
-		BFD0F45E223505C200035502 /* TrustScienceUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F45C223505C200035502 /* TrustScienceUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BFD0F461223505C800035502 /* TrustScienceCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F460223505C800035502 /* TrustScienceCore.framework */; };
-		BFD0F462223505C800035502 /* TrustScienceCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F460223505C800035502 /* TrustScienceCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BFD0F46A223509DB00035502 /* Pods_TrustScienceCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F469223509DB00035502 /* Pods_TrustScienceCore.framework */; };
+		BFD0F46E223509FD00035502 /* TrustScienceCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F46D223509FD00035502 /* TrustScienceCore.framework */; };
+		BFD0F470223509FD00035502 /* TrustScienceUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F46F223509FD00035502 /* TrustScienceUI.framework */; };
+		BFD0F47122350A2C00035502 /* TrustScienceCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F46D223509FD00035502 /* TrustScienceCore.framework */; };
+		BFD0F47222350A2C00035502 /* TrustScienceCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F46D223509FD00035502 /* TrustScienceCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BFD0F47322350A2C00035502 /* TrustScienceUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F46F223509FD00035502 /* TrustScienceUI.framework */; };
+		BFD0F47422350A2C00035502 /* TrustScienceUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BFD0F46F223509FD00035502 /* TrustScienceUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BFD0F47722350B3100035502 /* UIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F47622350B3100035502 /* UIManager.swift */; };
+		BFD0F47922350B4600035502 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F47822350B4600035502 /* UIFactory.swift */; };
+		BFD0F47B22350B6700035502 /* ClientStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F47A22350B6700035502 /* ClientStream.swift */; };
+		BFD0F47D22350B6D00035502 /* ClientSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F47C22350B6D00035502 /* ClientSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +31,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BFD0F45E223505C200035502 /* TrustScienceUI.framework in Embed Frameworks */,
-				BFD0F462223505C800035502 /* TrustScienceCore.framework in Embed Frameworks */,
+				BFD0F47422350A2C00035502 /* TrustScienceUI.framework in Embed Frameworks */,
+				BFD0F47222350A2C00035502 /* TrustScienceCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -39,13 +44,18 @@
 		68EDC0901490FEBB66604B89 /* Pods-TrustScience.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrustScience.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-TrustScience/Pods-TrustScience.debug.xcconfig"; sourceTree = "<group>"; };
 		BFD0F3F1223502AA00035502 /* TrustScience.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrustScience.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD0F3F4223502AA00035502 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BFD0F3F6223502AA00035502 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BFD0F3F9223502AA00035502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BFD0F3FB223502AA00035502 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFD0F3FE223502AA00035502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BFD0F400223502AA00035502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BFD0F45C223505C200035502 /* TrustScienceUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrustScienceUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BFD0F460223505C800035502 /* TrustScienceCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrustScienceCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFD0F469223509DB00035502 /* Pods_TrustScienceCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_TrustScienceCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFD0F46B223509DB00035502 /* Pods_TrustScienceUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_TrustScienceUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFD0F46D223509FD00035502 /* TrustScienceCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrustScienceCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFD0F46F223509FD00035502 /* TrustScienceUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrustScienceUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFD0F47622350B3100035502 /* UIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIManager.swift; sourceTree = "<group>"; };
+		BFD0F47822350B4600035502 /* UIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFactory.swift; sourceTree = "<group>"; };
+		BFD0F47A22350B6700035502 /* ClientStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientStream.swift; sourceTree = "<group>"; };
+		BFD0F47C22350B6D00035502 /* ClientSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSession.swift; sourceTree = "<group>"; };
 		CBE10ED8A36D90AA364A276E /* Pods-TrustScience.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrustScience.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-TrustScience/Pods-TrustScience.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,9 +64,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFD0F461223505C800035502 /* TrustScienceCore.framework in Frameworks */,
-				BFD0F45D223505C200035502 /* TrustScienceUI.framework in Frameworks */,
-				306BF6851D754AB2BDAE4DBA /* Pods_TrustScience.framework in Frameworks */,
+				BFD0F47322350A2C00035502 /* TrustScienceUI.framework in Frameworks */,
+				BFD0F46E223509FD00035502 /* TrustScienceCore.framework in Frameworks */,
+				BFD0F470223509FD00035502 /* TrustScienceUI.framework in Frameworks */,
+				BFD0F46A223509DB00035502 /* Pods_TrustScienceCore.framework in Frameworks */,
+				BFD0F47122350A2C00035502 /* TrustScienceCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,8 +87,6 @@
 		BFD0F3E8223502AA00035502 = {
 			isa = PBXGroup;
 			children = (
-				BFD0F460223505C800035502 /* TrustScienceCore.framework */,
-				BFD0F45C223505C200035502 /* TrustScienceUI.framework */,
 				BFD0F3F3223502AA00035502 /* TrustScience */,
 				BFD0F3F2223502AA00035502 /* Products */,
 				1BDCF9C62A21B468B2CC34D6 /* Pods */,
@@ -95,8 +105,8 @@
 		BFD0F3F3223502AA00035502 /* TrustScience */ = {
 			isa = PBXGroup;
 			children = (
+				BFD0F47522350B1400035502 /* Setup */,
 				BFD0F3F4223502AA00035502 /* AppDelegate.swift */,
-				BFD0F3F6223502AA00035502 /* ViewController.swift */,
 				BFD0F3F8223502AA00035502 /* Main.storyboard */,
 				BFD0F3FB223502AA00035502 /* Assets.xcassets */,
 				BFD0F3FD223502AA00035502 /* LaunchScreen.storyboard */,
@@ -105,9 +115,24 @@
 			path = TrustScience;
 			sourceTree = "<group>";
 		};
+		BFD0F47522350B1400035502 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				BFD0F47622350B3100035502 /* UIManager.swift */,
+				BFD0F47822350B4600035502 /* UIFactory.swift */,
+				BFD0F47A22350B6700035502 /* ClientStream.swift */,
+				BFD0F47C22350B6D00035502 /* ClientSession.swift */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
 		DFC550E23C94D2A5646EF9E0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFD0F46D223509FD00035502 /* TrustScienceCore.framework */,
+				BFD0F46F223509FD00035502 /* TrustScienceUI.framework */,
+				BFD0F469223509DB00035502 /* Pods_TrustScienceCore.framework */,
+				BFD0F46B223509DB00035502 /* Pods_TrustScienceUI.framework */,
 				3D8F8D69516FAB3AAE1FE46F /* Pods_TrustScience.framework */,
 			);
 			name = Frameworks;
@@ -211,8 +236,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFD0F3F7223502AA00035502 /* ViewController.swift in Sources */,
+				BFD0F47922350B4600035502 /* UIFactory.swift in Sources */,
 				BFD0F3F5223502AA00035502 /* AppDelegate.swift in Sources */,
+				BFD0F47722350B3100035502 /* UIManager.swift in Sources */,
+				BFD0F47B22350B6700035502 /* ClientStream.swift in Sources */,
+				BFD0F47D22350B6D00035502 /* ClientSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

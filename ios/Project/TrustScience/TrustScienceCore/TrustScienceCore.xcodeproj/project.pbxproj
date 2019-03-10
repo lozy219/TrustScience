@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0F183652E4BD1DA3311AD3C9 /* Pods_TrustScienceCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD69F9B28C544D4354B4814 /* Pods_TrustScienceCore.framework */; };
 		BFD0F454223504AA00035502 /* TrustScienceCore.h in Headers */ = {isa = PBXBuildFile; fileRef = BFD0F452223504AA00035502 /* TrustScienceCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFD0F47F22350CD300035502 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F47E22350CD300035502 /* Manager.swift */; };
+		BFD0F48122350DA500035502 /* LaunchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F48022350DA500035502 /* LaunchManager.swift */; };
+		BFD0F48322350F1100035502 /* CommonDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0F48222350F1100035502 /* CommonDefine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +20,9 @@
 		BFD0F44F223504A900035502 /* TrustScienceCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TrustScienceCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD0F452223504AA00035502 /* TrustScienceCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrustScienceCore.h; sourceTree = "<group>"; };
 		BFD0F453223504AA00035502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFD0F47E22350CD300035502 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		BFD0F48022350DA500035502 /* LaunchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchManager.swift; sourceTree = "<group>"; };
+		BFD0F48222350F1100035502 /* CommonDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDefine.swift; sourceTree = "<group>"; };
 		C1707BDA2D939DE5F0B02D8A /* Pods-TrustScienceCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrustScienceCore.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-TrustScienceCore/Pods-TrustScienceCore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +69,9 @@
 			children = (
 				BFD0F452223504AA00035502 /* TrustScienceCore.h */,
 				BFD0F453223504AA00035502 /* Info.plist */,
+				BFD0F48222350F1100035502 /* CommonDefine.swift */,
+				BFD0F47E22350CD300035502 /* Manager.swift */,
+				BFD0F48022350DA500035502 /* LaunchManager.swift */,
 			);
 			path = TrustScienceCore;
 			sourceTree = "<group>";
@@ -120,6 +129,7 @@
 				TargetAttributes = {
 					BFD0F44E223504A900035502 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -180,6 +190,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD0F48122350DA500035502 /* LaunchManager.swift in Sources */,
+				BFD0F47F22350CD300035502 /* Manager.swift in Sources */,
+				BFD0F48322350F1100035502 /* CommonDefine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +325,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C1707BDA2D939DE5F0B02D8A /* Pods-TrustScienceCore.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -329,6 +343,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.trust.TrustScienceCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -338,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 325844BD486837EFA7115606 /* Pods-TrustScienceCore.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
