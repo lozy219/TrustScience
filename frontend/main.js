@@ -1,4 +1,4 @@
-const VERSION = 'caoshen';
+const VERSION = 'luqiao';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
