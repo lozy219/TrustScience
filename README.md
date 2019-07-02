@@ -12,7 +12,7 @@
 ![](https://img.nga.178.com/attachments/mon_201903/06/eyQ5-dnwZrT1kSfj-r9.png)
 
 ## 相关链接
-- 工具地址：http://uygnim.com/yys
+- 工具地址：https://uygnim.com/yys
 - 最早的NGA讨论楼： http://bbs.ngacn.cc/read.php?tid=14044587
 
 ## 这好用吗？

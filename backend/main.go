@@ -24,7 +24,7 @@ func router() *gin.Engine {
 	r := gin.Default()
 
 	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"http://uygnim.com"}
+	config.AllowOrigins = []string{"https://uygnim.com"}
 
 	r.Use(cors.New(config))
 

@@ -29,7 +29,7 @@ const vote = index => {
     return;
   }
 
-  $.get(`http://${host}:8734/report/${index}`)
+  $.get(`https://${host}:8734/report/${index}`)
     .done(data => {
       const count = data.count;
       $(selector).text(count);
@@ -108,7 +108,7 @@ $('.notes').on('click', () => {
 });
 
 $('.rank').on('click', () => {
-  window.open('http://uygnim.com/yys/frontend/rank.html');
+  window.open('https://uygnim.com/yys/frontend/rank.html');
 });
 
 $('.github').on('click', () => {
