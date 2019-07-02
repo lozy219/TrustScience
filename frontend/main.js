@@ -58,7 +58,7 @@ const uploadImage = event => {
   $input = $('#main');
   $input.val('载入中...');
   $.ajax({
-    url: `http://${host}:8734/match`,
+    url: `https://${host}:8734/match`,
     method: 'POST',
     timeout: 200000,
     data: new FormData($('#upload')[0]),
@@ -196,7 +196,7 @@ $.get(`frontend/data/filename.json?_v=${VERSION}`)
               $('.result-wrapper--blue .overview').text(toPercentage(blueTotal / scoreSum));
             });
 
-            $.get(`http://${host}:8734/result`)
+            $.get(`https://${host}:8734/result`)
               .done(data => {
                 const current = data.current;
                 $('#main').val(current).change();
