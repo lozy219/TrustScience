@@ -1,4 +1,4 @@
-const VERSION = 'luqiao';
+const VERSION = 'chux';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
