@@ -1,4 +1,4 @@
-const VERSION = 'chux';
+const VERSION = 'linpi';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 

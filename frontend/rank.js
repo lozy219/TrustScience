@@ -1,4 +1,4 @@
-const VERSION = 'chux';
+const VERSION = 'linpi';
 let nicknames = {};
 let filenames;
 let statsData = {};
