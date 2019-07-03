@@ -2,13 +2,13 @@ package matching
 
 import (
 	"fmt"
+	"github.com/lozy219/trustscience/backend/record"
 	"image"
 	"image/png"
 	"os"
-	"sync"
-
-	"github.com/lozy219/trustscience/backend/record"
 )
+
+var cachedImages = map[string]image.Image{}
 
 func calcDiff(x uint32, y uint32) uint32 {
 	if x < y {
@@ -42,39 +42,16 @@ func findDiff(src image.Image, target image.Image) uint32 {
 }
 
 func findMatch(src image.Image) string {
-	targetFolder := "avatars/"
-	dir, err := os.Open(targetFolder)
-	checkErr(err)
-	defer dir.Close()
-
 	var minDiff uint32 = 100000000
 	minDiffName := ""
 
-	var wg sync.WaitGroup
-	list, _ := dir.Readdirnames(0)
-	for _, name := range list {
-		wg.Add(1)
-		go func(name string) {
-			cursor := len(name) - 4
-			if len(name) > 4 && name[cursor:] == ".PNG" {
-				target := targetFolder + name
-				tInfile, err := os.Open(target)
-				checkErr(err)
-				defer tInfile.Close()
-				tSrc, err := png.Decode(tInfile)
-				checkErr(err)
-
-				diff := findDiff(src, tSrc)
-				if diff < minDiff {
-					minDiff = diff
-					minDiffName = name
-				}
-			}
-			wg.Done()
-		}(name)
+	for name, tSrc := range cachedImages {
+		diff := findDiff(src, tSrc)
+		if diff < minDiff {
+			minDiff = diff
+			minDiffName = name
+		}
 	}
-	wg.Wait()
-
 	return minDiffName
 }
 
@@ -147,4 +124,25 @@ func Match(src image.Image) []string {
 	fmt.Print(lst)
 
 	return lst
+}
+
+func Init() {
+	targetFolder := "avatars/"
+	dir, err := os.Open(targetFolder)
+	checkErr(err)
+	defer dir.Close()
+
+	list, _ := dir.Readdirnames(0)
+	for _, name := range list {
+		cursor := len(name) - 4
+		if len(name) > 4 && name[cursor:] == ".PNG" {
+			target := targetFolder + name
+			tInfile, err := os.Open(target)
+			checkErr(err)
+			defer tInfile.Close()
+			tSrc, err := png.Decode(tInfile)
+			checkErr(err)
+			cachedImages[name] = tSrc
+		}
+	}
 }

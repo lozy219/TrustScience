@@ -55,9 +55,9 @@ func router() *gin.Engine {
 
 	r.GET("report/:index", func(c *gin.Context) {
 		index := c.Param("index")
-		count, error := record.ReportResult(index)
+		count, err := record.ReportResult(index)
 		c.JSON(200, gin.H{
-			"error": error,
+			"error": err,
 			"count": count,
 		})
 	})
@@ -66,6 +66,7 @@ func router() *gin.Engine {
 }
 
 func main() {
+	matching.Init()
 	gin.SetMode(gin.ReleaseMode)
 	gin.DisableConsoleColor()
 	f, _ := os.Create("/var/log/yys/yys-" + strconv.Itoa(int(time.Now().Unix())) + ".log")
