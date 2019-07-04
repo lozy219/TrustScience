@@ -1,4 +1,4 @@
-const VERSION = 'linpi';
+const VERSION = 'jisuanji';
 let nicknames = {};
 let filenames;
 let statsData = {};

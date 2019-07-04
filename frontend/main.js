@@ -1,4 +1,4 @@
-const VERSION = 'linpi';
+const VERSION = 'jisuanji';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
