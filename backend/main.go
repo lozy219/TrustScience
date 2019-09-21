@@ -8,10 +8,9 @@ import (
 	"time"
 
 	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
 	"github.com/lozy219/trustscience/backend/matching"
 	"github.com/lozy219/trustscience/backend/record"
-
-	"github.com/gin-gonic/gin"
 )
 
 func handleErr(err error) {
@@ -66,7 +65,6 @@ func router() *gin.Engine {
 }
 
 func main() {
-	matching.Init()
 	gin.SetMode(gin.ReleaseMode)
 	gin.DisableConsoleColor()
 	f, _ := os.Create("/var/log/yys/yys-" + strconv.Itoa(int(time.Now().Unix())) + ".log")

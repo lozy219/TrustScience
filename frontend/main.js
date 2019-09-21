@@ -140,6 +140,11 @@ $.get(`frontend/data/filename.json?_v=${VERSION}`)
         $.get(`frontend/data/data.json?_v=${VERSION}`)
           .done(content => {
             const stats = content['A'];
+            stats['御行达摩'] = {
+              'losing': 0,
+              'winning': 0
+            };
+            scores['御行达摩'] = 50;
             const $input = $('#main');
             $input.bind('change keyup input', () => {
               var result = parseInput($input.val().trim());
@@ -154,7 +159,7 @@ $.get(`frontend/data/filename.json?_v=${VERSION}`)
                 }
 
                 const text = result[index];
-                const key = nicknames[text];
+                const key = nicknames[text] || '御行达摩';
                 const stat = stats[key];
                 const filename = filenames[key];
 

@@ -2,10 +2,11 @@ package matching
 
 import (
 	"fmt"
-	"github.com/lozy219/trustscience/backend/record"
 	"image"
 	"image/png"
 	"os"
+
+	"github.com/lozy219/trustscience/backend/record"
 )
 
 var cachedImages = map[string]image.Image{}
@@ -126,7 +127,7 @@ func Match(src image.Image) []string {
 	return lst
 }
 
-func Init() {
+func init() {
 	targetFolder := "avatars/"
 	dir, err := os.Open(targetFolder)
 	checkErr(err)
