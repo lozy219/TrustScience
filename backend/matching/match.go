@@ -10,6 +10,7 @@ import (
 )
 
 var cachedImages = map[string]image.Image{}
+var cachedImageHashes = map[string]string{}
 
 func calcDiff(x uint32, y uint32) uint32 {
 	if x < y {
@@ -46,6 +47,11 @@ func findMatch(src image.Image) string {
 	var minDiff uint32 = 100000000
 	minDiffName := ""
 
+	hash := HashImage(src)
+	if cachedResult := cachedImageHashes[hash]; cachedResult != "" {
+		return cachedResult
+	}
+
 	for name, tSrc := range cachedImages {
 		diff := findDiff(src, tSrc)
 		if diff < minDiff {
@@ -53,6 +59,11 @@ func findMatch(src image.Image) string {
 			minDiffName = name
 		}
 	}
+
+	if minDiffName != "" {
+		cachedImageHashes[hash] = minDiffName
+	}
+
 	return minDiffName
 }
 
