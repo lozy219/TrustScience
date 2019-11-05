@@ -62,16 +62,20 @@ func Match(src image.Image) []string {
 
 	spec := GetDeviceSpec(src.Bounds().Size())
 	if spec == nil {
-		src = scaleImage(src, image.Point{1334, 750})
-	} else {
-		// try to force scale it down to iPhone 6 size
-		if spec.shouldCrop {
-			src = crop(src, image.Rect(spec.cropLeftX, spec.cropLeftY, spec.cropRightX, spec.cropRightY))
-		}
-		if spec.shouldResize {
-			src = scaleImage(src, image.Point{1334, 750})
-		}
+		// stop doing scaling
+		// just return 不知道
+		// src = scaleImage(src, image.Point{1334, 750})
+		return []string{"图片识别不了喔，等别人传吧"}
 	}
+
+	// try to force scale it down to iPhone 6 size
+	if spec.shouldCrop {
+		src = crop(src, image.Rect(spec.cropLeftX, spec.cropLeftY, spec.cropRightX, spec.cropRightY))
+	}
+	if spec.shouldResize {
+		src = scaleImage(src, image.Point{1334, 750})
+	}
+
 	// fname := "./matching/test/out/testMatch.png"
 	// fout, err := os.Create(fname)
 	// checkErr(err)
