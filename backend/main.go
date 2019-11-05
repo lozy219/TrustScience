@@ -61,6 +61,13 @@ func router() *gin.Engine {
 		})
 	})
 
+	r.GET("history/:y/:m/:d", func(c *gin.Context) {
+		y, m, d := c.Param("y"), c.Param("m"), c.Param("d")
+		c.JSON(200, gin.H{
+			"results": record.History(y, m, d),
+		})
+	})
+
 	return r
 }
 
