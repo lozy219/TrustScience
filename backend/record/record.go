@@ -94,12 +94,12 @@ func PreviousResult() Result {
 func History(y, m, d string) []Match {
 	var matches []Match
 	for i := 0; i <= 11; i++ {
-		slot := fmt.Sprintf("%d-%d-%d", m, d, i)
+		slot := fmt.Sprintf("%v-%v-%v", m, d, i)
 		record := getRecord(slot)
 		result := getResult(slot)
 		if len(record) > 0 {
 			matches = append(matches, Match{
-				fmt.Sprintf("%s/%s/%s %d:00", d, m, y, i*2),
+				fmt.Sprintf("%v/%v/%v %v:00", d, m, y, i*2),
 				record,
 				result,
 			})
