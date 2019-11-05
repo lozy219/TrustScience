@@ -1,4 +1,4 @@
-const VERSION = 'shopee';
+const VERSION = 'icelemontea';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
