@@ -1,11 +1,11 @@
 package main
 
 import (
-    "io"
-    "strconv"
     "fmt"
+    "io"
     "net/http"
     "os"
+    "strconv"
     "sync"
 )
 
@@ -13,12 +13,12 @@ func main() {
     var wg sync.WaitGroup
     baseURL := "https://yys.res.netease.com/pc/zt/20161108171335/data/shishen_big_beforeAwake/"
 
-    for i := 1; i <= 500; i++ {
+    for i := 1; i <= 600; i++ {
         wg.Add(1)
         go func(i int) {
             image := strconv.Itoa(i) + ".png"
             imageURL := baseURL + image
-            
+
             fmt.Println("Starting to download for " + image)
 
             response, err := http.Get(imageURL)
@@ -28,7 +28,7 @@ func main() {
             if response.StatusCode >= 200 && response.StatusCode <= 299 {
                 file, err := os.Create("../frontend/resources/original/" + image)
                 checkErr(err)
-                
+
                 _, err = io.Copy(file, response.Body)
                 checkErr(err)
                 file.Close()
