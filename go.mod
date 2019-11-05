@@ -1,4 +1,4 @@
-module github.com/lozy219/TrustScience
+module github.com/lozy219/trustscience
 
 go 1.12
 
@@ -7,7 +7,6 @@ require (
 	github.com/gin-contrib/cors v1.3.0
 	github.com/gin-gonic/gin v1.4.0
 	github.com/go-redis/redis v6.15.5+incompatible
-	github.com/lozy219/trustscience v0.0.0-20190706192819-250921d5172c
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646 // indirect
 	github.com/onsi/ginkgo v1.10.1 // indirect
 	github.com/onsi/gomega v1.7.0 // indirect

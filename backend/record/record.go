@@ -13,6 +13,14 @@ var redisClient = redis.NewClient(&redis.Options{
 	Addr: "0.0.0.0:6379",
 })
 
+type Record string
+type Result [2]int
+type Match struct {
+	Date   string
+	Record Record
+	Result Result
+}
+
 func currentSlot() string {
 	currentTime := time.Now()
 	return fmt.Sprintf("%d-%d-%d", currentTime.Month(), currentTime.Day(), currentTime.Hour()/2)
@@ -28,7 +36,7 @@ func NewRecord(record []string) {
 	redisClient.ZIncrBy(currentSlot(), 1, strings.Join(record, " "))
 }
 
-func getRecord(slot string) string {
+func getRecord(slot string) Record {
 	result, error := redisClient.ZRevRangeByScore(slot, redis.ZRangeBy{
 		Min:    "-inf",
 		Max:    "+inf",
@@ -40,18 +48,30 @@ func getRecord(slot string) string {
 		fmt.Print(error)
 	}
 	if len(result) > 0 {
-		return result[0]
+		return Record(result[0])
 	}
 	return ""
 }
 
+func getResult(slot string) Result {
+	result0, err0 := strconv.Atoi(redisClient.Get(fmt.Sprintf("result.%d.%s", 0, slot)).Val())
+	if err0 != nil {
+		result0 = 0
+	}
+	result1, err1 := strconv.Atoi(redisClient.Get(fmt.Sprintf("result.%d.%s", 1, slot)).Val())
+	if err1 != nil {
+		result1 = 0
+	}
+	return [2]int{result0, result1}
+}
+
 // CurrentRecord returns the record of current slot
-func CurrentRecord() string {
+func CurrentRecord() Record {
 	return getRecord(currentSlot())
 }
 
 // PreviousRecord returns the record of previous slot
-func PreviousRecord() string {
+func PreviousRecord() Record {
 	return getRecord(previousSlot())
 }
 
@@ -65,15 +85,25 @@ func ReportResult(index string) (int64, bool) {
 }
 
 // PreviousResult returns the reported results of previous slot
-func PreviousResult() [2]int {
+func PreviousResult() Result {
 	slot := previousSlot()
-	result0, err0 := strconv.Atoi(redisClient.Get(fmt.Sprintf("result.%d.%s", 0, slot)).Val())
-	if err0 != nil {
-		result0 = 0
+	return getResult(slot)
+}
+
+// History returns history at a specific date
+func History(y, m, d string) []Match {
+	var matches []Match
+	for i := 0; i <= 11; i++ {
+		slot := fmt.Sprintf("%v-%v-%v", m, d, i)
+		record := getRecord(slot)
+		result := getResult(slot)
+		if len(record) > 0 {
+			matches = append(matches, Match{
+				fmt.Sprintf("%v/%v/%v %v:00", d, m, y, i*2),
+				record,
+				result,
+			})
+		}
 	}
-	result1, err1 := strconv.Atoi(redisClient.Get(fmt.Sprintf("result.%d.%s", 1, slot)).Val())
-	if err1 != nil {
-		result1 = 0
-	}
-	return [2]int{result0, result1}
+	return matches
 }
