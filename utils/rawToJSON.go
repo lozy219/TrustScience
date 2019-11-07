@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func main() {
+func convertRaw() {
 	result := make(map[string]map[string]map[string]int)
 
 	targetFolder := "../data/raw/"
@@ -45,6 +45,49 @@ func main() {
 	_, ferr := fout.WriteString(string(dataJ))
 	checkErr(ferr)
 	fout.Sync()
+}
+
+func convertStrike() {
+	result := make(map[string]int)
+
+	file, _ := os.Open("../data/recent")
+	defer file.Close()
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		text := scanner.Text()
+		fields := strings.Fields(text)
+		for i, name := range fields {
+			if i < 5 {
+				// win
+				if result[name] <= 0 {
+					result[name] = 1
+				} else {
+					result[name]++
+				}
+			} else {
+				// lose
+				if result[name] >= 0 {
+					result[name] = -1
+				} else {
+					result[name]--
+				}
+			}
+		}
+	}
+
+	dataJ, _ := json.Marshal(result)
+
+	fout, _ := os.Create("../frontend/data/strike.json")
+	defer fout.Close()
+
+	_, ferr := fout.WriteString(string(dataJ))
+	checkErr(ferr)
+	fout.Sync()
+}
+
+func main() {
+	convertRaw()
+	convertStrike()
 }
 
 func checkErr(err error) {

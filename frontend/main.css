@@ -264,8 +264,8 @@ body {
   align-items: center;
 }
 
-.name {
-  font-size: 16px;
+.name, .strike {
+  font-size: 15px;
 }
 
 .pad {

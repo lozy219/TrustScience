@@ -1,9 +1,10 @@
-const VERSION = ' oolongtea';
+const VERSION = 'coffee';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
 // const host = '0.0.0.0';
 const host = 'uygnim.com';
+const wordMap = ['一', '两', '三', '四', '五', '六', '七', '八', '九', '十'];
 let votingDisabled = false;
 
 const disableVoting = () => {
@@ -40,6 +41,14 @@ const vote = index => {
 
 const toPercentage = value => {
   return isNaN(value) ? '???' : parseInt(value * 10000) / 100 + '%';
+}
+
+const toStrike = value => {
+  if (value == 0) {
+    return '没出场';
+  }
+  const strikeWord = wordMap[Math.abs(value) - 1] || '好多';
+  return value > 0 ? `${strikeWord}连胜` : `${strikeWord}连败`;
 }
 
 const parseInput = input => {
@@ -139,96 +148,101 @@ $.get(`frontend/data/filename.json?_v=${VERSION}`)
       .done(scores => {
         $.get(`frontend/data/data.json?_v=${VERSION}`)
           .done(content => {
-            const stats = content['A'];
-            stats['御行达摩'] = {
-              'losing': 0,
-              'winning': 0
-            };
-            scores['御行达摩'] = 50;
-            const $input = $('#main');
-            $input.bind('change keyup input', () => {
-              var result = parseInput($input.val().trim());
-              var redTotal = 0;
-              var blueTotal = 0;
-              for (let index = 0; index < 10; index ++) {
-                const $target = $(`.result-${index + 1}`);
+            $.get(`frontend/data/strike.json?_v=${VERSION}`)
+              .done(strike => {
+                const stats = content['A'];
+                stats['御行达摩'] = {
+                  'losing': 0,
+                  'winning': 0
+                };
+                scores['御行达摩'] = 50;
+                const $input = $('#main');
+                $input.bind('change keyup input', () => {
+                  var result = parseInput($input.val().trim());
+                  var redTotal = 0;
+                  var blueTotal = 0;
+                  for (let index = 0; index < 10; index ++) {
+                    const $target = $(`.result-${index + 1}`);
 
-                if (index >= result.length) {
-                  clearResult($target);
-                  continue;
-                }
+                    if (index >= result.length) {
+                      clearResult($target);
+                      continue;
+                    }
 
-                const text = result[index];
-                const key = nicknames[text] || '御行达摩';
-                const stat = stats[key];
-                const filename = filenames[key];
+                    const text = result[index];
+                    const key = nicknames[text] || '御行达摩';
+                    const stat = stats[key];
+                    const stk = strike[key] || 0;
+                    const filename = filenames[key];
 
-                if (!stat) {
-                  clearResult($target);
-                  continue;
-                }
+                    if (!stat) {
+                      clearResult($target);
+                      continue;
+                    }
 
-                const win = stat.winning;
-                const lose = stat.losing;
-                const sum = win + lose;
+                    const win = stat.winning;
+                    const lose = stat.losing;
+                    const sum = win + lose;
 
-                const history = `${win}/${lose}`;
-                let winp = parseInt((win / sum) * 100) + '%';
-                if (sum === 0) {
-                  winp = '50%';
-                }
+                    const history = `${win}/${lose}`;
+                    let winp = parseInt((win / sum) * 100) + '%';
+                    if (sum === 0) {
+                      winp = '50%';
+                    }
 
-                const avatar = `frontend/resources/pixyys/${filename}.png?_v=3`;
-                const placeholder = 'frontend/resources/pixyys/yxdm.png'
-                $.get(avatar)
-                  .done(() => {
-                    $target.find('.avatar').css('background-image', `url('${avatar}')`);
-                  })
-                  .fail(() => {
-                    $target.find('.avatar').css('background-image', `url('${placeholder}')`);
-                  });
-                $target.find('.name').text(key);
-                $target.find('.win-lose').text(history);
-                $target.find('.win-percentage').text(winp);
-                if (index < 5) {
-                  redTotal += scores[key];
-                } else {
-                  blueTotal += scores[key];
-                }
-              }
-              const scoreSum = redTotal + blueTotal;
-              $('.result-wrapper--red .overview').text(toPercentage(redTotal / scoreSum));
-              $('.result-wrapper--blue .overview').text(toPercentage(blueTotal / scoreSum));
-            });
-
-            $.get(`https://${host}/api/result`)
-              .done(data => {
-                const current = data.current;
-                $('#main').val(current).change();
-
-                const record = data.previous.split(' ');
-                const result = data.result;
-                if (record.length === 10) {
-                  $('.hidden').removeClass('hidden');
-                  for (let i = 0; i < 10; i ++) {
-                    const avatar = `frontend/resources/pixyys/${filenames[nicknames[record[i]]]}.png?_v=3`;
-                    $(`.previous .avatar-${i + 1}`).css('background-image', `url('${avatar}')`);
+                    const avatar = `frontend/resources/pixyys/${filename}.png?_v=3`;
+                    const placeholder = 'frontend/resources/pixyys/yxdm.png'
+                    $.get(avatar)
+                      .done(() => {
+                        $target.find('.avatar').css('background-image', `url('${avatar}')`);
+                      })
+                      .fail(() => {
+                        $target.find('.avatar').css('background-image', `url('${placeholder}')`);
+                      });
+                    $target.find('.strike').text(toStrike(stk));
+                    $target.find('.name').text(key);
+                    $target.find('.win-lose').text(history);
+                    $target.find('.win-percentage').text(winp);
+                    if (index < 5) {
+                      redTotal += scores[key];
+                    } else {
+                      blueTotal += scores[key];
+                    }
                   }
+                  const scoreSum = redTotal + blueTotal;
+                  $('.result-wrapper--red .overview').text(toPercentage(redTotal / scoreSum));
+                  $('.result-wrapper--blue .overview').text(toPercentage(blueTotal / scoreSum));
+                });
 
-                  $('.previous-count-red').text(result[0]);
-                  $('.previous-count-blue').text(result[1]);
+                $.get(`https://${host}/api/result`)
+                  .done(data => {
+                    const current = data.current;
+                    $('#main').val(current).change();
 
-                  if (localStorage.getItem('ts_voted') == getCurrentTimeFrame()) {
-                    disableVoting();
-                  } else {
-                    $('.previous-count-red').on('click', () => {
-                      vote(0);
-                    });
-                    $('.previous-count-blue').on('click', () => {
-                      vote(1);
-                    });
-                  }
-                }
+                    const record = data.previous.split(' ');
+                    const result = data.result;
+                    if (record.length === 10) {
+                      $('.hidden').removeClass('hidden');
+                      for (let i = 0; i < 10; i ++) {
+                        const avatar = `frontend/resources/pixyys/${filenames[nicknames[record[i]]]}.png?_v=3`;
+                        $(`.previous .avatar-${i + 1}`).css('background-image', `url('${avatar}')`);
+                      }
+
+                      $('.previous-count-red').text(result[0]);
+                      $('.previous-count-blue').text(result[1]);
+
+                      if (localStorage.getItem('ts_voted') == getCurrentTimeFrame()) {
+                        disableVoting();
+                      } else {
+                        $('.previous-count-red').on('click', () => {
+                          vote(0);
+                        });
+                        $('.previous-count-blue').on('click', () => {
+                          vote(1);
+                        });
+                      }
+                    }
+                });
               });
           });
       });
