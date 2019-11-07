@@ -57,6 +57,7 @@ const parseInput = input => {
 
 const clearResult = $target => {
   $target.find('.name').text('');
+  $target.find('.strike').text('');
   $target.find('.avatar').css('background-image', 'none');
   $target.find('.win-lose').text('');
   $target.find('.win-percentage').text('');
