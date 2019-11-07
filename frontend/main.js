@@ -1,4 +1,4 @@
-const VERSION = 'icelemontea';
+const VERSION = ' oolongtea';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
