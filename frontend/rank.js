@@ -1,4 +1,4 @@
-const VERSION = 'coffee';
+const VERSION = 'citibank';
 let nicknames = {};
 let filenames;
 let statsData = {};
