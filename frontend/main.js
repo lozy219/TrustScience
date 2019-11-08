@@ -1,4 +1,4 @@
-const VERSION = 'citibank';
+const VERSION = 'yewtee';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
