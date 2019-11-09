@@ -1,4 +1,4 @@
-const VERSION = 'yewtee';
+const VERSION = 'tissue';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
