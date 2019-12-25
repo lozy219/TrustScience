@@ -1,4 +1,4 @@
-const VERSION = 'tissue';
+const VERSION = 'switch';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 

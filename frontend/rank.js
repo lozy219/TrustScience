@@ -1,4 +1,4 @@
-const VERSION = 'tissue';
+const VERSION = 'switch';
 let nicknames = {};
 let filenames;
 let statsData = {};
