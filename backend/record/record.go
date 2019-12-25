@@ -21,18 +21,38 @@ type Match struct {
 	Result Result
 }
 
+func timeToSlotNew(t time.Time) string {
+	return fmt.Sprintf("%d-%d-%d-%d", time.Year(), time.Month(), time.Day(), time.Hour()/2)
+}
+
+func timeToSlot(t time.Time) string {
+	return fmt.Sprintf("%d-%d-%d", time.Month(), time.Day(), time.Hour()/2)
+}
+
 func currentSlot() string {
 	currentTime := time.Now()
-	return fmt.Sprintf("%d-%d-%d", currentTime.Month(), currentTime.Day(), currentTime.Hour()/2)
+	return timeToSlot(currentTime)
+}
+
+func currentSlotNew() string {
+	currentTime := time.Now()
+	return timeToSlotNew(currentTime)
 }
 
 func previousSlot() string {
 	prevTime := time.Now().Add(time.Duration(-2) * time.Hour)
-	return fmt.Sprintf("%d-%d-%d", prevTime.Month(), prevTime.Day(), prevTime.Hour()/2)
+	return timeToSlot(prevTime)
+}
+
+func previousSlotNew() string {
+	prevTime := time.Now().Add(time.Duration(-2) * time.Hour)
+	return timeToSlotNew(prevTime)
 }
 
 // NewRecord increments the counter for a record in current slot
 func NewRecord(record []string) {
+	// double write
+	redisClient.ZIncrBy(currentSlotNew(), 1, strings.Join(record, " "))
 	redisClient.ZIncrBy(currentSlot(), 1, strings.Join(record, " "))
 }
 
@@ -80,6 +100,7 @@ func ReportResult(index string) (int64, bool) {
 	if index != "1" && index != "0" {
 		return 0, true
 	}
+	redisClient.Incr(fmt.Sprintf("result.%s.%s", index, previousSlotNew())).Val()
 	count := redisClient.Incr(fmt.Sprintf("result.%s.%s", index, previousSlot())).Val()
 	return count, false
 }
@@ -95,6 +116,9 @@ func History(y, m, d string) []Match {
 	var matches []Match
 	for i := 0; i <= 11; i++ {
 		slot := fmt.Sprintf("%v-%v-%v", m, d, i)
+		if y > 2000 {
+			slot = fmt.Sprintf("%v-%v-%v-%v", y, m, d, i)
+		}
 		record := getRecord(slot)
 		result := getResult(slot)
 		if len(record) > 0 {

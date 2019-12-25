@@ -16,7 +16,7 @@ import (
 
 func checkErr(err error) {
 	if err != nil {
-		panic(err.Error())
+		fmt.Println(err.Error())
 	}
 }
 
@@ -71,7 +71,7 @@ func LoadImage(file multipart.File) image.Image {
 		img, err = gif.Decode(file)
 		checkErr(err)
 	} else {
-		panic("invalid image type")
+		fmt.Println("invalid image type")
 	}
 
 	return img
