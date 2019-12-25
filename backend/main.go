@@ -8,11 +8,11 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/Depado/ginprom"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/lozy219/trustscience/backend/matching"
 	"github.com/lozy219/trustscience/backend/record"
+	"github.com/mcuadros/go-gin-prometheus"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 )
@@ -20,7 +20,7 @@ import (
 var (
 	requestCounter = promauto.NewCounterVec(
 		prometheus.CounterOpts{
-			Name: "reuqest_count",
+			Name: "request_count",
 		},
 		[]string{
 			"endpoint",
@@ -41,12 +41,8 @@ func router() *gin.Engine {
 	config.AllowOrigins = []string{"https://uygnim.com", "http://129.204.1.146"}
 	r.Use(cors.New(config))
 
-	p := ginprom.New(
-		ginprom.Engine(r),
-		ginprom.Subsystem("gin"),
-		ginprom.Path("/metrics"),
-	)
-	r.Use(p.Instrument())
+	p := ginprometheus.NewPrometheus("gin")
+	p.Use(r)
 
 	r.POST("match", func(c *gin.Context) {
 		requestCounter.WithLabelValues("match").Inc()
