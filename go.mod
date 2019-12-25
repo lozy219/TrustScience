@@ -3,6 +3,7 @@ module github.com/lozy219/trustscience
 go 1.12
 
 require (
+	github.com/Depado/ginprom v1.2.0 // indirect
 	github.com/corona10/goimagehash v1.0.1
 	github.com/gin-contrib/cors v1.3.0
 	github.com/gin-gonic/gin v1.4.0

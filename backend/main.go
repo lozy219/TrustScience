@@ -1,16 +1,31 @@
 package main
 
 import (
+	"fmt"
 	"image/png"
 	"io"
 	"os"
 	"strconv"
 	"time"
 
+	"github.com/Depado/ginprom"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/lozy219/trustscience/backend/matching"
 	"github.com/lozy219/trustscience/backend/record"
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promauto"
+)
+
+var (
+	requestCounter = promauto.NewCounterVec(
+		prometheus.CounterOpts{
+			Name: "reuqest_count",
+		},
+		[]string{
+			"endpoint",
+		},
+	)
 )
 
 func handleErr(err error) {
@@ -24,10 +39,17 @@ func router() *gin.Engine {
 
 	config := cors.DefaultConfig()
 	config.AllowOrigins = []string{"https://uygnim.com", "http://129.204.1.146"}
-
 	r.Use(cors.New(config))
 
+	p := ginprom.New(
+		ginprom.Engine(r),
+		ginprom.Subsystem("gin"),
+		ginprom.Path("/metrics"),
+	)
+	r.Use(p.Instrument())
+
 	r.POST("match", func(c *gin.Context) {
+		requestCounter.WithLabelValues("match").Inc()
 		file, _, err := c.Request.FormFile("match")
 		handleErr(err)
 
@@ -45,6 +67,7 @@ func router() *gin.Engine {
 	})
 
 	r.GET("result", func(c *gin.Context) {
+		requestCounter.WithLabelValues("result").Inc()
 		c.JSON(200, gin.H{
 			"current":  record.CurrentRecord(),
 			"previous": record.PreviousRecord(),
@@ -53,6 +76,7 @@ func router() *gin.Engine {
 	})
 
 	r.GET("report/:index", func(c *gin.Context) {
+		requestCounter.WithLabelValues("report").Inc()
 		index := c.Param("index")
 		count, err := record.ReportResult(index)
 		c.JSON(200, gin.H{
@@ -62,6 +86,7 @@ func router() *gin.Engine {
 	})
 
 	r.GET("history/:y/:m/:d", func(c *gin.Context) {
+		requestCounter.WithLabelValues("history").Inc()
 		y, m, d := c.Param("y"), c.Param("m"), c.Param("d")
 		c.JSON(200, gin.H{
 			"results": record.History(y, m, d),

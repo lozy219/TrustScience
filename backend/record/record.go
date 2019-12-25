@@ -22,11 +22,11 @@ type Match struct {
 }
 
 func timeToSlotNew(t time.Time) string {
-	return fmt.Sprintf("%d-%d-%d-%d", time.Year(), time.Month(), time.Day(), time.Hour()/2)
+	return fmt.Sprintf("%d-%d-%d-%d", t.Year(), t.Month(), t.Day(), t.Hour()/2)
 }
 
 func timeToSlot(t time.Time) string {
-	return fmt.Sprintf("%d-%d-%d", time.Month(), time.Day(), time.Hour()/2)
+	return fmt.Sprintf("%d-%d-%d", t.Month(), t.Day(), t.Hour()/2)
 }
 
 func currentSlot() string {
@@ -116,7 +116,7 @@ func History(y, m, d string) []Match {
 	var matches []Match
 	for i := 0; i <= 11; i++ {
 		slot := fmt.Sprintf("%v-%v-%v", m, d, i)
-		if y > 2000 {
+		if y != "old" {
 			slot = fmt.Sprintf("%v-%v-%v-%v", y, m, d, i)
 		}
 		record := getRecord(slot)
