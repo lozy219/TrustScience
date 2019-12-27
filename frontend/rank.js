@@ -1,4 +1,4 @@
-const VERSION = 'switch';
+const VERSION = 'nyami';
 let nicknames = {};
 let filenames;
 let statsData = {};

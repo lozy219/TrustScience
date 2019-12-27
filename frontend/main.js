@@ -1,4 +1,4 @@
-const VERSION = 'switch';
+const VERSION = 'nyami';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
