@@ -1,4 +1,4 @@
-const VERSION = 'rement';
+const VERSION = 'newyear';
 let nicknames = {};
 let filenames;
 let statsData = {};

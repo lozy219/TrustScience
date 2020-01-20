@@ -1,4 +1,4 @@
-const VERSION = 'rement';
+const VERSION = 'newyear';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
