@@ -309,3 +309,11 @@ body {
   border-bottom: 5px solid black;
   margin-bottom: 10px;
 }
+
+.switch {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}

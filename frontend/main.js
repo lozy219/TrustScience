@@ -64,6 +64,15 @@ const clearResult = $target => {
   $target.find('.score').text('');
 }
 
+const setSwitchText = () => {
+  if (localStorage.getItem('ryf')) {
+    $('.switch').text('切换到国服');
+  } else {
+    $('.switch').text('切换到日亚服');
+  }
+}
+setSwitchText();
+
 const uploadImage = event => {
   $input = $('#main');
   $input.val('载入中...');
@@ -123,6 +132,11 @@ $('.rank').on('click', () => {
 
 $('.github').on('click', () => {
   window.open('https://github.com/lozy219/TrustScience');
+});
+
+$('.switch').on('click', () => {
+  localStorage.setItem('ryf', true);
+  setSwitchText();
 });
 
 $('.photo').on('click', () => {
