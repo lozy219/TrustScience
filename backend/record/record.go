@@ -31,7 +31,7 @@ func timeToSlot(t time.Time) string {
 
 func currentSlot() string {
 	currentTime := time.Now()
-	return timeToSlot(currentTime)
+	return timeToSlotNew(currentTime)
 }
 
 func currentSlotNew() string {
@@ -41,7 +41,7 @@ func currentSlotNew() string {
 
 func previousSlot() string {
 	prevTime := time.Now().Add(time.Duration(-2) * time.Hour)
-	return timeToSlot(prevTime)
+	return timeToSlotNew(prevTime)
 }
 
 func previousSlotNew() string {

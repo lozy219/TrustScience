@@ -12,7 +12,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/lozy219/trustscience/backend/matching"
 	"github.com/lozy219/trustscience/backend/record"
-	"github.com/mcuadros/go-gin-prometheus"
+	ginprometheus "github.com/mcuadros/go-gin-prometheus"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
 )
