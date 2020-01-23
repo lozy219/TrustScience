@@ -4,7 +4,7 @@ $.ajaxSetup({
   }
 });
 
-const VERSION = 'durian';
+const VERSION = 'kruskal';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
