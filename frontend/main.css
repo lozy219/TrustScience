@@ -28,7 +28,7 @@ body {
 
 * {
   font-size: 10px;
-  font-family: 'Press Start 2P', 'fzxs12', cursive;
+  font-family: 'Press Start 2P', 'fzxs12';
 }
 
 .hidden {
@@ -137,8 +137,8 @@ body {
 }
 
 .pointer {
-  right: 297px;
-  margin-bottom: 21px;
+  right: 50px;
+  margin-bottom: 90px;
   z-index: 1;
   position: fixed;
   animation: pointer-animation;
@@ -312,8 +312,8 @@ body {
 
 .switch {
   position: fixed;
-  left: 10px;
-  bottom: 10px;
+  right: 10px;
+  bottom: 116px;
   font-size: 20px;
   cursor: pointer;
 }

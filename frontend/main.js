@@ -15,7 +15,6 @@ let votingDisabled = false;
 
 const disableVoting = () => {
   votingDisabled = true;
-  $('.pointer').addClass('hidden');
   $('.hints').text('超谢谢你哦！');
 };
 
@@ -72,9 +71,9 @@ const clearResult = $target => {
 
 const setSwitchText = () => {
   if (localStorage.getItem('ryf') == 1) {
-    $('.switch').text('切换到国服');
+    $('.switch').text('换去国服');
   } else {
-    $('.switch').text('切换到日亚服');
+    $('.switch').text('换去日亚服');
   }
 }
 setSwitchText();
