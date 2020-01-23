@@ -6,6 +6,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis"
 )
 
@@ -21,39 +22,28 @@ type Match struct {
 	Result Result
 }
 
-func timeToSlotNew(t time.Time) string {
-	return fmt.Sprintf("%d-%d-%d-%d", t.Year(), t.Month(), t.Day(), t.Hour()/2)
+func timeToSlotNew(c *gin.Context, t time.Time) string {
+	slot := fmt.Sprintf("%d-%d-%d-%d", t.Year(), t.Month(), t.Day(), t.Hour()/2)
+	flag, _ := c.Cookie("ryf")
+	if flag == "1" {
+		slot += "-ryf"
+	}
+	return slot
 }
 
-func timeToSlot(t time.Time) string {
-	return fmt.Sprintf("%d-%d-%d", t.Month(), t.Day(), t.Hour()/2)
-}
-
-func currentSlot() string {
+func currentSlot(c *gin.Context) string {
 	currentTime := time.Now()
-	return timeToSlotNew(currentTime)
+	return timeToSlotNew(c, currentTime)
 }
 
-func currentSlotNew() string {
-	currentTime := time.Now()
-	return timeToSlotNew(currentTime)
-}
-
-func previousSlot() string {
+func previousSlot(c *gin.Context) string {
 	prevTime := time.Now().Add(time.Duration(-2) * time.Hour)
-	return timeToSlotNew(prevTime)
-}
-
-func previousSlotNew() string {
-	prevTime := time.Now().Add(time.Duration(-2) * time.Hour)
-	return timeToSlotNew(prevTime)
+	return timeToSlotNew(c, prevTime)
 }
 
 // NewRecord increments the counter for a record in current slot
-func NewRecord(record []string) {
-	// double write
-	redisClient.ZIncrBy(currentSlotNew(), 1, strings.Join(record, " "))
-	redisClient.ZIncrBy(currentSlot(), 1, strings.Join(record, " "))
+func NewRecord(c *gin.Context, record []string) {
+	redisClient.ZIncrBy(currentSlot(c), 1, strings.Join(record, " "))
 }
 
 func getRecord(slot string) Record {
@@ -86,33 +76,32 @@ func getResult(slot string) Result {
 }
 
 // CurrentRecord returns the record of current slot
-func CurrentRecord() Record {
-	return getRecord(currentSlot())
+func CurrentRecord(c *gin.Context) Record {
+	return getRecord(currentSlot(c))
 }
 
 // PreviousRecord returns the record of previous slot
-func PreviousRecord() Record {
-	return getRecord(previousSlot())
+func PreviousRecord(c *gin.Context) Record {
+	return getRecord(previousSlot(c))
 }
 
 // ReportResult increments the coresponding result for previous slot
-func ReportResult(index string) (int64, bool) {
+func ReportResult(c *gin.Context, index string) (int64, bool) {
 	if index != "1" && index != "0" {
 		return 0, true
 	}
-	redisClient.Incr(fmt.Sprintf("result.%s.%s", index, previousSlotNew())).Val()
-	count := redisClient.Incr(fmt.Sprintf("result.%s.%s", index, previousSlot())).Val()
+	count := redisClient.Incr(fmt.Sprintf("result.%s.%s", index, previousSlot(c))).Val()
 	return count, false
 }
 
 // PreviousResult returns the reported results of previous slot
-func PreviousResult() Result {
-	slot := previousSlot()
+func PreviousResult(c *gin.Context) Result {
+	slot := previousSlot(c)
 	return getResult(slot)
 }
 
 // History returns history at a specific date
-func History(y, m, d string) []Match {
+func History(c *gin.Context, y, m, d string) []Match {
 	var matches []Match
 	for i := 0; i <= 11; i++ {
 		slot := fmt.Sprintf("%v-%v-%v", m, d, i)

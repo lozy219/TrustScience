@@ -6,6 +6,7 @@ import (
 	"image/png"
 	"os"
 
+	"github.com/gin-gonic/gin"
 	"github.com/lozy219/trustscience/backend/record"
 )
 
@@ -67,7 +68,7 @@ func findMatch(src image.Image) string {
 	return minDiffName
 }
 
-func Match(src image.Image) []string {
+func Match(c *gin.Context, src image.Image) []string {
 	src = convertToGray(src)
 	lst := make([]string, 10)
 
@@ -134,7 +135,7 @@ func Match(src image.Image) []string {
 	}
 
 	if isResultValid {
-		record.NewRecord(lst)
+		record.NewRecord(c, lst)
 	}
 
 	fmt.Print(lst)

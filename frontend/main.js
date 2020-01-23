@@ -65,7 +65,7 @@ const clearResult = $target => {
 }
 
 const setSwitchText = () => {
-  if (localStorage.getItem('ryf')) {
+  if (localStorage.getItem('ryf') == 1) {
     $('.switch').text('切换到国服');
   } else {
     $('.switch').text('切换到日亚服');
@@ -135,8 +135,16 @@ $('.github').on('click', () => {
 });
 
 $('.switch').on('click', () => {
-  localStorage.setItem('ryf', true);
-  setSwitchText();
+  document.cookie = "ryf=1";
+  let isRYF = localStorage.getItem('ryf');
+  if (!isRYF) {
+    localStorage.setItem('ryf', 1);
+    document.cookie = "ryf=1";
+  } else {
+    localStorage.setItem('ryf', 1 - isRYF);
+    document.cookie = "ryf=0";
+  }
+  location.reload();
 });
 
 $('.photo').on('click', () => {

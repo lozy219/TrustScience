@@ -59,22 +59,22 @@ func router() *gin.Engine {
 		encodeErr := png.Encode(fout, src)
 		handleErr(encodeErr)
 
-		c.JSON(200, matching.Match(src))
+		c.JSON(200, matching.Match(c, src))
 	})
 
 	r.GET("result", func(c *gin.Context) {
 		requestCounter.WithLabelValues("result").Inc()
 		c.JSON(200, gin.H{
-			"current":  record.CurrentRecord(),
-			"previous": record.PreviousRecord(),
-			"result":   record.PreviousResult(),
+			"current":  record.CurrentRecord(c),
+			"previous": record.PreviousRecord(c),
+			"result":   record.PreviousResult(c),
 		})
 	})
 
 	r.GET("report/:index", func(c *gin.Context) {
 		requestCounter.WithLabelValues("report").Inc()
 		index := c.Param("index")
-		count, err := record.ReportResult(index)
+		count, err := record.ReportResult(c, index)
 		c.JSON(200, gin.H{
 			"error": err,
 			"count": count,
@@ -85,7 +85,7 @@ func router() *gin.Engine {
 		requestCounter.WithLabelValues("history").Inc()
 		y, m, d := c.Param("y"), c.Param("m"), c.Param("d")
 		c.JSON(200, gin.H{
-			"results": record.History(y, m, d),
+			"results": record.History(c, y, m, d),
 		})
 	})
 
