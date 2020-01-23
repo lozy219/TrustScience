@@ -4,7 +4,7 @@ $.ajaxSetup({
   }
 });
 
-const VERSION = 'newyear';
+const VERSION = 'durian';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
