@@ -1,3 +1,9 @@
+$.ajaxSetup({
+  xhrFields: {
+    withCredentials: true
+  }
+});
+
 const VERSION = 'newyear';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
@@ -135,16 +141,13 @@ $('.github').on('click', () => {
 });
 
 $('.switch').on('click', () => {
-  document.cookie = "ryf=1";
   let isRYF = localStorage.getItem('ryf');
-  if (!isRYF) {
-    localStorage.setItem('ryf', 1);
-    document.cookie = "ryf=1";
-  } else {
-    let flag = 1 - isRYF;
-    localStorage.setItem('ryf', flag);
-    document.cookie = `ryf=${flag}`;
+  let flag = 1;
+  if (isRYF) {
+    flag = 1 - isRYF;
   }
+  localStorage.setItem('ryf', flag);
+  document.cookie = `ryf=${flag}; path=/; domain=.uygnim.com`;
   location.reload();
 });
 
