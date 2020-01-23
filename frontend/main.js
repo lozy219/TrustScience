@@ -141,8 +141,9 @@ $('.switch').on('click', () => {
     localStorage.setItem('ryf', 1);
     document.cookie = "ryf=1";
   } else {
-    localStorage.setItem('ryf', 1 - isRYF);
-    document.cookie = "ryf=0";
+    let flag = 1 - isRYF;
+    localStorage.setItem('ryf', flag);
+    document.cookie = `ryf=${flag}`;
   }
   location.reload();
 });
