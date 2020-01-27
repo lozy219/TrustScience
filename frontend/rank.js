@@ -1,4 +1,4 @@
-const VERSION = 'kruskal';
+const VERSION = 'kobe';
 let nicknames = {};
 let filenames;
 let statsData = {};

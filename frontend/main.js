@@ -4,7 +4,7 @@ $.ajaxSetup({
   }
 });
 
-const VERSION = 'kruskal';
+const VERSION = 'kobe';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
@@ -15,7 +15,7 @@ let votingDisabled = false;
 
 const disableVoting = () => {
   votingDisabled = true;
-  $('.hints').text('超谢谢你哦！');
+  $('.hints').text('武汉加油!');
 };
 
 const getCurrentTimeFrame = () => {
