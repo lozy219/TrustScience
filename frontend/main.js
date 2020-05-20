@@ -15,7 +15,7 @@ let votingDisabled = false;
 
 const disableVoting = () => {
   votingDisabled = true;
-  $('.hints').text('武汉加油!');
+  $('.hints').text('超谢谢你哦！');
 };
 
 const getCurrentTimeFrame = () => {
