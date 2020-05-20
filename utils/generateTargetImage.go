@@ -29,6 +29,7 @@ func main() {
 			matchSrc, err := png.Decode(matchFile)
 			checkErr(err)
 
+			matchSrc = crop(matchSrc, image.Rect(160, 0, 1632, 828))
 			resizedSrc := image.NewGray(image.Rect(0, 0, 1334, 750))
 			draw.NearestNeighbor.Scale(resizedSrc, resizedSrc.Bounds(), matchSrc, matchSrc.Bounds(), draw.Src, nil)
 
@@ -39,8 +40,8 @@ func main() {
 }
 
 func generateOutput(src image.Image, srcName string, outputFolder string) {
-	startLeft := image.Point{183, 206}
-	startRight := image.Point{693, 206}
+	startLeft := image.Point{180, 215}
+	startRight := image.Point{697, 215}
 	widthStep := 93
 	recWidth := 72
 	recHeight := 128
