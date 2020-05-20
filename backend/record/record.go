@@ -24,10 +24,10 @@ type Match struct {
 
 func timeToSlotNew(c *gin.Context, t time.Time) string {
 	slot := fmt.Sprintf("%d-%d-%d-%d", t.Year(), t.Month(), t.Day(), t.Hour()/2)
-	flag, _ := c.Cookie("ryf")
-	if flag == "1" {
-		slot += "-ryf"
-	}
+	// flag, _ := c.Cookie("ryf")
+	// if flag == "1" {
+	// 	slot += "-ryf"
+	// }
 	return slot
 }
 
@@ -108,10 +108,10 @@ func History(c *gin.Context, y, m, d string) []Match {
 		if y != "old" {
 			slot = fmt.Sprintf("%v-%v-%v-%v", y, m, d, i)
 		}
-		flag, _ := c.Cookie("ryf")
-		if flag == "1" {
-			slot += "-ryf"
-		}
+		// flag, _ := c.Cookie("ryf")
+		// if flag == "1" {
+		// 	slot += "-ryf"
+		// }
 		record := getRecord(slot)
 		result := getResult(slot)
 		if len(record) > 0 {

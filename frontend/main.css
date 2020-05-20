@@ -137,8 +137,8 @@ body {
 }
 
 .pointer {
-  right: 50px;
-  margin-bottom: 102px;
+  right: 297px;
+  margin-bottom: 21px;
   z-index: 1;
   position: fixed;
   animation: pointer-animation;

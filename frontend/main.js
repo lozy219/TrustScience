@@ -69,14 +69,14 @@ const clearResult = $target => {
   $target.find('.score').text('');
 }
 
-const setSwitchText = () => {
-  if (localStorage.getItem('ryf') == 1) {
-    $('.switch').text('换去国服');
-  } else {
-    $('.switch').text('换去日亚服');
-  }
-}
-setSwitchText();
+// const setSwitchText = () => {
+//   if (localStorage.getItem('ryf') == 1) {
+//     $('.switch').text('换去国服');
+//   } else {
+//     $('.switch').text('换去日亚服');
+//   }
+// }
+// setSwitchText();
 
 const uploadImage = event => {
   $input = $('#main');
@@ -139,16 +139,16 @@ $('.github').on('click', () => {
   window.open('https://github.com/lozy219/TrustScience');
 });
 
-$('.switch').on('click', () => {
-  let isRYF = localStorage.getItem('ryf');
-  let flag = 1;
-  if (isRYF) {
-    flag = 1 - isRYF;
-  }
-  localStorage.setItem('ryf', flag);
-  document.cookie = `ryf=${flag}; path=/; domain=.uygnim.com`;
-  location.reload();
-});
+// $('.switch').on('click', () => {
+//   let isRYF = localStorage.getItem('ryf');
+//   let flag = 1;
+//   if (isRYF) {
+//     flag = 1 - isRYF;
+//   }
+//   localStorage.setItem('ryf', flag);
+//   document.cookie = `ryf=${flag}; path=/; domain=.uygnim.com`;
+//   location.reload();
+// });
 
 $('.photo').on('click', () => {
   $('#match').click();
