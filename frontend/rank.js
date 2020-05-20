@@ -1,4 +1,4 @@
-const VERSION = 'kobe';
+const VERSION = 'circuitbreaker';
 let nicknames = {};
 let filenames;
 let statsData = {};

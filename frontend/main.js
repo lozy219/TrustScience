@@ -4,7 +4,7 @@ $.ajaxSetup({
   }
 });
 
-const VERSION = 'kobe';
+const VERSION = 'circuitbreaker';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
