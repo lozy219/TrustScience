@@ -17,6 +17,7 @@ const disableVoting = () => {
   votingDisabled = true;
   $('.pointer').addClass('hidden');
   $('.hints').text('超谢谢你还在用这个工具哦！');
+  $('.hints').css('right', '178px');
 };
 
 const getCurrentTimeFrame = () => {
