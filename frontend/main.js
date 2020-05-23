@@ -4,7 +4,7 @@ $.ajaxSetup({
   }
 });
 
-const VERSION = 'circuitbreaker';
+const VERSION = '202005232027';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
