@@ -4,7 +4,7 @@ $.ajaxSetup({
   }
 });
 
-const VERSION = '202005232027';
+const VERSION = '202005241058';
 const $help = $('.help-text--wrapper');
 const $container = $('.container');
 
