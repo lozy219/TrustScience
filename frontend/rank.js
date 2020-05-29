@@ -1,4 +1,4 @@
-const VERSION = '202005281920';
+const VERSION = '202005292014';
 let nicknames = {};
 let filenames;
 let statsData = {};
